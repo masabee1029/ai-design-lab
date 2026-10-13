@@ -130,6 +130,7 @@
  },
  "images": {
   "motif": "shapes",
+  "header_image": "assets/header.jpg",
   "bg": "#17142b",
   "colors": [
    "#6b4eff",
