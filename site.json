@@ -127,5 +127,15 @@
    "#ff7a59",
    "#ffc857"
   ]
+ },
+ "images": {
+  "motif": "shapes",
+  "bg": "#17142b",
+  "colors": [
+   "#6b4eff",
+   "#9d8bff",
+   "#ff7a59",
+   "#ffc857"
+  ]
  }
 }
