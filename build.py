@@ -8,7 +8,7 @@
     category: 基本 / 作り方 / 道具 / 著作権 / 印刷
     ---
     本文（Markdown の簡易版: ## 見出し, - 箇条書き, 1. 番号, **太字**, [文字](URL), | 表 |）
-    商品ボタン: [[shop:検索キーワード|表示名]]
+    商品ボタン: [[shop:検索キーワード|表示名]]　宿のボタン: [[travel:地名や会場名|表示名]]
 """
 import html, json, os, re, shutil, urllib.parse
 from datetime import date
@@ -18,6 +18,7 @@ CFG = json.load(open(os.path.join(ROOT, "config.json"), encoding="utf-8"))
 OUT = os.path.join(ROOT, "docs")
 SITE = CFG["site_url"].rstrip("/") + "/"
 NAME = CFG["site_name"]
+SITECFG = json.load(open(os.path.join(ROOT, "site.json"), encoding="utf-8"))
 
 # ---------- アフィリエイトリンク ----------
 def amazon_link(q):
@@ -33,6 +34,19 @@ def rakuten_link(q):
                 "/?pc=" + urllib.parse.quote(search, safe=""))
     return search
 
+def travel_link(q):
+    dest = "https://kw.travel.rakuten.co.jp/keyword/Search.do?f_keyword=" + urllib.parse.quote(q)
+    if CFG.get("rakuten_affiliate_id"):
+        return ("https://hb.afl.rakuten.co.jp/hgc/" + CFG["rakuten_affiliate_id"] +
+                "/?pc=" + urllib.parse.quote(dest, safe=""))
+    return dest
+
+def travel_box(q, label):
+    e = html.escape
+    return ('<div class="shop"><div class="shop-name">%s</div>'
+            '<a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="%s">楽天トラベルで宿を探す</a></div>'
+            % (e(label), e(travel_link(q))))
+
 def shop_box(q, label):
     e = html.escape
     return ('<div class="shop"><div class="shop-name">%s</div>'
@@ -41,26 +55,10 @@ def shop_box(q, label):
             % (e(label), e(amazon_link(q)), e(rakuten_link(q))))
 
 # ---------- カテゴリ別のおすすめ（全ページに出すアフィリエイト誘導） ----------
-PICKS = {
-    "基本": [("ノンデザイナーズ・デザインブック", "ノンデザイナーズ・デザインブック", "レイアウトの4原則が身につく定番書"),
-             ("配色アイデア手帖", "配色アイデア手帖", "配色に迷ったときの見本帳"),
-             ("なるほどデザイン", "なるほどデザイン", "デザインの考え方を図解で学べる")],
-    "作り方": [("iPad Apple Pencil", "iPad ＋ Apple Pencil", "AIで作った画像の手直しに便利"),
-              ("ペンタブレット 初心者", "初心者向けペンタブレット", "マウスより細かい修正が楽になる"),
-              ("ノンデザイナーズ・デザインブック", "ノンデザイナーズ・デザインブック", "AIの出力を整える基本が分かる")],
-    "道具": [("iPad Apple Pencil", "iPad ＋ Apple Pencil", "持ち運べる制作環境"),
-             ("液晶ペンタブレット 13インチ", "液晶ペンタブレット（13インチ前後）", "画面に直接描ける"),
-             ("デザイン用 モニター 27インチ", "デザイン向けモニター", "色の確認がしやすい")],
-    "著作権": [("生成AI 著作権 本", "生成AIと著作権の入門書", "商用利用の前に基本を押さえる"),
-              ("著作権 入門 本", "著作権の入門書", "デザインで使う素材の考え方"),
-              ("ノンデザイナーズ・デザインブック", "ノンデザイナーズ・デザインブック", "自分で作れる力を身につける")],
-    "印刷": [("インクジェット 名刺用紙", "インクジェット用 名刺用紙", "まずは家で試し刷り"),
-             ("印刷 入稿 デザイン 本", "印刷・入稿の解説書", "入稿の失敗を減らす"),
-             ("カラーチャート CMYK", "CMYKカラーチャート", "印刷の色を事前に確認")],
-}
-DEFAULT_PICKS = [PICKS["作り方"][0], PICKS["基本"][0], PICKS["道具"][1]]
+PICKS = {k: [tuple(x) for x in v] for k, v in SITECFG["picks"].items()}
+DEFAULT_PICKS = [tuple(x) for x in SITECFG["default_picks"]]
 
-def picks_box(cat, title="この記事と一緒に使いたい道具・本", compact=False):
+def picks_box(cat, title, compact=False):
     e = html.escape
     items = "".join(
         '<div class="pick"><div><strong>%s</strong><span>%s</span></div>'
@@ -86,11 +84,11 @@ def md(text):
     toc = []
     while i < len(lines):
         ln = lines[i].rstrip()
-        m = re.match(r"\[\[shop:(.+?)\|(.+?)\]\]$", ln.strip())
+        m = re.match(r"\[\[(shop|travel):(.+?)\|(.+?)\]\]$", ln.strip())
         if not ln.strip():
             i += 1; continue
         if m:
-            out.append(shop_box(m.group(1), m.group(2))); i += 1; continue
+            out.append((travel_box if m.group(1) == "travel" else shop_box)(m.group(2), m.group(3))); i += 1; continue
         if ln.startswith("## "):
             n = len(toc) + 1
             toc.append(ln[3:])
@@ -142,8 +140,8 @@ def load_articles():
 
 # ---------- レイアウト ----------
 CSS = """
-:root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5b636e;--line:#e6e2da;--card:#fff;--accent:#6b4eff;--accent2:#ff7a59}
-@media (prefers-color-scheme:dark){:root{--bg:#15161a;--fg:#e9e9ee;--muted:#a3a8b3;--line:#2c2f37;--card:#1d1f25;--accent:#9d8bff;--accent2:#ff9a7f}}
+:root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5b636e;--line:#e6e2da;--card:#fff;--accent:ACCENT_L;--accent2:ACCENT2_L}
+@media (prefers-color-scheme:dark){:root{--bg:#15161a;--fg:#e9e9ee;--muted:#a3a8b3;--line:#2c2f37;--card:#1d1f25;--accent:ACCENT_D;--accent2:ACCENT2_D}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.9 "Hiragino Sans","Noto Sans JP",sans-serif}
 a{color:var(--accent)}header{border-bottom:1px solid var(--line);background:var(--card)}
 .wrap{max-width:820px;margin:0 auto;padding:0 16px}
@@ -176,6 +174,9 @@ code{background:var(--card);border:1px solid var(--line);border-radius:4px;paddi
 footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:13px;color:var(--muted)}footer a{color:var(--muted);margin-right:14px}
 """
 
+for _k, _v in SITECFG["colors"].items():
+    CSS = CSS.replace(_k, _v)
+
 GA_ID = (CFG.get("ga_measurement_id") or "").strip()
 GA = ("""<script async src="https://www.googletagmanager.com/gtag/js?id=%s"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','%s');</script>""" % (GA_ID, GA_ID)) if GA_ID else ""
@@ -191,7 +192,7 @@ def page(title, desc, body, path, depth=0):
 <meta property="og:type" content="website"><meta property="og:url" content="%s"><meta property="og:image" content="%sog.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>%s</style>%s</head><body>
-<header><div class="wrap"><div class="top"><a class="logo" href="%sindex.html">AI<span>デザイン</span>実践ラボ</a>
+<header><div class="wrap"><div class="top"><a class="logo" href="%sindex.html">LOGO_HTML</a>
 <nav><a href="%sindex.html">記事一覧</a><a href="%sabout.html">このサイトについて</a></nav></div>
 <div class="pr">※本ページはプロモーション（広告）を含みます。商品リンクから購入されると運営者に紹介料が入ることがあります。</div></div></header>
 <main class="wrap">%s</main>
@@ -210,17 +211,15 @@ def card(a, up=""):
 def write(path, s):
     p = os.path.join(OUT, path)
     os.makedirs(os.path.dirname(p), exist_ok=True)
-    open(p, "w", encoding="utf-8").write(s)
+    open(p, "w", encoding="utf-8").write(s.replace("LOGO_HTML", SITECFG["logo_html"]))
 
 def build():
     arts = load_articles()
     if os.path.isdir(os.path.join(OUT, "articles")):
         shutil.rmtree(os.path.join(OUT, "articles"))
-    hero = ('<div class="hero"><h1>AIで、デザインをもっと身近に。</h1>'
-            '<p>画像生成AI・Canva・ChatGPT などを使って、ロゴ・SNS画像・チラシを自分で作るための実践ガイド。'
-            '印刷・デザインの現場経験をもとに、つまずきやすい点と著作権の注意までまとめています。</p></div>')
-    write("index.html", page(NAME, "画像生成AIやCanvaでロゴ・SNS画像・チラシを作るための実践ガイド。プロンプトの型、印刷入稿、著作権の注意点まで。",
-                             hero + picks_box("", "まずはこれから：初心者におすすめの道具・本") +
+    hero = '<div class="hero"><h1>%s</h1><p>%s</p></div>' % (SITECFG["hero_title"], SITECFG["hero_text"])
+    write("index.html", page(NAME, SITECFG["home_description"],
+                             hero + picks_box("", SITECFG["home_picks_title"]) +
                              '<div class="cards">' + "".join(card(a) for a in arts) + "</div>", "index.html"))
     for a in arts:
         e = html.escape
@@ -233,20 +232,18 @@ def build():
         # 導入文のあと（最初の見出しの前）に短い誘導、まとめの前に全部入りの誘導
         k = art.find("<h2")
         if k > 0:
-            art = art[:k] + picks_box(cat, "この記事で役立つ道具・本", compact=True) + art[k:]
+            art = art[:k] + picks_box(cat, SITECFG["picks_title_short"], compact=True) + art[k:]
         k = art.rfind('<h2 id="s%d">' % len(a["toc"])) if a["toc"] else -1
         if k > 0:
-            art = art[:k] + picks_box(cat) + art[k:]
+            art = art[:k] + picks_box(cat, SITECFG["picks_title_long"]) + art[k:]
         else:
-            art += picks_box(cat)
+            art += picks_box(cat, SITECFG["picks_title_long"])
         body = ('<article><span class="tag">%s</span><span class="date">%s</span><h1>%s</h1>%s%s</article>%s'
                 % (e(cat), a["date"], e(a["title"]), toc, art, rel))
         write(a["url"], page(a["title"], a["description"], body, a["url"], 1))
-    about = """<article><h1>このサイトについて</h1>
-<p>「AIデザイン実践ラボ」は、画像生成AI・デザインツール・文章生成AIを使って、ロゴ・SNS画像・チラシ・名刺などを自分で作りたい方のための情報サイトです。</p>
-<p>運営者は、大手印刷会社で約20年、製造・品質管理・営業支援に携わったのち、グラフィックデザイナーとして独立。現在は広告・ブランド相談の会社を運営しながら、AIツールを日々の制作に取り入れています。</p>
-<h2>記事の作り方</h2><p>記事の下書きにはAIを活用し、内容は公開情報（各ツールの公式ヘルプ、文化庁の資料など）をもとに確認しています。ツールの機能・料金・規約は変更されることがあるため、最新情報は必ず公式サイトでご確認ください。</p>
-<h2>広告について</h2><p>当サイトは Amazonアソシエイト・楽天アフィリエイトに参加しており、紹介した商品の購入により運営者が紹介料を受け取ることがあります。Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</p></article>""" + picks_box("", "初心者におすすめの道具・本")
+    about = ('<article><h1>このサイトについて</h1>' + SITECFG["about_html"] +
+             '<h2>広告について</h2><p>当サイトは Amazonアソシエイト・楽天アフィリエイトに参加しており、紹介した商品の購入により運営者が紹介料を受け取ることがあります。Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</p></article>'
+             + picks_box("", SITECFG["home_picks_title"]))
     write("about.html", page("このサイトについて", NAME + "の運営方針と広告について。", about, "about.html"))
     privacy = """<article><h1>プライバシーポリシー</h1>
 <h2>アクセス解析</h2><p>当サイトは Google アナリティクスを利用しています。Cookie を使ってアクセス情報を収集しますが、個人を特定する情報は含みません。Cookie はブラウザの設定で無効にできます。</p>
