@@ -40,6 +40,36 @@ def shop_box(q, label):
             '<a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="%s">楽天で見る</a></div>'
             % (e(label), e(amazon_link(q)), e(rakuten_link(q))))
 
+# ---------- カテゴリ別のおすすめ（全ページに出すアフィリエイト誘導） ----------
+PICKS = {
+    "基本": [("ノンデザイナーズ・デザインブック", "ノンデザイナーズ・デザインブック", "レイアウトの4原則が身につく定番書"),
+             ("配色アイデア手帖", "配色アイデア手帖", "配色に迷ったときの見本帳"),
+             ("なるほどデザイン", "なるほどデザイン", "デザインの考え方を図解で学べる")],
+    "作り方": [("iPad Apple Pencil", "iPad ＋ Apple Pencil", "AIで作った画像の手直しに便利"),
+              ("ペンタブレット 初心者", "初心者向けペンタブレット", "マウスより細かい修正が楽になる"),
+              ("ノンデザイナーズ・デザインブック", "ノンデザイナーズ・デザインブック", "AIの出力を整える基本が分かる")],
+    "道具": [("iPad Apple Pencil", "iPad ＋ Apple Pencil", "持ち運べる制作環境"),
+             ("液晶ペンタブレット 13インチ", "液晶ペンタブレット（13インチ前後）", "画面に直接描ける"),
+             ("デザイン用 モニター 27インチ", "デザイン向けモニター", "色の確認がしやすい")],
+    "著作権": [("生成AI 著作権 本", "生成AIと著作権の入門書", "商用利用の前に基本を押さえる"),
+              ("著作権 入門 本", "著作権の入門書", "デザインで使う素材の考え方"),
+              ("ノンデザイナーズ・デザインブック", "ノンデザイナーズ・デザインブック", "自分で作れる力を身につける")],
+    "印刷": [("インクジェット 名刺用紙", "インクジェット用 名刺用紙", "まずは家で試し刷り"),
+             ("印刷 入稿 デザイン 本", "印刷・入稿の解説書", "入稿の失敗を減らす"),
+             ("カラーチャート CMYK", "CMYKカラーチャート", "印刷の色を事前に確認")],
+}
+DEFAULT_PICKS = [PICKS["作り方"][0], PICKS["基本"][0], PICKS["道具"][1]]
+
+def picks_box(cat, title="この記事と一緒に使いたい道具・本", compact=False):
+    e = html.escape
+    items = "".join(
+        '<div class="pick"><div><strong>%s</strong><span>%s</span></div>'
+        '<a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="%s">Amazon</a>'
+        '<a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="%s">楽天</a></div>'
+        % (e(label), e(note), e(amazon_link(q)), e(rakuten_link(q)))
+        for q, label, note in (PICKS.get(cat, DEFAULT_PICKS)[:2] if compact else PICKS.get(cat, DEFAULT_PICKS)))
+    return '<div class="picks"><div class="picks-h">%s</div>%s</div>' % (e(title), items)
+
 # ---------- Markdown（簡易） ----------
 def inline(s):
     s = html.escape(s, quote=False)
@@ -138,6 +168,10 @@ code{background:var(--card);border:1px solid var(--line);border-radius:4px;paddi
 .shop-name{flex:1 1 100%;font-weight:700}
 .btn{display:inline-block;padding:8px 18px;border-radius:8px;color:#fff;text-decoration:none;font-size:14px;font-weight:700}
 .amz{background:#e88a00}.rkt{background:#bf0000}
+.picks{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:14px 16px;margin:24px 0}
+.picks-h{font-weight:800;margin-bottom:6px}
+.pick{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line)}
+.pick div{flex:1 1 220px}.pick span{display:block;font-size:13px;color:var(--muted)}
 .related{border-top:1px solid var(--line);padding-top:16px}
 footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:13px;color:var(--muted)}footer a{color:var(--muted);margin-right:14px}
 """
@@ -186,21 +220,33 @@ def build():
             '<p>画像生成AI・Canva・ChatGPT などを使って、ロゴ・SNS画像・チラシを自分で作るための実践ガイド。'
             '印刷・デザインの現場経験をもとに、つまずきやすい点と著作権の注意までまとめています。</p></div>')
     write("index.html", page(NAME, "画像生成AIやCanvaでロゴ・SNS画像・チラシを作るための実践ガイド。プロンプトの型、印刷入稿、著作権の注意点まで。",
-                             hero + '<div class="cards">' + "".join(card(a) for a in arts) + "</div>", "index.html"))
+                             hero + picks_box("", "まずはこれから：初心者におすすめの道具・本") +
+                             '<div class="cards">' + "".join(card(a) for a in arts) + "</div>", "index.html"))
     for a in arts:
         e = html.escape
         toc = ('<div class="toc"><strong>目次</strong><ol>%s</ol></div>' %
                "".join('<li><a href="#s%d">%s</a></li>' % (n + 1, inline(t)) for n, t in enumerate(a["toc"]))) if a["toc"] else ""
         others = [o for o in arts if o is not a and o.get("category") == a.get("category")][:3] or [o for o in arts if o is not a][:3]
         rel = '<div class="related"><strong>関連記事</strong><div class="cards">%s</div></div>' % "".join(card(o, "../") for o in others)
+        cat = a.get("category", "")
+        art = a["body"]
+        # 導入文のあと（最初の見出しの前）に短い誘導、まとめの前に全部入りの誘導
+        k = art.find("<h2")
+        if k > 0:
+            art = art[:k] + picks_box(cat, "この記事で役立つ道具・本", compact=True) + art[k:]
+        k = art.rfind('<h2 id="s%d">' % len(a["toc"])) if a["toc"] else -1
+        if k > 0:
+            art = art[:k] + picks_box(cat) + art[k:]
+        else:
+            art += picks_box(cat)
         body = ('<article><span class="tag">%s</span><span class="date">%s</span><h1>%s</h1>%s%s</article>%s'
-                % (e(a.get("category", "")), a["date"], e(a["title"]), toc, a["body"], rel))
+                % (e(cat), a["date"], e(a["title"]), toc, art, rel))
         write(a["url"], page(a["title"], a["description"], body, a["url"], 1))
     about = """<article><h1>このサイトについて</h1>
 <p>「AIデザイン実践ラボ」は、画像生成AI・デザインツール・文章生成AIを使って、ロゴ・SNS画像・チラシ・名刺などを自分で作りたい方のための情報サイトです。</p>
 <p>運営者は、大手印刷会社で約20年、製造・品質管理・営業支援に携わったのち、グラフィックデザイナーとして独立。現在は広告・ブランド相談の会社を運営しながら、AIツールを日々の制作に取り入れています。</p>
 <h2>記事の作り方</h2><p>記事の下書きにはAIを活用し、内容は公開情報（各ツールの公式ヘルプ、文化庁の資料など）をもとに確認しています。ツールの機能・料金・規約は変更されることがあるため、最新情報は必ず公式サイトでご確認ください。</p>
-<h2>広告について</h2><p>当サイトは Amazonアソシエイト・楽天アフィリエイトに参加しており、紹介した商品の購入により運営者が紹介料を受け取ることがあります。Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</p></article>"""
+<h2>広告について</h2><p>当サイトは Amazonアソシエイト・楽天アフィリエイトに参加しており、紹介した商品の購入により運営者が紹介料を受け取ることがあります。Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</p></article>""" + picks_box("", "初心者におすすめの道具・本")
     write("about.html", page("このサイトについて", NAME + "の運営方針と広告について。", about, "about.html"))
     privacy = """<article><h1>プライバシーポリシー</h1>
 <h2>アクセス解析</h2><p>当サイトは Google アナリティクスを利用しています。Cookie を使ってアクセス情報を収集しますが、個人を特定する情報は含みません。Cookie はブラウザの設定で無効にできます。</p>
