@@ -1,0 +1,87 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIでYouTubeサムネイルを作る手順｜背景はAI、文字は後乗せが基本｜AIデザイン実践ラボ</title><meta name="description" content="画像生成AIでYouTubeのサムネイルを作る手順を初心者向けに解説します。サイズの決め方、文字を入れない背景プロンプトのコツ、デザインツールでの文字の後乗せ、スマホでの見え方チェック、権利面の注意点までまとめました。">
+<link rel="canonical" href="https://masabee1029.github.io/ai-design-lab/articles/youtube-thumbnail-ai.html"><meta property="og:title" content="AIでYouTubeサムネイルを作る手順｜背景はAI、文字は後乗せが基本｜AIデザイン実践ラボ"><meta property="og:description" content="画像生成AIでYouTubeのサムネイルを作る手順を初心者向けに解説します。サイズの決め方、文字を入れない背景プロンプトのコツ、デザインツールでの文字の後乗せ、スマホでの見え方チェック、権利面の注意点までまとめました。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://masabee1029.github.io/ai-design-lab/articles/youtube-thumbnail-ai.html"><meta property="og:image" content="https://masabee1029.github.io/ai-design-lab/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5b636e;--line:#e6e2da;--card:#fff;--accent:#6b4eff;--accent2:#ff7a59}
+@media (prefers-color-scheme:dark){:root{--bg:#15161a;--fg:#e9e9ee;--muted:#a3a8b3;--line:#2c2f37;--card:#1d1f25;--accent:#9d8bff;--accent2:#ff9a7f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.9 "Hiragino Sans","Noto Sans JP",sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);background:var(--card)}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:20px;text-decoration:none;color:var(--fg)}.logo span{color:var(--accent)}
+nav a{margin-left:14px;font-size:14px;color:var(--muted);text-decoration:none}nav a:first-child{margin-left:0}
+.pr{font-size:12px;color:var(--muted);padding:6px 0;border-bottom:1px dashed var(--line)}
+.hero{padding:40px 0 24px}.hero h1{font-size:28px;line-height:1.4;margin:0 0 8px}.hero p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:16px 0 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--fg);display:block}
+.card:hover{border-color:var(--accent)}.card h2{font-size:17px;line-height:1.5;margin:6px 0}.card p{font-size:13px;color:var(--muted);margin:0}
+.tag{display:inline-block;font-size:12px;padding:1px 10px;border-radius:99px;background:var(--accent);color:#fff}
+.date{font-size:12px;color:var(--muted);margin-left:8px}
+article{padding:28px 0 40px}article h1{font-size:26px;line-height:1.45}
+article h2{font-size:21px;border-left:5px solid var(--accent);padding-left:10px;margin-top:40px}
+article h3{font-size:18px;margin-top:28px}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 20px;font-size:14px}
+.note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--card)}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
+.shop{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:18px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.shop-name{flex:1 1 100%;font-weight:700}
+.btn{display:inline-block;padding:8px 18px;border-radius:8px;color:#fff;text-decoration:none;font-size:14px;font-weight:700}
+.amz{background:#e88a00}.rkt{background:#bf0000}
+.related{border-top:1px solid var(--line);padding-top:16px}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:13px;color:var(--muted)}footer a{color:var(--muted);margin-right:14px}
+</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-EHWF25C1RB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EHWF25C1RB');</script></head><body>
+<header><div class="wrap"><div class="top"><a class="logo" href="../index.html">AI<span>デザイン</span>実践ラボ</a>
+<nav><a href="../index.html">記事一覧</a><a href="../about.html">このサイトについて</a></nav></div>
+<div class="pr">※本ページはプロモーション（広告）を含みます。商品リンクから購入されると運営者に紹介料が入ることがあります。</div></div></header>
+<main class="wrap"><article><span class="tag">作り方</span><span class="date">2026-10-13</span><h1>AIでYouTubeサムネイルを作る手順｜背景はAI、文字は後乗せが基本</h1><div class="toc"><strong>目次</strong><ol><li><a href="#s1">なぜ「文字は後乗せ」がよいのか</a></li><li><a href="#s2">手順1：サイズと構図を先に決める</a></li><li><a href="#s3">手順2：AIで「文字なし」の背景を作る</a></li><li><a href="#s4">手順3：画像を整えて素材にする</a></li><li><a href="#s5">手順4：デザインツールで文字を後乗せする</a></li><li><a href="#s6">手順5：スマホで見え方をチェックする</a></li><li><a href="#s7">権利と表現で気をつけたいこと</a></li><li><a href="#s8">まとめ</a></li></ol></div><p>YouTubeのサムネイルは、動画を見てもらえるかどうかを左右する「顔」のような存在です。画像生成AIを使うと、背景やイラストのたたき台を短時間で用意できます。<br>ただし、AIに文字まで描かせると、文字がくずれたり誤字が混ざったりしがちです。そこでこの記事では、<strong>背景や絵はAIで作り、文字はあとからデザインツールで乗せる</strong>という、失敗しにくい手順を紹介します。</p>
+<div class="note">サムネイルの推奨サイズや設定方法、各AIツールの機能は執筆時点の情報をもとにしています。仕様は変わることがあるため、最新の内容はYouTubeや各ツールの公式ヘルプで確認してください。</div>
+<h2 id="s1">なぜ「文字は後乗せ」がよいのか</h2>
+<p>画像生成AIは、絵や雰囲気を作るのは得意ですが、日本語の文字を正確に描くのはまだ苦手なことが多いです。プロンプトに「タイトルを入れて」と書いても、次のような問題が起きやすくなります。</p>
+<ul><li>文字の形がくずれて読めない</li><li>指定していない文字や記号が紛れ込む</li><li>文字の位置や大きさを細かく調整できない</li></ul>
+<p>一方、文字をデザインツールで後から乗せれば、フォント・大きさ・色・位置を自由に直せます。動画ごとに文字だけ差し替えて、同じテイストのサムネイルを量産することも簡単です。<br>つまり役割分担は、<strong>AI＝背景・イラスト・雰囲気づくり</strong>、<strong>デザインツール＝文字と最終調整</strong>と考えるとわかりやすくなります。</p>
+<h2 id="s2">手順1：サイズと構図を先に決める</h2>
+<p>YouTubeのサムネイルは横長の16:9が基本です。執筆時点の公式ヘルプでは、1280×720ピクセル程度が推奨サイズとして案内されています。ファイル形式や容量の上限もあるので、アップロード前に公式ヘルプで確認しておきましょう。また、カスタムサムネイルを設定するには、アカウントの確認などの条件が必要な場合があります。</p>
+<p>AIで画像を作る前に、ざっくりとした構図を決めておくと、後の作業がスムーズです。おすすめは次のような「空きスペースを作る」考え方です。</p>
+<div class="tbl"><table><tr><th>配置の型</th><th>内容</th></tr><tr><td>左右分割</td><td>片側に人物やイラスト、反対側を文字のための空きスペースにする</td></tr><tr><td>中央主役</td><td>主題を中央に置き、上下に文字を入れる余白を残す</td></tr><tr><td>背景全面</td><td>背景だけを作り、文字を大きく全面に乗せる</td></tr></table></div>
+<p>また、動画の再生時間などが右下に重なって表示されることがあるため、<strong>右下には大事な情報を置かない</strong>のが無難です。</p>
+<h2 id="s3">手順2：AIで「文字なし」の背景を作る</h2>
+<p>構図が決まったら、画像生成AIで背景やイラストを作ります。ポイントは、<strong>最初から文字を入れないように指示する</strong>ことと、<strong>文字を置く余白をあらかじめ指定する</strong>ことです。</p>
+<p>プロンプトの例を見てみましょう。</p>
+<p><code>料理動画のサムネイル背景。木のテーブルの右側に湯気の立つカレー、左側は何も置かれていない明るい余白。横長16:9、自然光、文字やロゴは入れない</code></p>
+<p>このように、次の要素を入れると狙った絵に近づきやすくなります。</p>
+<ul><li>主題（何を描くか）</li><li>配置（どこに置き、どこを空けるか）</li><li>比率（横長16:9）</li><li>雰囲気や光（明るい、ポップ、落ち着いた など）</li><li>「文字やロゴは入れない」という指示</li></ul>
+<p>比率の指定方法はツールによって異なり、プロンプトで書くもの、設定画面で選ぶものがあります。プロンプトの基本的な組み立て方は<a href="image-prompt-basics.html">画像生成AIのプロンプトの書き方入門</a>でも解説しています。<br>何枚か生成して、文字を乗せたときに読みやすそうな、ごちゃごちゃしすぎていない画像を選びましょう。</p>
+<h2 id="s4">手順3：画像を整えて素材にする</h2>
+<p>生成した画像は、そのままだとサイズが足りなかったり、余計なものが写り込んでいたりすることがあります。必要に応じて次のような下ごしらえをしましょう。</p>
+<ul><li>高解像度化：小さく生成された画像を、AIの拡大機能で必要なサイズまで大きくする</li><li>不要物の消去：意図せず入った文字のような模様や、不自然な部分を消す</li><li>背景除去：人物やイラストだけを切り抜き、別の背景と組み合わせる</li></ul>
+<p>これらの具体的なやり方は<a href="ai-image-upscale-bgremove.html">AI画像の仕上げ方｜高解像度化・背景除去・文字入れの基本手順</a>にまとめています。<br>なお、自分の顔写真を使う場合は、AIで作った人物よりも本人の写真を切り抜いて使ったほうが、チャンネルの信頼感につながりやすいと考えられます。</p>
+<h2 id="s5">手順4：デザインツールで文字を後乗せする</h2>
+<p>素材ができたら、CanvaやAdobe Expressなどのデザインツールで、16:9（1280×720程度）のキャンバスを用意して画像を配置し、文字を乗せていきます。サムネイルの文字は、スマホの小さな画面でも一瞬で読めることが大切です。</p>
+<h3>文字は短く、大きく</h3>
+<p>タイトルをそのまま全部入れるのではなく、動画の一番の見どころを短い言葉にまとめます。目安としては、ひと目で読み切れる長さに絞り、2行程度までに収めると見やすくなります。</p>
+<h3>太いフォントと「フチ」で読みやすくする</h3>
+<p>細いフォントは小さく表示されると読みにくくなります。ゴシック体の太いウェイト（太さ）を選び、文字の周りに白や黒のフチ（縁取り）や影をつけると、背景の上でもくっきり見えます。商用利用できるフォントかどうかは、配布元のライセンスで確認しましょう。</p>
+<h3>色は2〜3色に絞る</h3>
+<p>文字色・フチの色・強調色の2〜3色に絞ると、まとまりが出ます。背景が明るいなら濃い色の文字、背景が暗いなら明るい色の文字にして、コントラスト（明るさの差）をはっきりつけるのが基本です。</p>
+<h3>テンプレート化して時短する</h3>
+<p>文字の位置やフォント、色を決めたら、そのデザインをテンプレートとして保存しておきましょう。次回からは背景画像と文字を差し替えるだけで、統一感のあるサムネイルが作れます。</p>
+<div class="shop"><div class="shop-name">サムネイル・動画デザインの参考書を探す</div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=YouTube+%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB+%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3+%E6%9C%AC&amp;tag=masabee00001-22">Amazonで見る</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FYouTube%2520%25E3%2582%25B5%25E3%2583%25A0%25E3%2583%258D%25E3%2582%25A4%25E3%2583%25AB%2520%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3%2520%25E6%259C%25AC%2F">楽天で見る</a></div>
+<h2 id="s6">手順5：スマホで見え方をチェックする</h2>
+<p>完成したら、必ず実際の表示サイズに近い状態で確認します。パソコンの大きな画面ではよく見えても、スマホの一覧画面ではかなり小さく表示されます。</p>
+<ul><li>画像を縮小表示して、文字が読めるか</li><li>主役（人物・商品・イラスト）がひと目でわかるか</li><li>右下など、表示が重なりやすい位置に大事な文字がないか</li><li>ダークモードの画面上でも埋もれていないか</li></ul>
+<p>チェックの段階で読みにくいと感じたら、文字数を減らすか、文字を大きくするのが一番の近道です。</p>
+<h2 id="s7">権利と表現で気をつけたいこと</h2>
+<p>AIを使ったサムネイルでも、次の点には注意が必要です。</p>
+<ul><li>他者の権利：有名キャラクターや他人の作品、実在の人物に似せた画像を作るのは避けましょう</li><li>誤解を招く表現：動画の内容と関係のない画像や、大げさすぎる表現は、視聴者の信頼を損ねるおそれがあります。YouTubeのポリシーにも、サムネイルに関するルールがあります</li><li>ツールの規約：生成した画像を商用利用（収益化したチャンネルでの使用を含む）してよいかは、使うAIツールの利用規約で確認してください</li></ul>
+<p>権利関係で判断に迷う場合は、各サービスの規約や公式ヘルプを確認し、必要に応じて専門家に相談しましょう。</p>
+<h2 id="s8">まとめ</h2>
+<p>AIでYouTubeサムネイルを作る流れをおさらいします。</p>
+<ol><li>16:9のサイズと、文字を置く余白を含めた構図を先に決める</li><li>画像生成AIで「文字なし」の背景やイラストを作る</li><li>高解像度化・不要物の消去・背景除去で素材を整える</li><li>デザインツールで、短く大きく、太いフォントとフチで文字を後乗せする</li><li>スマホの表示サイズで読みやすさを確認し、権利面もチェックする</li></ol>
+<p>AIは背景づくり、文字は人の手で、という役割分担にすると、くずれた文字に悩まされずに済みます。テンプレート化して少しずつ改善しながら、自分のチャンネルらしいサムネイルを育てていってください。</p></article><div class="related"><strong>関連記事</strong><div class="cards"><a class="card" href="../articles/ai-copywriting-prompts.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>ChatGPTやClaudeでキャッチコピーを作るプロンプトの型と使い方</h2><p>ChatGPTやClaudeなどの対話型AIで、チラシやSNS画像に使えるキャッチコピーを作るためのプロンプトの型を紹介します。ターゲット・ベネフィット・文字数の伝え方、複数案の出させ方、AIに評価させる方法まで解説します。</p></a><a class="card" href="../articles/ai-image-upscale-bgremove.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>AI画像の仕上げ方｜高解像度化・背景除去・文字入れの基本手順</h2><p>AIで作った画像をそのまま使うと、解像度不足や文字の崩れが気になることがあります。アップスケールによる高解像度化、背景除去、文字はデザインツールで後から入れる方法など、実用レベルに仕上げる手順を解説します。</p></a><a class="card" href="../articles/ai-logo-howto.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>画像生成AIでロゴを作る手順｜商標・著作権の注意点も解説</h2><p>画像生成AIでロゴを作るときの流れを、コンセプト整理からプロンプト例、清書、仕上げまで順番に解説します。商標登録や著作権など、使う前に確認しておきたい注意点もまとめました。</p></a></div></div></main>
+<footer><div class="wrap"><a href="../about.html">このサイトについて</a><a href="../privacy.html">プライバシーポリシー</a>
+<div>© 2026 AIデザイン実践ラボ</div></div></footer></body></html>
