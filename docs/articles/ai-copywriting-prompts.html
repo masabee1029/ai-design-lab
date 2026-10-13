@@ -1,0 +1,83 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChatGPTやClaudeでキャッチコピーを作るプロンプトの型と使い方｜AIデザイン実践ラボ</title><meta name="description" content="ChatGPTやClaudeなどの対話型AIで、チラシやSNS画像に使えるキャッチコピーを作るためのプロンプトの型を紹介します。ターゲット・ベネフィット・文字数の伝え方、複数案の出させ方、AIに評価させる方法まで解説します。">
+<link rel="canonical" href="https://masabee1029.github.io/ai-design-lab/articles/ai-copywriting-prompts.html"><meta property="og:title" content="ChatGPTやClaudeでキャッチコピーを作るプロンプトの型と使い方｜AIデザイン実践ラボ"><meta property="og:description" content="ChatGPTやClaudeなどの対話型AIで、チラシやSNS画像に使えるキャッチコピーを作るためのプロンプトの型を紹介します。ターゲット・ベネフィット・文字数の伝え方、複数案の出させ方、AIに評価させる方法まで解説します。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://masabee1029.github.io/ai-design-lab/articles/ai-copywriting-prompts.html"><meta property="og:image" content="https://masabee1029.github.io/ai-design-lab/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5b636e;--line:#e6e2da;--card:#fff;--accent:#6b4eff;--accent2:#ff7a59}
+@media (prefers-color-scheme:dark){:root{--bg:#15161a;--fg:#e9e9ee;--muted:#a3a8b3;--line:#2c2f37;--card:#1d1f25;--accent:#9d8bff;--accent2:#ff9a7f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.9 "Hiragino Sans","Noto Sans JP",sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);background:var(--card)}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:20px;text-decoration:none;color:var(--fg)}.logo span{color:var(--accent)}
+nav a{margin-left:14px;font-size:14px;color:var(--muted);text-decoration:none}nav a:first-child{margin-left:0}
+.pr{font-size:12px;color:var(--muted);padding:6px 0;border-bottom:1px dashed var(--line)}
+.hero{padding:40px 0 24px}.hero h1{font-size:28px;line-height:1.4;margin:0 0 8px}.hero p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:16px 0 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--fg);display:block}
+.card:hover{border-color:var(--accent)}.card h2{font-size:17px;line-height:1.5;margin:6px 0}.card p{font-size:13px;color:var(--muted);margin:0}
+.tag{display:inline-block;font-size:12px;padding:1px 10px;border-radius:99px;background:var(--accent);color:#fff}
+.date{font-size:12px;color:var(--muted);margin-left:8px}
+article{padding:28px 0 40px}article h1{font-size:26px;line-height:1.45}
+article h2{font-size:21px;border-left:5px solid var(--accent);padding-left:10px;margin-top:40px}
+article h3{font-size:18px;margin-top:28px}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 20px;font-size:14px}
+.note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--card)}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
+.shop{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:18px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.shop-name{flex:1 1 100%;font-weight:700}
+.btn{display:inline-block;padding:8px 18px;border-radius:8px;color:#fff;text-decoration:none;font-size:14px;font-weight:700}
+.amz{background:#e88a00}.rkt{background:#bf0000}
+.related{border-top:1px solid var(--line);padding-top:16px}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:13px;color:var(--muted)}footer a{color:var(--muted);margin-right:14px}
+</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-EHWF25C1RB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EHWF25C1RB');</script></head><body>
+<header><div class="wrap"><div class="top"><a class="logo" href="../index.html">AI<span>デザイン</span>実践ラボ</a>
+<nav><a href="../index.html">記事一覧</a><a href="../about.html">このサイトについて</a></nav></div>
+<div class="pr">※本ページはプロモーション（広告）を含みます。商品リンクから購入されると運営者に紹介料が入ることがあります。</div></div></header>
+<main class="wrap"><article><span class="tag">作り方</span><span class="date">2026-10-13</span><h1>ChatGPTやClaudeでキャッチコピーを作るプロンプトの型と使い方</h1><div class="toc"><strong>目次</strong><ol><li><a href="#s1">なぜ「キャッチコピーを考えて」だけではうまくいかないのか</a></li><li><a href="#s2">キャッチコピー用プロンプトの基本の型</a></li><li><a href="#s3">ターゲットとベネフィットを具体的にする</a></li><li><a href="#s4">文字数と使う場所を指定する</a></li><li><a href="#s5">案を複数出させて、広げてから絞る</a></li><li><a href="#s6">AIに評価させて、最終案を選ぶ</a></li><li><a href="#s7">まとめ</a></li></ol></div><p>チラシやSNS画像を作るとき、デザインよりも悩みがちなのが「何と書くか」です。ChatGPTやClaudeのような対話型AIを使えば、キャッチコピーの案を短時間でたくさん出せます。<br>ただし、「キャッチコピーを考えて」と一言頼むだけでは、ありきたりな案になりがちです。この記事では、使えるコピーを引き出すためのプロンプトの型を、順番に解説します。</p>
+<h2 id="s1">なぜ「キャッチコピーを考えて」だけではうまくいかないのか</h2>
+<p>対話型AIは、与えられた情報の範囲で、もっともらしい文章を作ります。情報が少ないと、どんな商品にも当てはまるような無難な言葉になりやすいのです。</p>
+<p>例えば「パン屋のキャッチコピーを考えて」と頼むと、「こだわりの焼きたてパン」のような、どこのお店でも使えそうな案が返ってくることがよくあります。</p>
+<p>使えるコピーを出してもらうには、人間のコピーライターに依頼するときと同じように、<strong>誰に・何を・どんな条件で</strong>伝えたいのかを渡す必要があります。</p>
+<h2 id="s2">キャッチコピー用プロンプトの基本の型</h2>
+<p>まずは、次の5つの要素を入れた基本の型を使ってみましょう。</p>
+<ol><li>役割：AIにどんな立場で考えてほしいか</li><li>商品・サービスの情報：何を、どんな特徴で提供しているか</li><li>ターゲット：誰に届けたいか</li><li>ベネフィット：受け手にとって何がうれしいのか</li><li>条件：文字数、トーン、使う場所、案の数</li></ol>
+<p>これを文章にすると、次のようになります。</p>
+<div class="note">あなたは経験豊富なコピーライターです。<br>以下の情報をもとに、チラシの見出しに使うキャッチコピーを考えてください。<br><br>・商品：駅前の小さなパン屋の、国産小麦の食パン<br>・特徴：毎朝7時に焼き上がる、耳までやわらかい<br>・ターゲット：小さな子どもがいる、忙しい共働きの家庭<br>・伝えたいこと：朝ごはんの準備が楽になり、家族が喜ぶ<br>・条件：15文字以内、やさしく親しみやすいトーン、10案</div>
+<p>上の引用部分は見やすさのために行を分けていますが、実際には1つのメッセージとしてAIに入力します。</p>
+<h2 id="s3">ターゲットとベネフィットを具体的にする</h2>
+<p>型の中で、コピーの質を特に左右するのが「ターゲット」と「ベネフィット」です。</p>
+<h3>ターゲットは「一人の人物」を思い浮かべる</h3>
+<p>「20〜40代の女性」のような広いくくりより、「平日は仕事で忙しく、朝は10分で子どもに朝食を出したい人」のように、生活の場面が浮かぶ書き方のほうが、刺さる言葉が出やすくなります。</p>
+<h3>特徴ではなくベネフィットを伝える</h3>
+<p>特徴とベネフィットは混同しやすいので、違いを整理しておきましょう。</p>
+<div class="tbl"><table><tr><th>種類</th><th>意味</th><th>例</th></tr><tr><td>特徴</td><td>商品そのものの性質</td><td>国産小麦、耳までやわらかい</td></tr><tr><td>ベネフィット</td><td>受け手にとってのうれしいこと</td><td>子どもが残さず食べてくれる、朝の準備が楽になる</td></tr></table></div>
+<p>キャッチコピーは、受け手が「自分ごと」と感じたときに目に留まります。AIにも、特徴と合わせてベネフィットを伝えると、受け手目線の案が増えます。ベネフィットが思いつかないときは、「この商品の特徴から考えられるベネフィットを5つ挙げて」とAIに先に聞いてみるのも効果的です。</p>
+<h2 id="s4">文字数と使う場所を指定する</h2>
+<p>キャッチコピーは、使う場所によって適した長さが変わります。</p>
+<ul><li>SNS画像の大きな見出し：短め。スマホで一瞬で読める長さ</li><li>チラシのメイン見出し：やや短め。遠くからでも目に入る長さ</li><li>サブコピー・説明文：少し長めでもよい。見出しを補足する役割</li></ul>
+<p>プロンプトでは「15文字以内」のように具体的な数字で指定しましょう。ただし、対話型AIは文字数を正確に数えるのが苦手な場合があります。出てきた案は、自分で文字数を確認するのが確実です。</p>
+<p>また、「Instagramの投稿画像の中央に大きく入れる」のように使う場所まで伝えると、AIが長さや言葉の強さを調整しやすくなります。</p>
+<h2 id="s5">案を複数出させて、広げてから絞る</h2>
+<p>キャッチコピーづくりは、最初から1案に決め打ちせず、<strong>たくさん出してから選ぶ</strong>のが基本です。AIは案を大量に出すのが得意なので、この特性を活かしましょう。</p>
+<p>案を広げるときに使えるプロンプトの例です。</p>
+<ul><li><code>切り口を変えて10案出してください。「共感」「驚き」「問いかけ」「数字」の切り口をそれぞれ含めてください</code></li><li><code>今の案より、もっとくだけた口調で5案</code></li><li><code>3番の案の方向性で、言い回しを変えて5案</code></li></ul>
+<p>気になる案が見つかったら、その案を軸に「方向性はそのままで、もっと短く」「語尾を変えて」と少しずつ調整していきます。</p>
+<h2 id="s6">AIに評価させて、最終案を選ぶ</h2>
+<p>案がたくさん出たら、AIに評価役もお願いできます。自分ひとりで選ぶより、客観的な視点が加わります。</p>
+<div class="note">上の案の中から、以下の基準で評価してください。<br>・ターゲットが自分ごとと感じるか<br>・一瞬で意味が伝わるか<br>・他店と差別化できているか<br>各基準を5段階で採点し、上位3案とその理由を教えてください。</div>
+<p>評価は役立ちますが、最終判断は自分で行いましょう。AIの採点は絶対的なものではなく、お店の雰囲気や、お客さんとの関係性まではわかりません。上位の案を実際のデザインに入れて見比べたり、身近な人に見てもらったりすると、決めやすくなります。</p>
+<h3>使う前のチェックポイント</h3>
+<p>AIが作ったコピーを使う前に、次の点を必ず確認してください。</p>
+<ul><li>事実と違う表現がないか。「日本一」「必ず」「絶対」など、根拠のない表現は避けましょう</li><li>誇大な表現になっていないか。健康や効果をうたう表現などは、法律やガイドラインで制限されている場合があります</li><li>他社のキャッチコピーや有名なフレーズと酷似していないか</li><li>自分のお店やブランドの言葉づかいとして自然か</li></ul>
+<div class="shop"><div class="shop-name">キャッチコピーの考え方を学べる本を探す</div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%81%E3%82%B3%E3%83%94%E3%83%BC+%E6%9C%AC&amp;tag=masabee00001-22">Amazonで見る</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2583%25E3%2583%2581%25E3%2582%25B3%25E3%2583%2594%25E3%2583%25BC%2520%25E6%259C%25AC%2F">楽天で見る</a></div>
+<h2 id="s7">まとめ</h2>
+<p>ChatGPTやClaudeでキャッチコピーを作るときのポイントをおさらいします。</p>
+<ol><li>役割・商品情報・ターゲット・ベネフィット・条件の5要素を入れる</li><li>ターゲットは一人の人物像、特徴よりもベネフィットを伝える</li><li>文字数は数字で指定し、出てきた案は自分で数え直す</li><li>切り口を変えて複数案を出し、広げてから絞る</li><li>AIに基準を示して評価させ、最終判断は自分で行う</li></ol>
+<p>AIは、言葉の選択肢を一気に増やしてくれる頼もしい相棒です。型を使って情報をしっかり渡し、最後は自分の目と感覚で選ぶ、という流れを意識してみてください。</p></article><div class="related"><strong>関連記事</strong><div class="cards"><a class="card" href="../articles/ai-image-upscale-bgremove.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>AI画像の仕上げ方｜高解像度化・背景除去・文字入れの基本手順</h2><p>AIで作った画像をそのまま使うと、解像度不足や文字の崩れが気になることがあります。アップスケールによる高解像度化、背景除去、文字はデザインツールで後から入れる方法など、実用レベルに仕上げる手順を解説します。</p></a><a class="card" href="../articles/ai-logo-howto.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>画像生成AIでロゴを作る手順｜商標・著作権の注意点も解説</h2><p>画像生成AIでロゴを作るときの流れを、コンセプト整理からプロンプト例、清書、仕上げまで順番に解説します。商標登録や著作権など、使う前に確認しておきたい注意点もまとめました。</p></a><a class="card" href="../articles/canva-ai-sns-image.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>CanvaのAI機能でSNS投稿画像を作る基本｜初心者向けの手順</h2><p>CanvaのAI機能を使って、InstagramやXなどのSNS投稿画像を作る基本の流れを解説します。サイズ選び、テンプレートの活用、AIでの画像・文章づくり、見やすく仕上げるコツまで初心者向けにまとめました。</p></a></div></div></main>
+<footer><div class="wrap"><a href="../about.html">このサイトについて</a><a href="../privacy.html">プライバシーポリシー</a>
+<div>© 2026 AIデザイン実践ラボ</div></div></footer></body></html>

@@ -1,0 +1,87 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>画像生成AIのプロンプトの書き方入門｜主題・構図・光・画風のコツ｜AIデザイン実践ラボ</title><meta name="description" content="画像生成AIで思いどおりの画像を出すためのプロンプトの書き方を解説します。主題・構図・光・画風・比率・ネガティブの6要素を表で整理し、組み立て方の手順と、うまくいかないときの直し方までまとめました。">
+<link rel="canonical" href="https://masabee1029.github.io/ai-design-lab/articles/image-prompt-basics.html"><meta property="og:title" content="画像生成AIのプロンプトの書き方入門｜主題・構図・光・画風のコツ｜AIデザイン実践ラボ"><meta property="og:description" content="画像生成AIで思いどおりの画像を出すためのプロンプトの書き方を解説します。主題・構図・光・画風・比率・ネガティブの6要素を表で整理し、組み立て方の手順と、うまくいかないときの直し方までまとめました。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://masabee1029.github.io/ai-design-lab/articles/image-prompt-basics.html"><meta property="og:image" content="https://masabee1029.github.io/ai-design-lab/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5b636e;--line:#e6e2da;--card:#fff;--accent:#6b4eff;--accent2:#ff7a59}
+@media (prefers-color-scheme:dark){:root{--bg:#15161a;--fg:#e9e9ee;--muted:#a3a8b3;--line:#2c2f37;--card:#1d1f25;--accent:#9d8bff;--accent2:#ff9a7f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.9 "Hiragino Sans","Noto Sans JP",sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);background:var(--card)}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:20px;text-decoration:none;color:var(--fg)}.logo span{color:var(--accent)}
+nav a{margin-left:14px;font-size:14px;color:var(--muted);text-decoration:none}nav a:first-child{margin-left:0}
+.pr{font-size:12px;color:var(--muted);padding:6px 0;border-bottom:1px dashed var(--line)}
+.hero{padding:40px 0 24px}.hero h1{font-size:28px;line-height:1.4;margin:0 0 8px}.hero p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:16px 0 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--fg);display:block}
+.card:hover{border-color:var(--accent)}.card h2{font-size:17px;line-height:1.5;margin:6px 0}.card p{font-size:13px;color:var(--muted);margin:0}
+.tag{display:inline-block;font-size:12px;padding:1px 10px;border-radius:99px;background:var(--accent);color:#fff}
+.date{font-size:12px;color:var(--muted);margin-left:8px}
+article{padding:28px 0 40px}article h1{font-size:26px;line-height:1.45}
+article h2{font-size:21px;border-left:5px solid var(--accent);padding-left:10px;margin-top:40px}
+article h3{font-size:18px;margin-top:28px}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 20px;font-size:14px}
+.note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--card)}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
+.shop{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:18px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.shop-name{flex:1 1 100%;font-weight:700}
+.btn{display:inline-block;padding:8px 18px;border-radius:8px;color:#fff;text-decoration:none;font-size:14px;font-weight:700}
+.amz{background:#e88a00}.rkt{background:#bf0000}
+.related{border-top:1px solid var(--line);padding-top:16px}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:13px;color:var(--muted)}footer a{color:var(--muted);margin-right:14px}
+</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-EHWF25C1RB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EHWF25C1RB');</script></head><body>
+<header><div class="wrap"><div class="top"><a class="logo" href="../index.html">AI<span>デザイン</span>実践ラボ</a>
+<nav><a href="../index.html">記事一覧</a><a href="../about.html">このサイトについて</a></nav></div>
+<div class="pr">※本ページはプロモーション（広告）を含みます。商品リンクから購入されると運営者に紹介料が入ることがあります。</div></div></header>
+<main class="wrap"><article><span class="tag">基本</span><span class="date">2026-10-13</span><h1>画像生成AIのプロンプトの書き方入門｜主題・構図・光・画風のコツ</h1><div class="toc"><strong>目次</strong><ol><li><a href="#s1">プロンプトとは何か</a></li><li><a href="#s2">プロンプトを構成する6つの要素</a></li><li><a href="#s3">各要素の書き方のコツ</a></li><li><a href="#s4">プロンプトを組み立てる手順</a></li><li><a href="#s5">うまくいかないときの直し方</a></li><li><a href="#s6">まとめ</a></li></ol></div><p>画像生成AIに「かわいい猫」と入力しても、イメージどおりの画像が出てこないことはよくあります。原因の多くは、AIに伝える情報（プロンプト）が足りないことです。<br>この記事では、プロンプトを「主題・構図・光・画風・比率・ネガティブ」の6つの要素に分けて、初心者でも狙った画像に近づけるための書き方を解説します。</p>
+<h2 id="s1">プロンプトとは何か</h2>
+<p>プロンプトとは、画像生成AIに「どんな画像を作ってほしいか」を伝える指示文のことです。AIはこの文章を手がかりに画像を作るため、書かれていないことはAIが自由に補います。</p>
+<p>つまり、<strong>指定しなかった部分は運任せになる</strong>ということです。思いどおりの画像にしたいなら、大事な要素ほど言葉にして伝える必要があります。逆に、どうでもいい部分はあえて書かずにAIに任せることで、意外な良い案が出ることもあります。</p>
+<p>多くの画像生成AIは日本語でも指示できますが、ツールによっては英語のほうが意図が伝わりやすい場合もあります。日本語で試して結果がずれるときは、英語に置き換えてみるのも一つの方法です。</p>
+<h2 id="s2">プロンプトを構成する6つの要素</h2>
+<p>プロンプトに入れる情報は、次の6つに整理すると考えやすくなります。</p>
+<div class="tbl"><table><tr><th>要素</th><th>内容</th><th>例（日本語）</th><th>例（英語）</th></tr><tr><td>主題</td><td>何を描くか。人物・物・場所など</td><td>窓辺で本を読む女性</td><td>a woman reading a book by the window</td></tr><tr><td>構図</td><td>どの距離・角度から見るか</td><td>上半身のアップ、斜め上から</td><td>close-up, upper body, high angle</td></tr><tr><td>光</td><td>光の種類・方向・時間帯</td><td>やわらかい朝の自然光</td><td>soft morning light</td></tr><tr><td>画風</td><td>写真・イラスト・水彩などの表現</td><td>水彩画風、淡い色合い</td><td>watercolor style, pastel colors</td></tr><tr><td>比率</td><td>画像の縦横の比率</td><td>横長 16:9</td><td>16:9 aspect ratio</td></tr><tr><td>ネガティブ</td><td>入れたくない要素</td><td>文字、ロゴ、ぼやけ</td><td>text, logo, blurry</td></tr></table></div>
+<p>すべてを毎回入れる必要はありませんが、この表をチェックリストのように使うと、伝え忘れが減ります。</p>
+<h2 id="s3">各要素の書き方のコツ</h2>
+<h3>主題：具体的に、1枚に1つ</h3>
+<p>主題は「誰が・何が」「何をしているか」「どこで」をセットで書くと伝わりやすくなります。「犬」より「芝生の上で走る柴犬」のほうが、AIが迷いません。</p>
+<p>また、1枚の画像に主役を詰め込みすぎないことも大切です。登場するものが多いほど、それぞれの描写が崩れやすくなります。</p>
+<h3>構図：カメラの位置をイメージする</h3>
+<p>構図は、カメラをどこに置くかを想像して書きます。</p>
+<ul><li>距離：全身、上半身、顔のアップ、引きの風景</li><li>角度：正面、真上から（俯瞰）、下から見上げる（あおり）</li><li>配置：中央に配置、左側に寄せて右側に余白</li></ul>
+<p>SNS画像やチラシの素材として使うなら、「右側に余白」のように文字を入れるスペースを指定しておくと、後の作業が楽になります。</p>
+<h3>光：雰囲気を大きく左右する</h3>
+<p>同じ主題でも、光が変わると印象がまったく変わります。「朝の自然光」はさわやかに、「夕焼けの逆光」はドラマチックに、「スタジオの均一な照明」は商品写真のように見えます。</p>
+<p>雰囲気がしっくりこないときは、主題を変える前に光の指定を変えてみるのがおすすめです。</p>
+<h3>画風：表現のジャンルを指定する</h3>
+<p>写真風にしたいのか、イラストにしたいのかで、結果は大きく変わります。「写真風」「フラットなイラスト」「水彩画」「3Dレンダリング」「線画」など、ジャンル名で指定するとわかりやすいです。</p>
+<p>なお、実在するアーティストや作家の名前を使って「〇〇風」と指定するのは避けましょう。権利やマナーの面で問題になるおそれがあります。画風はジャンルや技法の言葉で表現するのが安心です。</p>
+<h3>比率：使う場所から逆算する</h3>
+<p>画像の比率は、使い道から決めます。SNSのフィード投稿なら正方形や縦長、ブログのアイキャッチなら横長、スマホの縦画面いっぱいなら 9:16 が目安です。</p>
+<p>比率の指定方法はツールによって異なります。プロンプトに書くもの、設定画面で選ぶもの、専用の記法（パラメーター）で指定するものがあるので、使っているツールの公式ヘルプで確認してください。</p>
+<h3>ネガティブ：入れたくないものを伝える</h3>
+<p>ネガティブプロンプトとは、画像に入れたくない要素を指定する指示のことです。画像生成AIは、頼んでいない文字やロゴ、不自然な指などを描いてしまうことがあるため、それを避けるために使います。</p>
+<p>ネガティブ専用の入力欄があるツール、専用の記法で指定するツール、そもそもネガティブ指定に対応していないツールなど、扱いはさまざまです。対応していない場合は、「背景は無地」「文字なし」のように、欲しい状態を肯定的に書くと効果が出やすくなります。</p>
+<h2 id="s4">プロンプトを組み立てる手順</h2>
+<p>実際にプロンプトを作るときは、次の順番で組み立てると迷いにくくなります。</p>
+<ol><li>主題を一文で書く（例：カフェのテーブルに置かれたラテ）</li><li>使い道から比率を決める（例：Instagram用なので正方形）</li><li>構図を足す（例：斜め上から、左に寄せて右に余白）</li><li>光と画風を足す（例：午後のやわらかい光、写真風）</li><li>必要ならネガティブを足す（例：文字なし、人物なし）</li></ol>
+<p>まとめると、次のようなプロンプトになります。</p>
+<p><code>カフェの木のテーブルに置かれたラテアート、斜め上から、左に寄せて右側に余白、午後のやわらかい自然光、写真風、正方形</code></p>
+<p>英語で書く場合は、要素をカンマで区切って並べる書き方がよく使われます。</p>
+<p><code>latte art on a wooden cafe table, high angle, placed on the left with empty space on the right, soft afternoon light, photorealistic, square</code></p>
+<div class="shop"><div class="shop-name">画像生成AIのプロンプト解説本を探す</div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90AI+%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88+%E6%9C%AC&amp;tag=masabee00001-22">Amazonで見る</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E7%2594%25BB%25E5%2583%258F%25E7%2594%259F%25E6%2588%2590AI%2520%25E3%2583%2597%25E3%2583%25AD%25E3%2583%25B3%25E3%2583%2597%25E3%2583%2588%2520%25E6%259C%25AC%2F">楽天で見る</a></div>
+<h2 id="s5">うまくいかないときの直し方</h2>
+<p>一度で理想の画像が出ることは多くありません。うまくいかないときは、次のポイントを試してみてください。</p>
+<ul><li>一度に変える要素は1つだけにする。どの変更が効いたのかがわかります</li><li>大事な要素を文の前のほうに書く。ツールによっては前に書いた言葉が重視されやすい傾向があります</li><li>矛盾する指示がないか見直す。「明るい夜景」「シンプルで豪華」などは、AIが迷う原因になります</li><li>同じプロンプトで何回か生成する。画像生成AIは同じ指示でも毎回違う結果を出すため、数回試すだけで当たりが出ることもあります</li></ul>
+<p>気に入った結果が出たプロンプトは、メモアプリなどに保存しておきましょう。自分用のプロンプト集が育っていくと、次からの作業がどんどん速くなります。</p>
+<h2 id="s6">まとめ</h2>
+<p>画像生成AIのプロンプトは、6つの要素に分けて考えると書きやすくなります。</p>
+<ul><li>主題：何を描くかを具体的に、1枚に主役は1つ</li><li>構図：カメラの距離・角度・配置をイメージする</li><li>光：雰囲気を決める大事な要素</li><li>画風：ジャンルや技法の言葉で指定する</li><li>比率：使い道から逆算して決める</li><li>ネガティブ：入れたくないものを伝える。非対応なら肯定的に言い換える</li></ul>
+<p>最初から完璧なプロンプトを書く必要はありません。表をチェックリスト代わりにして、1要素ずつ調整しながら、狙った画像に近づけていきましょう。</p></article><div class="related"><strong>関連記事</strong><div class="cards"><a class="card" href="../articles/ai-copywriting-prompts.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>ChatGPTやClaudeでキャッチコピーを作るプロンプトの型と使い方</h2><p>ChatGPTやClaudeなどの対話型AIで、チラシやSNS画像に使えるキャッチコピーを作るためのプロンプトの型を紹介します。ターゲット・ベネフィット・文字数の伝え方、複数案の出させ方、AIに評価させる方法まで解説します。</p></a><a class="card" href="../articles/ai-image-copyright.html"><span class="tag">著作権</span><span class="date">2026-10-13</span><h2>AI画像の著作権と商用利用の基本｜日本の考え方を初心者向けに整理</h2><p>AIで作った画像は商用利用できるのか、他人の作品に似てしまったらどうなるのか。文化庁「AIと著作権に関する考え方について」をもとに、初心者が押さえたい著作権の基本と実務の注意点をやさしく整理します。</p></a><a class="card" href="../articles/ai-image-upscale-bgremove.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>AI画像の仕上げ方｜高解像度化・背景除去・文字入れの基本手順</h2><p>AIで作った画像をそのまま使うと、解像度不足や文字の崩れが気になることがあります。アップスケールによる高解像度化、背景除去、文字はデザインツールで後から入れる方法など、実用レベルに仕上げる手順を解説します。</p></a></div></div></main>
+<footer><div class="wrap"><a href="../about.html">このサイトについて</a><a href="../privacy.html">プライバシーポリシー</a>
+<div>© 2026 AIデザイン実践ラボ</div></div></footer></body></html>

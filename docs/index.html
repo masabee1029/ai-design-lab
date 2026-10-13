@@ -1,0 +1,43 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIデザイン実践ラボ</title><meta name="description" content="画像生成AIやCanvaでロゴ・SNS画像・チラシを作るための実践ガイド。プロンプトの型、印刷入稿、著作権の注意点まで。">
+<link rel="canonical" href="https://masabee1029.github.io/ai-design-lab/index.html"><meta property="og:title" content="AIデザイン実践ラボ"><meta property="og:description" content="画像生成AIやCanvaでロゴ・SNS画像・チラシを作るための実践ガイド。プロンプトの型、印刷入稿、著作権の注意点まで。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://masabee1029.github.io/ai-design-lab/index.html"><meta property="og:image" content="https://masabee1029.github.io/ai-design-lab/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5b636e;--line:#e6e2da;--card:#fff;--accent:#6b4eff;--accent2:#ff7a59}
+@media (prefers-color-scheme:dark){:root{--bg:#15161a;--fg:#e9e9ee;--muted:#a3a8b3;--line:#2c2f37;--card:#1d1f25;--accent:#9d8bff;--accent2:#ff9a7f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.9 "Hiragino Sans","Noto Sans JP",sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);background:var(--card)}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:20px;text-decoration:none;color:var(--fg)}.logo span{color:var(--accent)}
+nav a{margin-left:14px;font-size:14px;color:var(--muted);text-decoration:none}nav a:first-child{margin-left:0}
+.pr{font-size:12px;color:var(--muted);padding:6px 0;border-bottom:1px dashed var(--line)}
+.hero{padding:40px 0 24px}.hero h1{font-size:28px;line-height:1.4;margin:0 0 8px}.hero p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:16px 0 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--fg);display:block}
+.card:hover{border-color:var(--accent)}.card h2{font-size:17px;line-height:1.5;margin:6px 0}.card p{font-size:13px;color:var(--muted);margin:0}
+.tag{display:inline-block;font-size:12px;padding:1px 10px;border-radius:99px;background:var(--accent);color:#fff}
+.date{font-size:12px;color:var(--muted);margin-left:8px}
+article{padding:28px 0 40px}article h1{font-size:26px;line-height:1.45}
+article h2{font-size:21px;border-left:5px solid var(--accent);padding-left:10px;margin-top:40px}
+article h3{font-size:18px;margin-top:28px}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 20px;font-size:14px}
+.note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--card)}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
+.shop{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:18px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.shop-name{flex:1 1 100%;font-weight:700}
+.btn{display:inline-block;padding:8px 18px;border-radius:8px;color:#fff;text-decoration:none;font-size:14px;font-weight:700}
+.amz{background:#e88a00}.rkt{background:#bf0000}
+.related{border-top:1px solid var(--line);padding-top:16px}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:13px;color:var(--muted)}footer a{color:var(--muted);margin-right:14px}
+</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-EHWF25C1RB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EHWF25C1RB');</script></head><body>
+<header><div class="wrap"><div class="top"><a class="logo" href="index.html">AI<span>デザイン</span>実践ラボ</a>
+<nav><a href="index.html">記事一覧</a><a href="about.html">このサイトについて</a></nav></div>
+<div class="pr">※本ページはプロモーション（広告）を含みます。商品リンクから購入されると運営者に紹介料が入ることがあります。</div></div></header>
+<main class="wrap"><div class="hero"><h1>AIで、デザインをもっと身近に。</h1><p>画像生成AI・Canva・ChatGPT などを使って、ロゴ・SNS画像・チラシを自分で作るための実践ガイド。印刷・デザインの現場経験をもとに、つまずきやすい点と著作権の注意までまとめています。</p></div><div class="cards"><a class="card" href="articles/ai-copywriting-prompts.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>ChatGPTやClaudeでキャッチコピーを作るプロンプトの型と使い方</h2><p>ChatGPTやClaudeなどの対話型AIで、チラシやSNS画像に使えるキャッチコピーを作るためのプロンプトの型を紹介します。ターゲット・ベネフィット・文字数の伝え方、複数案の出させ方、AIに評価させる方法まで解説します。</p></a><a class="card" href="articles/ai-image-copyright.html"><span class="tag">著作権</span><span class="date">2026-10-13</span><h2>AI画像の著作権と商用利用の基本｜日本の考え方を初心者向けに整理</h2><p>AIで作った画像は商用利用できるのか、他人の作品に似てしまったらどうなるのか。文化庁「AIと著作権に関する考え方について」をもとに、初心者が押さえたい著作権の基本と実務の注意点をやさしく整理します。</p></a><a class="card" href="articles/ai-image-upscale-bgremove.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>AI画像の仕上げ方｜高解像度化・背景除去・文字入れの基本手順</h2><p>AIで作った画像をそのまま使うと、解像度不足や文字の崩れが気になることがあります。アップスケールによる高解像度化、背景除去、文字はデザインツールで後から入れる方法など、実用レベルに仕上げる手順を解説します。</p></a><a class="card" href="articles/ai-logo-howto.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>画像生成AIでロゴを作る手順｜商標・著作権の注意点も解説</h2><p>画像生成AIでロゴを作るときの流れを、コンセプト整理からプロンプト例、清書、仕上げまで順番に解説します。商標登録や著作権など、使う前に確認しておきたい注意点もまとめました。</p></a><a class="card" href="articles/canva-ai-sns-image.html"><span class="tag">作り方</span><span class="date">2026-10-13</span><h2>CanvaのAI機能でSNS投稿画像を作る基本｜初心者向けの手順</h2><p>CanvaのAI機能を使って、InstagramやXなどのSNS投稿画像を作る基本の流れを解説します。サイズ選び、テンプレートの活用、AIでの画像・文章づくり、見やすく仕上げるコツまで初心者向けにまとめました。</p></a><a class="card" href="articles/design-books-beginner.html"><span class="tag">道具</span><span class="date">2026-10-13</span><h2>デザイン初心者がAIと一緒に読みたい定番の本｜基本が身につく4冊</h2><p>AIで画像は作れても、レイアウトや配色の判断には基本の知識が欠かせません。ノンデザイナーズ・デザインブック、なるほどデザイン、配色アイデア手帖、デザインの教科書など、初心者がAIと並行して読みたい定番の本を紹介します。</p></a><a class="card" href="articles/image-prompt-basics.html"><span class="tag">基本</span><span class="date">2026-10-13</span><h2>画像生成AIのプロンプトの書き方入門｜主題・構図・光・画風のコツ</h2><p>画像生成AIで思いどおりの画像を出すためのプロンプトの書き方を解説します。主題・構図・光・画風・比率・ネガティブの6要素を表で整理し、組み立て方の手順と、うまくいかないときの直し方までまとめました。</p></a><a class="card" href="articles/pc-tablet-for-ai-design.html"><span class="tag">道具</span><span class="date">2026-10-13</span><h2>AIデザインに向くパソコン・タブレット・液タブの選び方｜初心者向け判断基準</h2><p>AIでロゴやSNS画像を作るなら、どんなパソコンやタブレットを選べばよいのか。メモリ、画面の色域、ブラウザ中心ならスペック控えめでよい理由、iPadとApple Pencil、ペンタブ・液タブの違いを初心者向けに整理します。</p></a><a class="card" href="articles/print-ready-flyer.html"><span class="tag">印刷</span><span class="date">2026-10-13</span><h2>AIで作ったチラシ・名刺を印刷通販に入稿する基本と失敗しないチェック</h2><p>AIで作ったチラシや名刺を印刷通販に出す前に知っておきたい基本をまとめました。塗り足し3mm、文字の余白、RGBとCMYKの色の差、解像度、PDF/X、黒の扱い、フォントのアウトライン化までチェックリスト付きで解説します。</p></a></div></main>
+<footer><div class="wrap"><a href="about.html">このサイトについて</a><a href="privacy.html">プライバシーポリシー</a>
+<div>© 2026 AIデザイン実践ラボ</div></div></footer></body></html>
