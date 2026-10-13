@@ -7,7 +7,7 @@
   "ACCENT2_D": "#ff9a7f"
  },
  "hero_title": "AIで、デザインをもっと身近に。",
- "hero_text": "画像生成AI・Canva・ChatGPT などを使って、ロゴ・SNS画像・チラシを自分で作るための実践ガイド。印刷・デザインの現場経験をもとに、つまずきやすい点と著作権の注意までまとめています。",
+ "hero_text": "画像生成AI・Canva・ChatGPTなどのAIツールを使って、ロゴ・SNS画像・チラシ・名刺・YouTubeサムネイルを自分で作りたい方のための実践ガイドです。大手印刷会社で約20年、印刷とデザインの現場に携わってきた運営者が、プロンプトの型や配色・レイアウトの基本、印刷入稿でつまずきやすいポイント、商用利用で気をつけたい著作権の考え方まで、初心者にもわかる言葉で、ひとつずつ順番に解説します。",
  "home_description": "画像生成AIやCanvaでロゴ・SNS画像・チラシを作るための実践ガイド。プロンプトの型、印刷入稿、著作権の注意点まで。",
  "home_picks_title": "まずはこれから：初心者におすすめの道具・本",
  "picks_title_short": "この記事で役立つ道具・本",
@@ -138,5 +138,20 @@
    "#ff7a59",
    "#ffc857"
   ]
- }
+ },
+ "featured": [
+  "image-prompt-basics",
+  "ai-logo-howto",
+  "canva-ai-sns-image",
+  "ai-image-copyright",
+  "print-ready-flyer"
+ ],
+ "category_slugs": {
+  "基本": "basics",
+  "作り方": "howto",
+  "道具": "tools",
+  "著作権": "copyright",
+  "印刷": "print"
+ },
+ "profile_html": "大手印刷会社で約20年、製造・品質管理・営業支援を担当したのち、グラフィックデザイナーとして独立。いまは広告・ブランドの相談を受けながら、AIツールを毎日の制作に取り入れています。"
 }
