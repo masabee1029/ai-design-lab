@@ -431,6 +431,76 @@
  },
  "vc_ads": [
   {
+   "name": "MiriCanvas（AIプレゼン）",
+   "note": "話す内容を入れると、AIがスライドの形にしてくれる",
+   "btn": "無料で試す",
+   "cats": [
+    "作り方",
+    "基本",
+    "印刷"
+   ],
+   "asp": "a8",
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BELTL+APTO2+5EX8+BX3J6",
+   "beacon": "https://www15.a8.net/0.gif?a8mat=4BELTL+APTO2+5EX8+BX3J6"
+  },
+  {
+   "name": "ConoHa AI Canvas",
+   "note": "インストールなしで、ブラウザだけでAI画像を作れる",
+   "btn": "公式サイトを見る",
+   "cats": [
+    "作り方",
+    "印刷",
+    "著作権"
+   ],
+   "asp": "a8",
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BELTL+BWOVM+50+7RTY1E",
+   "beacon": "https://www11.a8.net/0.gif?a8mat=4BELTL+BWOVM+50+7RTY1E"
+  },
+  {
+   "name": "PLAUD（AIボイスレコーダー）",
+   "note": "会議を録るだけで、AIが文字起こしと要約をしてくれる",
+   "btn": "公式ストアを見る",
+   "cats": [
+    "道具"
+   ],
+   "asp": "a8",
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BELTL+7QNN6+5J4W+5YRHE",
+   "beacon": "https://www11.a8.net/0.gif?a8mat=4BELTL+7QNN6+5J4W+5YRHE"
+  },
+  {
+   "name": "GMKtec（ミニPC）",
+   "note": "机に置ける小さなPCで、AI作業の場所を作れる",
+   "btn": "公式ストアを見る",
+   "cats": [
+    "道具"
+   ],
+   "asp": "a8",
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BENDR+7QNN6+5W12+5YRHE",
+   "beacon": "https://www10.a8.net/0.gif?a8mat=4BENDR+7QNN6+5W12+5YRHE"
+  },
+  {
+   "name": "Qualit（中古パソコン）",
+   "note": "12か月保証つきの中古PCで、作業用の1台をそろえる",
+   "btn": "中古PCを見る",
+   "cats": [
+    "道具"
+   ],
+   "asp": "a8",
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BENDR+K8RCI+50H8+5YJRM",
+   "beacon": "https://www12.a8.net/0.gif?a8mat=4BENDR+K8RCI+50H8+5YJRM"
+  },
+  {
+   "name": "ConoHa WING（レンタルサーバー）",
+   "note": "作ったデザインを載せるブログやサイトを始められる",
+   "btn": "公式サイトを見る",
+   "cats": [
+    "基本"
+   ],
+   "asp": "a8",
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BENDQ+GIS242+50+5SIUWY",
+   "beacon": "https://www14.a8.net/0.gif?a8mat=4BENDQ+GIS242+50+5SIUWY"
+  },
+  {
    "name": "Lenovo（レノボ）公式オンラインストア",
    "note": "AI作業にも使えるノートPCを、メーカー直販で比べられる",
    "btn": "公式ストアを見る",
