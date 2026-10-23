@@ -428,5 +428,31 @@
     "src": "楽天"
    }
   ]
- }
+ },
+ "vc_ads": [
+  {
+   "name": "Lenovo（レノボ）公式オンラインストア",
+   "note": "AI作業にも使えるノートPCを、メーカー直販で比べられる",
+   "btn": "公式ストアを見る",
+   "cats": [
+    "道具",
+    "作り方"
+   ],
+   "url": "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3785433&pid=892731785&vc_url=https%3A%2F%2Fwww.lenovo.com%2Fjp%2Fja%2F%3Fcid%3Djp%3Aaffiliate%3Adsry7f",
+   "beacon": "https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3785433&pid=892731785"
+  },
+  {
+   "name": "Audible（オーディブル）",
+   "note": "デザインやビジネスの本を、通勤中に耳で聴ける",
+   "btn": "無料体験を見る",
+   "cats": [
+    "基本",
+    "著作権",
+    "印刷"
+   ],
+   "url": "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3785433&pid=892731783",
+   "beacon": "https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3785433&pid=892731783"
+  }
+ ],
+ "vc_title": "あわせて使えるサービス（PR）"
 }
