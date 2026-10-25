@@ -110,6 +110,21 @@ def vc_box(cat):
         for a in ads)
     return '<div class="picks"><div class="picks-h">%s</div>%s</div>' % (e(SITECFG.get("vc_title", "あわせて使えるサービス")), items)
 
+
+# ---------- 著者の本（site.json の book_box。2026-10-25 本人指示「Kindle の本をサイトで紹介」） ----------
+def book_box(up="../"):
+    """まとめの前に出す「著者の本」枠。自分の本だと分かる見出しにする（ステマ規制）。本文の転載はしない。"""
+    b = SITECFG.get("book_box")
+    if not b or not b.get("asin"):
+        return ""
+    e = html.escape
+    url = "https://www.amazon.co.jp/dp/%s" % b["asin"] + (("?tag=" + CFG["amazon_tag"]) if CFG.get("amazon_tag") else "")
+    img = ('<img class="book-cover" loading="lazy" src="%simg/%s" alt="%s の表紙">' % (up, e(b["cover"]), e(b["title"]))) if b.get("cover") else ""
+    return ('<div class="picks book"><div class="picks-h">%s</div><div class="book-row">%s<div class="book-txt"><strong>%s</strong>'
+            '<span>%s</span><span class="book-note">%s</span>'
+            '<a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="%s">%s</a></div></div></div>'
+            % (e(b.get("heading", "著者の本")), img, e(b["title"]), e(b.get("sub", "")), e(b.get("note", "")), e(url), e(b.get("btn", "Amazonで見る（Kindle）"))))
+
 # ---------- Markdown（簡易） ----------
 def inline(s):
     s = html.escape(s, quote=False)
@@ -321,6 +336,8 @@ code{background:var(--card);border:1px solid var(--line);border-radius:4px;paddi
 .avatar{flex:0 0 56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px}
 .author p{margin:4px 0 0;color:var(--muted)}
 .related{margin-top:24px}
+.book .book-row{display:flex;gap:14px;align-items:flex-start;padding-top:8px}.book-cover{width:96px;flex:0 0 96px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.book-txt{flex:1 1 200px}.book-txt span{display:block;font-size:13px;color:var(--muted);margin:2px 0}.book-txt .book-note{font-size:12.5px}.book-txt .btn{margin-top:8px}
 .next{background:var(--soft);border:2px dashed var(--accent2);border-radius:12px;padding:14px 18px;margin:32px 0 8px}
 .next-h{font-weight:800;color:var(--accent)}.next p{margin:6px 0 0}
 aside .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:20px;font-size:14px}
@@ -504,9 +521,9 @@ def build():
             art = toc + art
         k = art.rfind('<h2 id="s%d">' % len(a["toc"])) if a["toc"] else -1
         if k > 0:
-            art = art[:k] + picks_box(cat, SITECFG["picks_title_long"]) + vc_box(cat) + art[k:]
+            art = art[:k] + picks_box(cat, SITECFG["picks_title_long"]) + vc_box(cat) + book_box() + art[k:]
         else:
-            art += picks_box(cat, SITECFG["picks_title_long"]) + vc_box(cat)
+            art += picks_box(cat, SITECFG["picks_title_long"]) + vc_box(cat) + book_box()
         cu = "category/%s.html" % cat_slug(cat)
         body = ('%s<article><a class="tag" href="../%s">%s</a><span class="prtag">PR</span><span class="date">%s</span><h1>%s</h1>%s'
                 '<div class="lead"><strong>この記事でわかること</strong>%s</div>%s</article>%s%s%s'

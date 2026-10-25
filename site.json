@@ -546,5 +546,14 @@
    "beacon": "https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3785433&pid=892732651"
   }
  ],
- "vc_title": "あわせて使えるサービス（PR）"
+ "vc_title": "あわせて使えるサービス（PR）",
+ "book_box": {
+  "heading": "著者の本（この連載の考え方を 1 冊に）",
+  "asin": "B0HNZWNVM5",
+  "cover": "book1.jpg",
+  "title": "39歳からのAI仕事術 会社のPCで今日から使える39のプロンプト",
+  "sub": "Copilot・ChatGPT・Gemini対応／著者 まさび／500円・Kindle Unlimited 対象",
+  "note": "会社のPCで、明日の朝からそのまま使える39の頼み方を1冊にまとめました。サイトとは別に書き下ろした内容です。",
+  "btn": "Amazonで見る（Kindle）"
+ }
 }
