@@ -524,5 +524,49 @@
    "beacon": "https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3785433&pid=892731783"
   }
  ],
- "vc_title": "あわせて使えるサービス（PR）"
+ "vc_title": "あわせて使えるサービス（PR）",
+ "a8_ads": [
+  {
+   "name": "ConoHa AI Canvas",
+   "note": "ブラウザだけで、本格的なAI画像生成ができる",
+   "btn": "詳しく見る",
+   "cats": [
+    "作り方",
+    "基本"
+   ],
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BELTL+BWOVM+50+7RTY1E",
+   "beacon": "https://www18.a8.net/0.gif?a8mat=4BELTL+BWOVM+50+7RTY1E"
+  },
+  {
+   "name": "MiriCanvas（AIプレゼン）",
+   "note": "テーマを入れるだけで、編集できるスライドを作れる",
+   "btn": "無料で試す",
+   "cats": [
+    "作り方",
+    "基本"
+   ],
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BELTL+APTO2+5EX8+BX3J6",
+   "beacon": "https://www15.a8.net/0.gif?a8mat=4BELTL+APTO2+5EX8+BX3J6"
+  },
+  {
+   "name": "GMKtec（ミニPC）",
+   "note": "机の上で場所をとらない、AI作業向けの小型PC",
+   "btn": "詳しく見る",
+   "cats": [
+    "道具"
+   ],
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BENDR+7QNN6+5W12+5YRHE",
+   "beacon": "https://www14.a8.net/0.gif?a8mat=4BENDR+7QNN6+5W12+5YRHE"
+  },
+  {
+   "name": "Qualit（中古パソコン）",
+   "note": "12か月保証つきの上質な中古PC",
+   "btn": "在庫を見る",
+   "cats": [
+    "道具"
+   ],
+   "url": "https://px.a8.net/svt/ejp?a8mat=4BENDR+K8RCI+50H8+5YJRM",
+   "beacon": "https://www14.a8.net/0.gif?a8mat=4BENDR+K8RCI+50H8+5YJRM"
+  }
+ ]
 }
