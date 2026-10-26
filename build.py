@@ -16,6 +16,7 @@ site.json の任意項目: featured（「はじめての方へ」に出す記事
 profile_html（サイドバーと著者ボックス。無ければ about_html の2段落目）、category_slugs（{"カテゴリ名": "url用の英字"}）、
 next_step_html（全記事の末尾＝まとめの後に出す「次の一歩」ボックス。読者の小さな一歩・問いかけ・感謝）
 hero_html（トップの見出し部分を差し替える HTML。{N_ARTICLES} {N_CATS} は記事数・カテゴリ数に置き換え）、extra_css（追加の CSS）
+ads_extra_html（about の「広告について」に足す HTML）、asp_names（プライバシーポリシーの広告欄に足す名前。例「・バリューコマース」）
 """
 import hashlib, html, json, os, re, shutil, urllib.parse
 from datetime import date
@@ -539,12 +540,13 @@ def build():
         write(a["url"], page(a["title"], a["description"], body, a["url"], 1,
                              ("img/articles/%s.jpg" % a["slug"]) if IMAGES else "og.png", ld=ld, cat_on=cat))
     about = ('<article><h1>このサイトについて</h1>' + SITECFG["about_html"] +
-             '<h2>広告について</h2><p>当サイトは Amazonアソシエイト・楽天アフィリエイトに参加しており、紹介した商品の購入により運営者が紹介料を受け取ることがあります。Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</p></article>')
+             '<h2>広告について</h2><p>当サイトは Amazonアソシエイト・楽天アフィリエイトに参加しており、紹介した商品の購入により運営者が紹介料を受け取ることがあります。Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</p>'
+             + SITECFG.get("ads_extra_html", "") + '</article>')
     write("about.html", page("このサイトについて", NAME + "の運営方針と広告について。", about, "about.html"))
     privacy = """<article><h1>プライバシーポリシー</h1>
 <h2>アクセス解析</h2><p>当サイトは Google アナリティクスを利用しています。Cookie を使ってアクセス情報を収集しますが、個人を特定する情報は含みません。Cookie はブラウザの設定で無効にできます。</p>
-<h2>広告</h2><p>当サイトは Amazonアソシエイト・楽天アフィリエイトを利用しています。これらのサービスは Cookie を使用することがあります。</p>
-<h2>免責事項</h2><p>掲載内容の正確性には注意していますが、内容を保証するものではありません。当サイトの情報によって生じた損害について責任を負いかねます。</p></article>"""
+<h2>広告</h2><p>当サイトは Amazonアソシエイト・楽天アフィリエイト%sを利用しています。これらのサービスは Cookie を使用することがあります。</p>
+<h2>免責事項</h2><p>掲載内容の正確性には注意していますが、内容を保証するものではありません。当サイトの情報によって生じた損害について責任を負いかねます。</p></article>""" % SITECFG.get("asp_names", "")
     write("privacy.html", page("プライバシーポリシー", NAME + "のプライバシーポリシーと免責事項。", privacy, "privacy.html", sidebar=False))
     urls = ["index.html", "about.html", "privacy.html"] + ["category/%s.html" % cat_slug(c) for c, _ in CATS] + [a["url"] for a in arts]
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
