@@ -188,6 +188,38 @@ article h2::before{content:counter(mz,decimal-leading-zero)!important;display:bl
 article h2.ax-sum::before{content:"FIN"!important}
 article ul li::marker{content:"— ";color:#f0643f}
 @media (max-width:560px){.toc ol{columns:1}}
+
+/* category-base: 2026-10-27 カテゴリページの共通部分 */
+.cx-page .cards{counter-reset:none}
+.cx-page .card{position:relative;animation:cxin .5s both;animation-delay:calc(var(--i,0)*60ms)}
+@keyframes cxin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.cx-page .card{animation:none}}
+.cx-head{position:relative;margin:4px 0 6px}.cx-head h1{margin:0}
+.cx-intro{margin:8px 0 0}
+.cx-meter{display:flex;align-items:center;gap:10px;margin:12px 0 0;font-size:13px}.cx-meter span{white-space:nowrap}.cx-meter b{font-size:1.25em}
+.cx-meter i{position:relative;flex:1;height:8px;border-radius:99px;overflow:hidden;max-width:240px}
+.cx-meter i::after{content:"";position:absolute;left:0;top:0;bottom:0;background:var(--cxm,#888);width:var(--w,0);transition:width .9s ease}
+.cx-sort{display:inline-flex;gap:4px;margin:12px 0 0}.cx-sort button{font:inherit;font-size:13px;padding:4px 12px;cursor:pointer}
+.cx-badge{position:absolute;top:10px;right:10px;font-size:12px;font-weight:700;padding:2px 10px;z-index:2}
+.cx-others{margin:18px 0 8px}.cx-others strong{display:block;font-size:13px;margin-bottom:8px}.cx-others div{display:flex;flex-wrap:wrap;gap:8px}
+.cx-others a{text-decoration:none;font-size:14px;padding:5px 12px}.cx-others small{margin-left:6px;opacity:.7}
+
+/* category: magazine-feature (2026-10-27) */
+.cx-feature{display:grid;grid-template-columns:auto 1fr;gap:22px;border-top:3px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:18px 0}
+.cx-vol{border-right:1px solid #1a1a1a;padding-right:22px;text-align:center}.cx-vol small{display:block;font-size:10px;letter-spacing:.3em;color:#f0643f}
+.cx-vol b{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:72px;line-height:1;color:#5b3fe6}
+.cx-eye{font-size:11px;letter-spacing:.2em;color:#6b6358}
+.cx-feature h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1.2;margin:4px 0}
+.cx-feature .cx-intro{font-family:"Shippori Mincho B1",serif;font-size:16px}
+.cx-page{--cxm:#5b3fe6}.cx-meter i{background:#ece6dc;height:4px;border-radius:0}
+.cx-sort button{background:none;border:0;border-bottom:2px solid transparent;color:#6b6358;padding:4px 6px;letter-spacing:.1em}.cx-sort button.on{color:#1a1a1a;border-color:#f0643f}
+@media (min-width:700px){.cx-page .card:first-child{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:0 22px;align-items:start}
+ .cx-page .card:first-child .thumb{grid-row:1/6;margin:0;height:100%;object-fit:cover}.cx-page .card:first-child h2{font-family:"Shippori Mincho B1",serif;font-size:24px}}
+.cx-page .card h2{font-family:"Shippori Mincho B1",serif}
+.cx-page .card::before{content:attr(data-no);position:absolute;top:10px;left:10px;z-index:2;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:22px;color:#fff;text-shadow:0 1px 6px #0009}
+.cx-badge{background:#1a1a1a;color:#fff;border-radius:0;letter-spacing:.15em}
+.cx-others a{border-bottom:1px solid #1a1a1a;color:#1a1a1a;font-family:"Shippori Mincho B1",serif;padding:4px 2px;margin-right:10px}.cx-others a:hover{color:#f0643f}.cx-others strong{font-size:11px;letter-spacing:.3em;color:#f0643f}
+@media (max-width:560px){.cx-feature{grid-template-columns:1fr;gap:8px}.cx-vol{border:0;padding:0;text-align:left}.cx-vol b{font-size:44px}}
 </style><script async src="https://www.googletagmanager.com/gtag/js?id=G-EHWF25C1RB"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EHWF25C1RB');</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI画像の著作権と商用利用の基本｜日本の考え方を初心者向けに整理", "description": "AIで作った画像は商用利用できるのか、他人の作品に似てしまったらどうなるのか。文化庁「AIと著作権に関する考え方について」をもとに、初心者が押さえたい著作権の基本と実務の注意点をやさしく整理します。", "datePublished": "2026-10-13", "image": "https://masabee1029.github.io/ai-design-lab/img/articles/ai-image-copyright.jpg", "author": {"@type": "Person", "name": "運営者", "url": "https://masabee1029.github.io/ai-design-lab/about.html"}, "publisher": {"@type": "Organization", "name": "AIデザイン実践ラボ"}, "mainEntityOfPage": "https://masabee1029.github.io/ai-design-lab/articles/ai-image-copyright.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://masabee1029.github.io/ai-design-lab/index.html"}, {"@type": "ListItem", "position": 2, "name": "著作権", "item": "https://masabee1029.github.io/ai-design-lab/category/copyright.html"}, {"@type": "ListItem", "position": 3, "name": "AI画像の著作権と商用利用の基本｜日本の考え方を初心者向けに整理", "item": "https://masabee1029.github.io/ai-design-lab/articles/ai-image-copyright.html"}]}</script></head><body>
 <header><div class="wrap"><div class="top"><a class="logo" href="../index.html">AI<span>デザイン</span>実践ラボ</a><span class="tagline">ロゴ・SNS画像・チラシをAIで作る実践ガイド</span></div>
@@ -225,6 +257,8 @@ article ul li::marker{content:"— ";color:#f0643f}
 <ul><li>文化庁の「考え方」では、AIと著作権を<strong>開発・学習段階</strong>と<strong>生成・利用段階</strong>に分けて整理している</li><li>AI画像を使う場面では、通常の著作権侵害と同じく<strong>類似性と依拠性</strong>が判断のポイントになる</li><li>AIが自律的に作った画像は著作物にならない可能性があり、人の創作的な関与が重要になる</li><li>法律とは別に、<strong>各ツールの利用規約</strong>で商用利用の条件を必ず確認する</li><li>作品名やキャラクター名をプロンプトに入れない、似ていないか確認する、記録を残す、が実務の基本</li></ul>
 <p>この分野は議論が続いており、考え方や各ツールの規約は今後も変わる可能性があります。気になる点は文化庁の公式サイトで「AIと著作権に関する考え方について」の原文を確認し、必要に応じて専門家に相談してください。</p><div class="next"><div class="next-h">今日できる次の一歩</div><p>読んだ内容から、まず1つだけ試してみませんか。今日、プロンプトを1行書いて画像を1枚作るだけでも、立派な一歩です。</p><p>あなたなら、まず何から作ってみますか？</p><p>最後まで読んでくださり、ありがとうございました。</p></div><script>(function(C){var R=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 var art=document.querySelector("article");if(!art)return;
+/* 読んだ記事を覚えておく（カテゴリページの「読んだ」印に使う。この端末の中だけ。同じ github.io の別サイトと混ざらないよう、パス全体で覚える） */
+try{var RK="ax-read",RL=JSON.parse(localStorage.getItem(RK)||"[]"),me=location.pathname;if(RL.indexOf(me)<0){RL.push(me);localStorage.setItem(RK,JSON.stringify(RL.slice(-300)))}}catch(e){}
 /* 読むのにかかる時間（1 分 500 字で計算） */
 var n=(art.innerText||"").replace(/\s/g,"").length,m=Math.max(1,Math.round(n/500)),d=art.querySelector(".date");
 if(d){var t=document.createElement("span");t.className="ax-time";t.textContent=C.time.replace("{m}",m);d.after(t)}
