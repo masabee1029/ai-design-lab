@@ -100,7 +100,7 @@ VC_ADS = SITECFG.get("vc_ads", []) + SITECFG.get("a8_ads", [])
 def vc_box(cat):
     """記事のカテゴリに合う ASP 広告（cats が空なら全記事）を最大3件。広告がなければ何も出さない。"""
     e = html.escape
-    ads = [a for a in VC_ADS if a.get("url") and (not a.get("cats") or cat in a["cats"])][:3]
+    ads = [a for a in VC_ADS if a.get("url") and (not a.get("cats") or cat in a["cats"])][:4]  # 2026-10-27: 3→4 件
     if not ads:
         return ""
     items = "".join(
