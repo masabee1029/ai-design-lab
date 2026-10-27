@@ -126,7 +126,9 @@
    "#9d8bff",
    "#ff7a59",
    "#ffc857"
-  ]
+  ],
+  "style": "frame",
+  "card_sub": "印刷会社20年の現場のコツ"
  },
  "images": {
   "motif": "shapes",
