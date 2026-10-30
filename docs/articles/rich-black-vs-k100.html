@@ -1,0 +1,300 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>墨ベタとリッチブラックの使い分け｜小さい文字はK100、大きな黒い面はリッチブラックにする理由を印刷する側から解説｜AIデザイン実践ラボ</title><meta name="description" content="墨ベタ（K100）とリッチブラックの使い分けを、印刷する側の目線で解説します。結論は「小さい文字・細い線・バーコードはK100の1色、大きな黒い面はリッチブラック」。小さい文字を4色の黒にすると見当のズレで縁に色がにじむ理由、大きな面をK100だけにすると薄く見える理由、RGBの黒やAI画像の黒が入稿で4色の黒に変わる落とし穴、インキの総量の目安まで、はじめて入稿する人にも分かる形でまとめました。">
+<link rel="canonical" href="https://masabee1029.github.io/ai-design-lab/articles/rich-black-vs-k100.html"><meta property="og:title" content="墨ベタとリッチブラックの使い分け｜小さい文字はK100、大きな黒い面はリッチブラックにする理由を印刷する側から解説｜AIデザイン実践ラボ"><meta property="og:description" content="墨ベタ（K100）とリッチブラックの使い分けを、印刷する側の目線で解説します。結論は「小さい文字・細い線・バーコードはK100の1色、大きな黒い面はリッチブラック」。小さい文字を4色の黒にすると見当のズレで縁に色がにじむ理由、大きな面をK100だけにすると薄く見える理由、RGBの黒やAI画像の黒が入稿で4色の黒に変わる落とし穴、インキの総量の目安まで、はじめて入稿する人にも分かる形でまとめました。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://masabee1029.github.io/ai-design-lab/articles/rich-black-vs-k100.html"><meta property="og:image" content="https://masabee1029.github.io/ai-design-lab/img/articles/rich-black-vs-k100.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Noto+Sans+JP:wght@400;700&display=swap");
+
+:root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5b636e;--line:#e6e2da;--card:#fff;--soft:#f3f1ec;--accent:#6b4eff;--accent2:#ff7a59}
+@media (prefers-color-scheme:dark){:root{--bg:#15161a;--fg:#e9e9ee;--muted:#a3a8b3;--line:#2c2f37;--card:#1d1f25;--soft:#23252c;--accent:#9d8bff;--accent2:#ff9a7f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.9 "Hiragino Sans","Noto Sans JP",sans-serif}
+img{max-width:100%}a{color:var(--accent)}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0 8px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:22px;text-decoration:none;color:var(--fg)}.logo span{color:var(--accent)}
+.tagline{font-size:12px;color:var(--muted)}
+.gnav{display:flex;gap:4px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}.gnav::-webkit-scrollbar{display:none}
+.gnav a{flex:0 0 auto;font-size:14px;font-weight:700;color:var(--fg);text-decoration:none;padding:6px 14px;border-radius:99px;background:var(--soft)}
+.gnav a:hover,.gnav a.on{background:var(--accent);color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;padding:24px 0 48px}
+@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr);gap:8px}}
+.hero{padding:20px 0 8px}.hero h1{font-size:28px;line-height:1.4;margin:0 0 10px}.hero p{color:var(--muted);margin:0;font-size:15px}
+.hero-img{display:block;width:100%;height:auto;border-radius:14px}
+.sec-h{font-size:20px;margin:40px 0 4px;padding-bottom:8px;border-bottom:3px solid var(--accent);display:flex;justify-content:space-between;align-items:baseline}
+.sec-h a{font-size:13px;font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;padding:16px 0}
+.thumb{display:block;width:calc(100% + 32px);margin:-16px -16px 12px;aspect-ratio:1200/630;object-fit:cover;border-radius:12px 12px 0 0}
+.card{overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--fg);display:block;transition:transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}.card h2,.card h3{font-size:16px;line-height:1.5;margin:6px 0}.card p{font-size:13px;color:var(--muted);margin:0}
+.tag{display:inline-block;font-size:12px;padding:1px 10px;border-radius:99px;background:var(--accent);color:#fff;text-decoration:none}
+.prtag{display:inline-block;font-size:11px;padding:0 8px;border:1px solid var(--muted);border-radius:4px;color:var(--muted);margin-left:8px;vertical-align:1px}
+.date{font-size:12px;color:var(--muted);margin-left:8px}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:10px}.crumb a{color:var(--muted)}
+article h1{font-size:26px;line-height:1.45;margin:10px 0}
+article h2{font-size:21px;background:var(--soft);border-left:6px solid var(--accent);padding:10px 14px;border-radius:4px;margin-top:44px}
+article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);padding-bottom:4px}
+.eyecatch{display:block;width:100%;height:auto;border-radius:12px;margin:8px 0 16px}
+.lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
+.lead strong{display:block;color:var(--accent)}
+.toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
+.shop{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:18px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.shop-name{flex:1 1 100%;font-weight:700}
+.btn{--bc:#888;display:inline-block;padding:7px 18px;border-radius:999px;background:#fff;color:color-mix(in srgb,var(--bc) 65%,#000);border:2px solid var(--bc);text-decoration:none;font-size:14px;font-weight:700;transition:background .15s}
+.btn:hover{background:#fff8e6}.btn.amz{--bc:#ff9900;color:#b35c00}.btn.rkt{--bc:#bf0000;color:#bf0000}.btn.vc{--bc:#3fc1a5;color:#1a7f6a}
+.picks{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:14px 16px;margin:24px 0}
+.picks-h{font-weight:800;margin-bottom:6px}
+.pick{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line)}
+.pick div{flex:1 1 200px}.pick span{display:block;font-size:13px;color:var(--muted)}
+.pick .ref,.shop .ref{display:block;font-size:12.5px;color:var(--muted);margin-top:3px;font-weight:400}.ref a{color:var(--accent)}
+.share{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 8px}.share a{flex:1 1 90px;text-align:center;padding:8px;border-radius:8px;color:#fff;text-decoration:none;font-size:13px;font-weight:700}
+.sx{background:#111}.sl{background:#06c755}.sh{background:#00a4de}
+.author{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:24px 0;font-size:14px}
+.avatar{flex:0 0 56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px}
+.author p{margin:4px 0 0;color:var(--muted)}
+.related{margin-top:24px}
+.book .book-row{display:flex;gap:14px;align-items:flex-start;padding-top:8px}.book-cover{width:96px;flex:0 0 96px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.book-txt{flex:1 1 200px}.book-txt span{display:block;font-size:13px;color:var(--muted);margin:2px 0}.book-txt .book-note{font-size:12.5px}.book-txt .btn{margin-top:8px}
+.next{background:var(--soft);border:2px dashed var(--accent2);border-radius:12px;padding:14px 18px;margin:32px 0 8px}
+.next-h{font-weight:800;color:var(--accent)}.next p{margin:6px 0 0}
+aside .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:20px;font-size:14px}
+aside .box-h{font-weight:800;font-size:15px;margin:-4px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+aside .sticky{position:sticky;top:16px}
+aside .picks{margin:0 0 20px}
+.mini{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--fg);padding:8px 0;border-top:1px solid var(--line);line-height:1.5}
+.mini:first-of-type{border-top:0}.mini img{flex:0 0 96px;width:96px;aspect-ratio:1200/630;object-fit:cover;border-radius:6px}
+.mini b{display:inline-block;flex:0 0 22px;height:22px;border-radius:50%;background:var(--accent2);color:#fff;font-size:12px;text-align:center;line-height:22px}
+.catlist a{display:flex;justify-content:space-between;text-decoration:none;color:var(--fg);padding:6px 0;border-top:1px solid var(--line)}.catlist a:first-of-type{border-top:0}
+.catlist small{color:var(--muted)}
+footer{border-top:1px solid var(--line);background:var(--card);padding:24px 0 40px;font-size:13px;color:var(--muted)}
+footer a{color:var(--muted);margin-right:14px}.fcats{margin-bottom:10px}
+.prnote{border-top:1px dashed var(--line);margin-top:14px;padding-top:12px}
+.prline{margin:0 0 10px;color:var(--muted)}
+.ainote{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+
+.kxc{--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--bar:var(--accent);border:1px solid var(--line);border-radius:16px;background:var(--card);padding:18px 18px 12px;margin:24px 0}
+@media (prefers-color-scheme:dark){.kxc{--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500}}
+.kxc-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:12px}.kxc-h strong{font-size:16px}
+.kxc-re{font-size:12px;border:1px solid var(--line);background:var(--soft);color:var(--fg);border-radius:99px;padding:3px 10px;cursor:pointer;white-space:nowrap}
+.kxc-note{font-size:12px;color:var(--muted);margin:8px 0 0}
+.kxc details{font-size:13px;margin-top:6px}.kxc details summary{cursor:pointer;color:var(--muted)}
+.kxc-row{display:grid;grid-template-columns:minmax(80px,30%) 1fr auto;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+.kxc-track{height:14px;border-radius:0 4px 4px 0;background:transparent;border-left:1px solid var(--muted);position:relative}
+.kxc-fill{display:block;height:100%;width:var(--w);background:var(--bar);border-radius:0 4px 4px 0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.kxc.ready .kxc-fill{width:0}.kxc.ready.in .kxc-fill{width:var(--w)}
+.kxc-row:hover .kxc-fill{filter:brightness(1.12)}
+.kxc-val{font-variant-numeric:tabular-nums;font-weight:700;min-width:3em;text-align:right}
+.kxc-cnt{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.kxc-cnt div{text-align:center;background:var(--soft);border-radius:12px;padding:14px 6px}
+.kxc-cnt b{display:block;font-size:clamp(28px,5vw,40px);line-height:1.15;font-variant-numeric:tabular-nums}.kxc-cnt>div>span{font-size:12px;color:var(--muted)}
+.kxc-donut{display:flex;flex-wrap:wrap;gap:16px;align-items:center}.kxc-donut svg{width:170px;height:170px;flex:0 0 auto}
+.kxc-seg{fill:none;stroke-width:22;transition:stroke-dasharray 1.2s ease-out}
+.kxc.ready:not(.in) .kxc-seg{stroke-dasharray:0 1000!important;transition:none}.kxc.ready.in .kxc-seg{transition-delay:var(--d)}
+.kxc-leg{list-style:none;padding:0;margin:0;font-size:14px}.kxc-leg li{display:flex;gap:8px;align-items:center;margin:4px 0}.kxc-leg i{width:12px;height:12px;border-radius:3px;background:var(--c);flex:0 0 auto}
+.kxc-line svg{width:100%;height:auto;overflow:visible}.kxc-path{fill:none;stroke:var(--bar);stroke-width:2;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.6s ease-in-out}
+.kxc.ready .kxc-path{stroke-dashoffset:1}.kxc.ready.in .kxc-path{stroke-dashoffset:0}
+.kxc-dot{fill:var(--bar);stroke:var(--card);stroke-width:2}.kxc-dot:hover{r:6}
+.kxc-ax{stroke:var(--line);stroke-width:1}.kxc-t{font-size:11px;fill:var(--muted)}.kxc-tv{font-size:12px;fill:var(--fg);font-weight:700}
+@media (prefers-reduced-motion:reduce){.kxc *{transition:none!important}}
+
+/* theme: editorial-studio (2026-10-27) */
+:root,:root:not(x){--bg:#faf7f2;--fg:#1a1a1a;--muted:#5d5a55;--line:#ddd6cb;--card:#fff;--soft:#f1ece3;--accent:#5b3fe6;--accent2:#f0643f}
+@media (prefers-color-scheme:dark){:root{--bg:#faf7f2;--fg:#1a1a1a;--muted:#5d5a55;--line:#ddd6cb;--card:#fff;--soft:#f1ece3;--accent:#5b3fe6;--accent2:#f0643f}}
+body{font-family:"Noto Sans JP","Hiragino Sans",sans-serif}
+header{background:#faf7f2;border-bottom:1px solid #1a1a1a}
+.logo,.hero h1,article h1,.sec-h,article h2,.picks-h,.next-h,aside .box-h{font-family:"Shippori Mincho B1","Hiragino Mincho ProN",serif;font-weight:800}
+.logo{font-size:24px;letter-spacing:.04em}.logo span{color:#5b3fe6}
+.gnav a{background:none;border-radius:0;border-bottom:2px solid transparent;padding:6px 10px;color:#1a1a1a}
+.gnav a:hover,.gnav a.on{background:none;color:#5b3fe6;border-bottom-color:#5b3fe6}
+.hero-img{border-radius:2px}
+.hero h1{font-size:32px;letter-spacing:.02em}
+.sec-h{border-bottom:1px solid #1a1a1a;box-shadow:0 3px 0 -1px #faf7f2,0 4px 0 -1px #1a1a1a}
+.card{border:1px solid #1a1a1a;border-radius:2px;padding:16px}
+.thumb{border-radius:0}
+.card:hover{border-color:#1a1a1a;transform:none;box-shadow:6px 6px 0 #f0643f}
+.tag{background:none;color:#5b3fe6;border:1px solid #5b3fe6;border-radius:0;letter-spacing:.06em}
+article h1{font-size:30px}
+article h2{background:none;border-left:0;border-top:3px solid #1a1a1a;border-radius:0;padding:12px 0 0;font-size:23px}
+article h2::before{content:"";display:block;width:36px;height:4px;background:#f0643f;margin-bottom:8px}
+article h3{border-bottom:1px solid #1a1a1a}
+.eyecatch{border-radius:2px}
+.lead,.toc,.shop,aside .box,.author{border:1px solid #1a1a1a;border-radius:2px}
+.toc{border-top:4px solid #5b3fe6}
+.note{border-left:4px solid #f0643f;border-radius:0;background:#fff}
+.picks{border:1px solid #1a1a1a;border-radius:2px;box-shadow:6px 6px 0 #5b3fe622}
+.next{border:1px solid #1a1a1a;border-radius:2px;background:#f1ece3}.next-h{color:#1a1a1a}
+.avatar{background:#1a1a1a;border-radius:2px;font-family:"Shippori Mincho B1",serif}
+aside .box-h{border-bottom:1px solid #1a1a1a}
+.mini img{border-radius:0}.mini b{background:#f0643f;border-radius:0}
+th{background:#f1ece3}
+footer{background:#1a1a1a;color:#cfc8bc;border-top:0}footer a{color:#fff}
+
+/* hero-base: 2026-10-27 トップの見せ場の共通部分 */
+.hx{padding:24px 0 6px}.hx-eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin:0 0 8px}
+.hx-h1{font-size:clamp(28px,5vw,46px);line-height:1.3;margin:0 0 14px}.hx-h1 em{font-style:normal;color:var(--accent)}
+.hx-lead{color:var(--muted);font-size:15px;margin:0 0 22px;max-width:680px}
+.hx-chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 26px}.hx-chips a{text-decoration:none;font-size:13px;padding:5px 12px}
+.hx-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:0 0 22px}.hx-vs p{margin:0;font-size:13px;color:var(--muted)}
+.hx-k{font-size:12px;color:var(--muted)}.hx-v{font-size:clamp(20px,3.4vw,28px);font-weight:800;line-height:1.35;margin:4px 0}
+.hx-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px}.hx-stats b{display:block;line-height:1.1;font-variant-numeric:tabular-nums}.hx-stats span{font-size:12px;color:var(--muted)}
+.hx-steps{list-style:none;padding:0;margin:0 0 8px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.hx-steps strong{display:block;font-size:15px}.hx-steps span{font-size:12px;color:var(--muted)}
+@media (max-width:560px){.hx-vs,.hx-steps{grid-template-columns:1fr}.hx-stats{gap:6px}.hx-mid{justify-self:center}.hx-vs{text-align:center}}
+[data-seq]>*{opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}[data-seq]>.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){[data-seq]>*{opacity:1;transform:none;transition:none}}
+
+/* hero: magazine-spread (2026-10-27) */
+.hx-mag .hx-h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:clamp(30px,5.4vw,52px)}.hx-mag .hx-h1 em{color:#5b3fe6}
+.hx-mag .hx-eyebrow{color:#f0643f;letter-spacing:.2em}
+.hx-spread{display:grid;grid-template-columns:1fr 1.3fr;border-top:3px solid #1a1a1a;border-bottom:1px solid #1a1a1a;background:#fff}
+.hx-sp-l{padding:18px 20px;border-right:1px solid #1a1a1a}.hx-sp-no{font-size:11px;letter-spacing:.3em;color:#f0643f;font-weight:700}
+.hx-sp-t{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:26px;line-height:1.35;margin:8px 0}.hx-sp-l p{font-size:13px;color:#5d5a55;margin:0 0 12px}
+.hx-go{display:inline-block;font-family:"Shippori Mincho B1",serif;font-weight:800;color:#1a1a1a;text-decoration:none;border-bottom:2px solid #f0643f}
+.hx-six{margin:0;display:grid;grid-template-columns:1fr 1fr}.hx-six div{padding:12px 16px;border-bottom:1px solid #ddd6cb;border-left:1px solid #ddd6cb}
+.hx-six dt{font-size:11px;letter-spacing:.15em;color:#5b3fe6;font-weight:700}.hx-six dd{margin:2px 0 0;font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:15px}
+.hx-mag .hx-chips{border-bottom:1px solid #1a1a1a;padding-bottom:14px}.hx-mag .hx-chips a{color:#1a1a1a;border:0;border-right:1px solid #ddd6cb;border-radius:0;padding:2px 14px 2px 2px}.hx-mag .hx-chips a:hover{color:#5b3fe6}
+.hx-mag .hx-vs{border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:18px 0}
+.hx-mag .hx-v{font-family:"Shippori Mincho B1",serif}.hx-mag .hx-side.on .hx-v{color:#5b3fe6}.hx-mag .hx-mid{font-family:"Shippori Mincho B1",serif;font-size:40px;color:#f0643f;font-weight:400}
+.hx-mag .hx-stats div{border-left:1px solid #1a1a1a;padding:4px 14px}
+.hx-mag .hx-stats b{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:clamp(40px,7vw,64px);color:#1a1a1a}
+.hx-mag .hx-steps li{border-top:3px solid #1a1a1a;padding-top:8px}.hx-mag .hx-steps b{font-family:"Shippori Mincho B1",serif;color:#f0643f;font-size:14px}
+.hx-mag .hx-steps strong{font-family:"Shippori Mincho B1",serif;font-size:20px}
+@media (max-width:700px){.hx-spread{grid-template-columns:1fr}.hx-sp-l{border-right:0;border-bottom:1px solid #1a1a1a}}
+
+/* article-base: 2026-10-27 記事ページの共通部分 */
+.ax-time{display:inline-block;font-size:12px;margin-left:8px}
+.ax-prog{position:fixed;left:0;right:0;top:0;height:4px;z-index:50;pointer-events:none}.ax-prog i{display:block;height:100%;width:0}
+.toc li.now>a{font-weight:700}
+.ax-tick{cursor:pointer}li.ax-tick{position:relative;padding-left:30px}ul>li.ax-tick{list-style:none}ul>li.ax-tick::marker{content:""!important}
+li.ax-tick::before,tr.ax-tick td:first-child::before{content:"";position:absolute;left:4px;top:.45em;width:16px;height:16px;border:2px solid currentColor;border-radius:4px;opacity:.55}
+.ax-tick.done{opacity:.55;text-decoration:line-through}li.ax-tick.done::after,tr.ax-tick.done td:first-child::after{content:"✓";position:absolute;left:7px;top:.05em;font-weight:800}
+tr.ax-tick td:first-child{position:relative;padding-left:32px}tr.ax-tick td:first-child::before{left:8px;top:.6em}tr.ax-tick.done td:first-child::after{left:11px;top:.2em}
+.ax-copy{display:block;margin:10px 0 0 auto;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+@media print{.ax-prog,.ax-size,.ax-copy{display:none}}
+
+/* article: magazine (2026-10-27) */
+.ax-prog{height:3px;background:transparent}.ax-prog i{background:#1a1a1a}
+.ax-time{font-size:11px;letter-spacing:.15em;color:#f0643f;border-left:1px solid #1a1a1a;padding-left:10px}
+article h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:clamp(26px,3.6vw,34px);line-height:1.45;border-bottom:1px solid #1a1a1a;padding-bottom:12px}
+.lead{border:0;border-top:3px solid #1a1a1a;border-bottom:1px solid #1a1a1a;border-radius:0;background:none;padding:12px 0;font-family:"Shippori Mincho B1",serif;font-size:15px}
+.lead strong{font-size:0}.lead strong::before{content:"EDITOR'S NOTE";font-size:11px;letter-spacing:.3em;color:#f0643f;font-family:"Noto Sans JP",sans-serif}
+.lead+p::first-letter{float:left;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:3.4em;line-height:.9;margin:.08em .12em 0 0;color:#5b3fe6}
+.toc{counter-reset:mg;border:0;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;border-radius:0;background:none;padding:12px 0}.toc strong{font-size:0}.toc strong::before{content:"CONTENTS";font-size:11px;letter-spacing:.3em}
+.toc ol{list-style:none;padding:0;columns:2;column-gap:24px}.toc li{counter-increment:mg;break-inside:avoid;padding:3px 0;font-family:"Shippori Mincho B1",serif}.toc li::before{content:counter(mg,decimal-leading-zero);font-size:11px;color:#f0643f;margin-right:8px;font-family:"Noto Sans JP",sans-serif}
+.toc li.now a{color:#5b3fe6}
+article{counter-reset:mz}article h2{counter-increment:mz;font-family:"Shippori Mincho B1",serif}
+article h2::before{content:counter(mz,decimal-leading-zero)!important;display:block!important;width:auto!important;height:auto!important;background:none!important;font-size:42px;line-height:1;color:#ddd6cb;margin:0 0 4px!important}
+article h2.ax-sum::before{content:"FIN"!important}
+article ul li::marker{content:"— ";color:#f0643f}
+@media (max-width:560px){.toc ol{columns:1}}
+
+/* category-base: 2026-10-27 カテゴリページの共通部分 */
+.cx-page .cards{counter-reset:none}
+.cx-page .card{position:relative;animation:cxin .5s both;animation-delay:calc(var(--i,0)*60ms)}
+@keyframes cxin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.cx-page .card{animation:none}}
+.cx-head{position:relative;margin:4px 0 6px}.cx-head h1{margin:0}
+.cx-intro{margin:8px 0 0}
+.cx-meter{display:flex;align-items:center;gap:10px;margin:12px 0 0;font-size:13px}.cx-meter span{white-space:nowrap}.cx-meter b{font-size:1.25em}
+.cx-meter i{position:relative;flex:1;height:8px;border-radius:99px;overflow:hidden;max-width:240px}
+.cx-meter i::after{content:"";position:absolute;left:0;top:0;bottom:0;background:var(--cxm,#888);width:var(--w,0);transition:width .9s ease}
+.cx-sort{display:inline-flex;gap:4px;margin:12px 0 0}.cx-sort button{font:inherit;font-size:13px;padding:4px 12px;cursor:pointer}
+.cx-badge{position:absolute;top:10px;right:10px;font-size:12px;font-weight:700;padding:2px 10px;z-index:2}
+.cx-others{margin:18px 0 8px}.cx-others strong{display:block;font-size:13px;margin-bottom:8px}.cx-others div{display:flex;flex-wrap:wrap;gap:8px}
+.cx-others a{text-decoration:none;font-size:14px;padding:5px 12px}.cx-others small{margin-left:6px;opacity:.7}
+
+/* category: magazine-feature (2026-10-27) */
+.cx-feature{display:grid;grid-template-columns:auto 1fr;gap:22px;border-top:3px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:18px 0}
+.cx-vol{border-right:1px solid #1a1a1a;padding-right:22px;text-align:center}.cx-vol small{display:block;font-size:10px;letter-spacing:.3em;color:#f0643f}
+.cx-vol b{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:72px;line-height:1;color:#5b3fe6}
+.cx-eye{font-size:11px;letter-spacing:.2em;color:#6b6358}
+.cx-feature h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1.2;margin:4px 0}
+.cx-feature .cx-intro{font-family:"Shippori Mincho B1",serif;font-size:16px}
+.cx-page{--cxm:#5b3fe6}.cx-meter i{background:#ece6dc;height:4px;border-radius:0}
+.cx-sort button{background:none;border:0;border-bottom:2px solid transparent;color:#6b6358;padding:4px 6px;letter-spacing:.1em}.cx-sort button.on{color:#1a1a1a;border-color:#f0643f}
+@media (min-width:700px){.cx-page .card:first-child{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:0 22px;align-items:start}
+ .cx-page .card:first-child .thumb{grid-row:1/6;margin:0;height:100%;object-fit:cover}.cx-page .card:first-child h2{font-family:"Shippori Mincho B1",serif;font-size:24px}}
+.cx-page .card h2{font-family:"Shippori Mincho B1",serif}
+.cx-page .card::before{content:attr(data-no);position:absolute;top:10px;left:10px;z-index:2;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:22px;color:#fff;text-shadow:0 1px 6px #0009}
+.cx-badge{background:#1a1a1a;color:#fff;border-radius:0;letter-spacing:.15em}
+.cx-others a{border-bottom:1px solid #1a1a1a;color:#1a1a1a;font-family:"Shippori Mincho B1",serif;padding:4px 2px;margin-right:10px}.cx-others a:hover{color:#f0643f}.cx-others strong{font-size:11px;letter-spacing:.3em;color:#f0643f}
+@media (max-width:560px){.cx-feature{grid-template-columns:1fr;gap:8px}.cx-vol{border:0;padding:0;text-align:left}.cx-vol b{font-size:44px}}
+</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-EHWF25C1RB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EHWF25C1RB');</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "墨ベタとリッチブラックの使い分け｜小さい文字はK100、大きな黒い面はリッチブラックにする理由を印刷する側から解説", "description": "墨ベタ（K100）とリッチブラックの使い分けを、印刷する側の目線で解説します。結論は「小さい文字・細い線・バーコードはK100の1色、大きな黒い面はリッチブラック」。小さい文字を4色の黒にすると見当のズレで縁に色がにじむ理由、大きな面をK100だけにすると薄く見える理由、RGBの黒やAI画像の黒が入稿で4色の黒に変わる落とし穴、インキの総量の目安まで、はじめて入稿する人にも分かる形でまとめました。", "datePublished": "2026-10-30", "image": "https://masabee1029.github.io/ai-design-lab/img/articles/rich-black-vs-k100.jpg", "author": {"@type": "Person", "name": "運営者", "url": "https://masabee1029.github.io/ai-design-lab/about.html"}, "publisher": {"@type": "Organization", "name": "AIデザイン実践ラボ"}, "mainEntityOfPage": "https://masabee1029.github.io/ai-design-lab/articles/rich-black-vs-k100.html"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://masabee1029.github.io/ai-design-lab/index.html"}, {"@type": "ListItem", "position": 2, "name": "印刷", "item": "https://masabee1029.github.io/ai-design-lab/category/print.html"}, {"@type": "ListItem", "position": 3, "name": "墨ベタとリッチブラックの使い分け｜小さい文字はK100、大きな黒い面はリッチブラックにする理由を印刷する側から解説", "item": "https://masabee1029.github.io/ai-design-lab/articles/rich-black-vs-k100.html"}]}</script></head><body>
+<header><div class="wrap"><div class="top"><a class="logo" href="../index.html">AI<span>デザイン</span>実践ラボ</a><span class="tagline">ロゴ・SNS画像・チラシをAIで作る実践ガイド</span></div>
+<nav class="gnav"><a href="../index.html">ホーム</a><a href="../category/basics.html">基本</a><a href="../category/howto.html">作り方</a><a href="../category/tools.html">道具</a><a href="../category/copyright.html">著作権</a><a href="../category/print.html" class="on">印刷</a></nav></div></header>
+<div class="wrap"><div class="layout"><main><div class="crumb"><a href="../index.html">ホーム</a> ＞ <a href="../category/print.html">印刷</a> ＞ 墨ベタとリッチブラックの使い分け｜小さい文字はK100、大きな黒い面はリッチブラックにする理由を印刷する側から解説</div><article><a class="tag" href="../category/print.html">印刷</a><span class="date">2026-10-30</span><h1>墨ベタとリッチブラックの使い分け｜小さい文字はK100、大きな黒い面はリッチブラックにする理由を印刷する側から解説</h1><p class="prline">※この記事はプロモーション（広告）を含みます</p><img class="eyecatch" src="../img/articles/rich-black-vs-k100.jpg" alt="墨ベタとリッチブラックの使い分け｜小さい文字はK100、大きな黒い面はリッチブラックにする理由を印刷する側から解説（図形と文字で作ったイメージ画像）"><div class="lead"><strong>この記事でわかること</strong>墨ベタ（K100）とリッチブラックの使い分けを、印刷する側の目線で解説します。結論は「小さい文字・細い線・バーコードはK100の1色、大きな黒い面はリッチブラック」。小さい文字を4色の黒にすると見当のズレで縁に色がにじむ理由、大きな面をK100だけにすると薄く見える理由、RGBの黒やAI画像の黒が入稿で4色の黒に変わる落とし穴、インキの総量の目安まで、はじめて入稿する人にも分かる形でまとめました。</div><p>「黒い文字を入れただけなのに、刷り上がったら文字の縁が赤や青ににじんで見えた」。そんな経験はありませんか？<br>墨ベタとリッチブラックの使い分けは、ひとつ覚えれば十分です。<strong>小さい文字・細い線・バーコードはK100（墨1色）、大きな黒い面はリッチブラック（4色を重ねた黒）</strong>。<br>理由は、印刷では4つの色の版がわずかにずれて刷られることがあるからです。この記事では、印刷する側から見た「ずれ」と「インキの重なり」の話を、表と手順で紹介します。数字はどれも目安です。最終的には入稿する印刷会社の入稿ガイドに合わせてください。</p>
+<div class="toc"><strong>目次</strong><ol><li><a href="#s1">墨ベタとリッチブラック｜2つの黒の違いを先に知る</a></li><li><a href="#s2">小さい文字はK100にする理由｜見当のズレで縁に色がのぞく</a></li><li><a href="#s3">大きな黒い面はリッチブラックにする理由｜インキの膜の厚さ</a></li><li><a href="#s4">RGBの黒とAI画像の黒｜入稿で「4色の黒」に変わる落とし穴</a></li><li><a href="#s5">入稿前にできる黒のチェック｜5分の手順</a></li><li><a href="#s6">向かない場面・注意点</a></li><li><a href="#s7">まとめ</a></li></ol></div><div class="picks"><div class="picks-h">この記事で役立つ道具・本</div><div class="pick"><div><strong>インクジェット用 名刺用紙</strong><span>まずは家で試し刷り</span><span class="ref">参考（2026年10月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%BC%E3%83%AF%E3%83%B3+%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AB%E3%83%BC%E3%83%89+51002&amp;tag=masabee00001-22">エーワン マルチカード 名刺 51002</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%BC%E3%83%AF%E3%83%B3+%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AB%E3%83%BC%E3%83%89+51677&amp;tag=masabee00001-22">エーワン マルチカード 両面クリアエッジ 51677</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%AC%E3%82%B3%E3%83%A0+MT-JMN2WNZ&amp;tag=masabee00001-22">エレコム 名刺用紙 マルチカード MT-JMN2WNZ</a>　／　楽天：<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25AD%25E3%2583%25A4%25E3%2583%258E%25E3%2583%25B3%2520%25E4%25B8%25A1%25E9%259D%25A2%25E3%2583%259E%25E3%2583%2583%25E3%2583%2588%25E5%2590%258D%25E5%2588%25BA%25E7%2594%25A8%25E7%25B4%2599%2F">キヤノン 両面マット名刺用紙</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A8%25E3%2583%25BC%25E3%2583%25AF%25E3%2583%25B3%2520%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F">エーワン マルチカード</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A8%25E3%2583%25AC%25E3%2582%25B3%25E3%2583%25A0%2520%25E5%2590%258D%25E5%2588%25BA%25E7%2594%25A8%25E7%25B4%2599%2520%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F">エレコム 名刺用紙 マルチカード</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%A4%E3%83%B3%E3%82%AF%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88+%E5%90%8D%E5%88%BA%E7%94%A8%E7%B4%99&amp;tag=masabee00001-22">Amazon</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%2583%25E3%2583%2588%2520%25E5%2590%258D%25E5%2588%25BA%25E7%2594%25A8%25E7%25B4%2599%2F">楽天</a></div><div class="pick"><div><strong>印刷・入稿の解説書</strong><span>入稿の失敗を減らす</span><span class="ref">参考（2026年10月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E5%85%A5%E7%A8%BF%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%81%A4%E3%81%8F%E3%82%8A%E3%81%8B%E3%81%9F+%E6%94%B9%E8%A8%82%E7%89%88&amp;tag=masabee00001-22">入稿データのつくりかた 改訂版</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=DTP+%E5%8D%B0%E5%88%B7+%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E5%9F%BA%E6%9C%AC&amp;tag=masabee00001-22">DTP 印刷 デザインの基本</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E5%8D%B0%E5%88%B7%E3%81%A8%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E3%83%8F%E3%83%B3%E3%83%89%E3%83%96%E3%83%83%E3%82%AF&amp;tag=masabee00001-22">印刷とデザインのハンドブック</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E5%8D%B0%E5%88%B7+%E5%85%A5%E7%A8%BF+%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3+%E6%9C%AC&amp;tag=masabee00001-22">Amazon</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E5%258D%25B0%25E5%2588%25B7%2520%25E5%2585%25A5%25E7%25A8%25BF%2520%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3%2520%25E6%259C%25AC%2F">楽天</a></div></div><h2 id="s1">墨ベタとリッチブラック｜2つの黒の違いを先に知る</h2>
+<p>印刷の黒には、大きく分けて2種類あります。名前と中身を表で並べました。</p>
+<div class="tbl"><table><tr><th>呼び名</th><th>中身（CMYKの値の例）</th><th>見た目</th><th>向いているもの</th></tr><tr><td>墨ベタ（スミベタ・K100）</td><td>C0 M0 Y0 K100</td><td>すっきりした黒。大きな面ではやや浅く見えることがある</td><td>本文・小さい文字・細い線・表の罫線・バーコード・QRコード</td></tr><tr><td>リッチブラック</td><td>例：C40 M40 Y40 K100 など（印刷会社の指定に合わせる）</td><td>深く、つやのある黒</td><td>背景の黒い面・大きな見出しの塗り・写真のまわりの黒い帯</td></tr><tr><td>4色の黒（意図しない黒）</td><td>例：RGBの黒を変換したときに、4色すべてが高い値になる黒</td><td>濃いが、インキが多すぎることがある</td><td>基本的には避ける。入稿前にK100かリッチブラックに直す</td></tr></table></div>
+<p>K（ケー）は、CMYKの「ブラック」の版のことです。印刷の現場では黒のインキを「墨（スミ）」と呼ぶので、K100だけの黒い面を「墨ベタ」と言います。<br>リッチブラックは、K100の下にシアン・マゼンタ・イエローを少しずつ足した黒です。足す量は印刷会社によって指定が違うので、入稿ガイドに書かれた値をそのまま使うのが確実です。</p>
+<p>印刷全体の流れの中でこの話がどこにあるかは、<a href="print-basics-for-designers.html">デザイナーが知っておきたい印刷の基本</a>の「色の決まり」のところで見通せます。</p>
+<h2 id="s2">小さい文字はK100にする理由｜見当のズレで縁に色がのぞく</h2>
+<p>小さい文字をK100にする理由は、印刷機の「見当（けんとう）」にあります。見当とは、4つの色の版を同じ位置に刷り重ねる精度のことです。</p>
+<p>オフセット印刷では、シアン・マゼンタ・イエロー・ブラックの4つの版を、1色ずつ順番に紙へ刷り重ねます。紙は高速で送られ、湿度で伸び縮みもするので、版どうしの位置が0.1mm前後ずれることがあります。</p>
+<ul><li><strong>K100の文字</strong>：黒の版1枚だけで刷るので、ほかの版がずれても文字の形は崩れません</li><li><strong>4色の黒の文字</strong>：4枚の版で同じ文字を重ねて刷るので、どれか1枚がずれると、文字の縁にシアンやマゼンタがのぞきます。本文くらいの大きさの文字だと、縁のにじみで読みにくくなります</li><li><strong>細い線・表の罫線</strong>：0.1mm台の線は、ずれた版の分だけ線が太く見えたり、色の線が並んで見えたりします</li><li><strong>バーコード・QRコード</strong>：線の太さと位置そのものが情報なので、ずれは読み取りの失敗につながりやすい部分です。K100の1色が基本です</li></ul>
+<p>印刷する側から見ると、4色の黒で組まれた細かい文字は、検品でいちばん気をつかう場所のひとつです。ほんのわずかなズレでも、ルーペで見ると縁の色がはっきり分かります。反対に、K100の文字はずれの影響を受けにくいので、刷り上がりが安定します。</p>
+<p>もうひとつ、K100の文字には「ノセ（オーバープリント）」という扱いが使われることがあります。下の色を抜かずに、上から黒を重ねて刷る方法です。下の色との間にすき間が出ないので、色の背景に黒い文字を置いたときに白いすき間ができにくくなります。ノセの扱いは印刷会社やソフトの設定で変わるので、入稿ガイドで確かめておくと安心です。</p>
+<h2 id="s3">大きな黒い面はリッチブラックにする理由｜インキの膜の厚さ</h2>
+<p>では、なぜ黒い背景はK100だけにしないのでしょうか。</p>
+<p>K100だけで大きな面を刷ると、黒のインキの膜1層で面を覆うことになります。紙の白さや紙の目が少し透けて、「真っ黒」ではなく「濃いグレー」に近い見え方になることがあります。特に上質紙のようにインキを吸い込みやすい紙では、この差が出やすくなります。</p>
+<p>リッチブラックは、K100の下にシアン・マゼンタ・イエローの膜を重ねるので、インキの層が厚くなり、深い黒に見えます。表紙の黒い背景や、写真の周りの黒い帯など、黒そのものを見せたい場所に向いています。</p>
+<p>ただし、リッチブラックの面の中に小さな白抜き文字を置くと、別の注意が必要です。白抜き文字は「インキを刷らない部分」なので、4つの版がずれると、文字の縁に色がのぞいて細い文字がつぶれて見えます。</p>
+<div class="tbl"><table><tr><th>場面</th><th>おすすめ</th><th>理由</th></tr><tr><td>白い紙に黒い本文</td><td>K100</td><td>版のズレの影響を受けない</td></tr><tr><td>色の背景に黒い文字</td><td>K100（ノセの扱いは入稿ガイドで確認）</td><td>すき間が出にくい</td></tr><tr><td>黒い背景の面</td><td>リッチブラック（印刷会社の指定値）</td><td>インキの層が厚くなり深い黒に見える</td></tr><tr><td>黒い背景に大きな白抜き文字</td><td>リッチブラック＋太めの書体</td><td>縁のズレが目立ちにくい</td></tr><tr><td>黒い背景に小さな白抜き文字</td><td>K100の背景にするか、文字を大きく・太く</td><td>4色の版がずれると細い文字がつぶれやすい</td></tr></table></div>
+<p>「黒い背景の上に小さな注意書きを白で入れたい」という場面は、チラシやパッケージでよくあります。そのときは、背景の黒を少し浅めのリッチブラックにする、文字をひと回り大きくする、など、どちらかを譲るのが現実的です。迷ったら、データを入稿する前に印刷会社に聞いてみると、その会社の機械に合った答えが返ってきます。</p>
+<h2 id="s4">RGBの黒とAI画像の黒｜入稿で「4色の黒」に変わる落とし穴</h2>
+<p>「黒の値なんて、いちいち決めていない」という人も多いはずです。実は、ここに一番の落とし穴があります。</p>
+<p>画面用のRGBの黒（R0 G0 B0）は、CMYKに変換すると、K100ではなく、4色すべてが高い値の黒になることがよくあります。変換の結果は、使うソフトやカラープロファイル（色の変換の決まり）によって変わります。この4色の黒には、2つの困りごとがあります。</p>
+<ol><li><strong>小さい文字が4色の黒になる</strong>：先ほどの見当のズレで、縁に色がのぞきます</li><li><strong>インキの総量が多くなりすぎる</strong>：4色の値を足した合計を「インキの総量（総インキ量）」と呼びます。合計が多すぎると、インキが乾きにくく、重ねた紙の裏に黒が移る「裏移り」の原因になります。上限の目安は印刷会社によって違い、入稿ガイドに数字が書かれていることが多いので、その数字に合わせます</li></ol>
+<p>AI画像も同じです。画像生成AIが作る画像はRGBなので、画像の中の黒い部分は、変換すると4色の黒になります。画像の中に文字を描かせると、その文字も4色の黒のまま画像の一部になります。</p>
+<ul><li>画像の中の文字は、AIに描かせずに、デザインソフト（IllustratorやCanvaなど）で上に乗せる</li><li>乗せた文字の色は、K100を指定する</li><li>画像そのものの黒は、RGBからCMYKに変換したあと、黒い部分の値を一度見ておく</li></ul>
+<p>RGBとCMYKの違いそのものは、<a href="print-color-dull-rgb-cmyk.html">印刷で色がくすむ理由とRGB→CMYK変換のコツ</a>にまとめています。</p>
+<p>「Canvaで作ったデータでも、K100になっているか確かめられるの？」という声をよく聞きます。CanvaのPDF書き出しの色の設定や、書き出したPDFの黒の値の見え方は、プランや時期によって変わることがあります。執筆時点の機能は公式のヘルプで確かめ、入稿先の印刷会社が無料のデータチェックをしているなら、それを使うのが手軽です。</p>
+<h2 id="s5">入稿前にできる黒のチェック｜5分の手順</h2>
+<p>黒の使い分けは、入稿前の5分の点検で、ほとんどの失敗を防げます。</p>
+<ol><li><strong>本文と小さい文字を全部選んで、色の値を見る</strong>：C0 M0 Y0 K100になっているか確かめます</li><li><strong>表の罫線・細い線・バーコード・QRコードを見る</strong>：これもK100の1色にします</li><li><strong>黒い背景の面の値を見る</strong>：入稿ガイドにリッチブラックの指定値があれば、それに合わせます</li><li><strong>インキの総量を見る</strong>：4色の値の合計が、入稿ガイドの上限を超えていないか確かめます。写真の暗い部分も対象です</li><li><strong>黒い背景の上の白抜き文字を見る</strong>：細すぎる書体や小さすぎる文字がないか確かめます</li></ol>
+<p>この5つを、印刷会社の入稿ガイドと並べながら見るだけで十分です。ソフトの「分版プレビュー」（版ごとに分けて表示する機能）が使えるなら、K版だけを表示して、黒い文字がすべてK版に乗っているかを見ると、一目で分かります。</p>
+<h2 id="s6">向かない場面・注意点</h2>
+<p>ここまでの使い分けは、オフセット印刷を前提にした一般的な目安です。次の場合は、考え方が少し変わります。</p>
+<ul><li><strong>家庭や会社のプリンターで刷るだけの場合</strong>：プリンターはRGBのデータを受け取って、機械の中で色を作ります。K100にこだわる必要はあまりありません</li><li><strong>オンデマンド印刷（少部数向けのトナーやインクジェットの印刷）</strong>：版を使わないので、見当のズレの出方が違います。黒の扱いは、印刷会社の説明に合わせます</li><li><strong>特色（決まった色のインキ）を使う場合</strong>：黒を特色にする指定もあります。4色の話とは別の決まりになります</li><li><strong>リッチブラックの値</strong>：「C40 M40 Y40 K100」は説明のための一例です。会社によって、C60だけを足す、など指定がまったく違います</li></ul>
+<p>どの場合も、最後に頼りになるのは、入稿する印刷会社の入稿ガイドです。</p>
+<div class="shop"><div class="shop-name">入稿データ作りの本を探す</div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=DTP+%E5%85%A5%E7%A8%BF+%E6%9C%AC&amp;tag=masabee00001-22">Amazonで見る</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FDTP%2520%25E5%2585%25A5%25E7%25A8%25BF%2520%25E6%259C%25AC%2F">楽天で見る</a></div>
+<div class="shop"><div class="shop-name">校正用のルーペを探す</div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E5%8D%B0%E5%88%B7+%E3%83%AB%E3%83%BC%E3%83%9A+%E6%A0%A1%E6%AD%A3&amp;tag=masabee00001-22">Amazonで見る</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E5%258D%25B0%25E5%2588%25B7%2520%25E3%2583%25AB%25E3%2583%25BC%25E3%2583%259A%2520%25E6%25A0%25A1%25E6%25AD%25A3%2F">楽天で見る</a></div>
+<div class="picks"><div class="picks-h">次の一歩に役立つ道具・本</div><div class="pick"><div><strong>インクジェット用 名刺用紙</strong><span>まずは家で試し刷り</span><span class="ref">参考（2026年10月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%BC%E3%83%AF%E3%83%B3+%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AB%E3%83%BC%E3%83%89+51002&amp;tag=masabee00001-22">エーワン マルチカード 名刺 51002</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%BC%E3%83%AF%E3%83%B3+%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AB%E3%83%BC%E3%83%89+51677&amp;tag=masabee00001-22">エーワン マルチカード 両面クリアエッジ 51677</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%83%AC%E3%82%B3%E3%83%A0+MT-JMN2WNZ&amp;tag=masabee00001-22">エレコム 名刺用紙 マルチカード MT-JMN2WNZ</a>　／　楽天：<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25AD%25E3%2583%25A4%25E3%2583%258E%25E3%2583%25B3%2520%25E4%25B8%25A1%25E9%259D%25A2%25E3%2583%259E%25E3%2583%2583%25E3%2583%2588%25E5%2590%258D%25E5%2588%25BA%25E7%2594%25A8%25E7%25B4%2599%2F">キヤノン 両面マット名刺用紙</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A8%25E3%2583%25BC%25E3%2583%25AF%25E3%2583%25B3%2520%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F">エーワン マルチカード</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A8%25E3%2583%25AC%25E3%2582%25B3%25E3%2583%25A0%2520%25E5%2590%258D%25E5%2588%25BA%25E7%2594%25A8%25E7%25B4%2599%2520%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F">エレコム 名刺用紙 マルチカード</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%A4%E3%83%B3%E3%82%AF%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88+%E5%90%8D%E5%88%BA%E7%94%A8%E7%B4%99&amp;tag=masabee00001-22">Amazon</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%2583%25E3%2583%2588%2520%25E5%2590%258D%25E5%2588%25BA%25E7%2594%25A8%25E7%25B4%2599%2F">楽天</a></div><div class="pick"><div><strong>印刷・入稿の解説書</strong><span>入稿の失敗を減らす</span><span class="ref">参考（2026年10月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E5%85%A5%E7%A8%BF%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%81%A4%E3%81%8F%E3%82%8A%E3%81%8B%E3%81%9F+%E6%94%B9%E8%A8%82%E7%89%88&amp;tag=masabee00001-22">入稿データのつくりかた 改訂版</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=DTP+%E5%8D%B0%E5%88%B7+%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E5%9F%BA%E6%9C%AC&amp;tag=masabee00001-22">DTP 印刷 デザインの基本</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E5%8D%B0%E5%88%B7%E3%81%A8%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E3%83%8F%E3%83%B3%E3%83%89%E3%83%96%E3%83%83%E3%82%AF&amp;tag=masabee00001-22">印刷とデザインのハンドブック</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E5%8D%B0%E5%88%B7+%E5%85%A5%E7%A8%BF+%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3+%E6%9C%AC&amp;tag=masabee00001-22">Amazon</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E5%258D%25B0%25E5%2588%25B7%2520%25E5%2585%25A5%25E7%25A8%25BF%2520%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3%2520%25E6%259C%25AC%2F">楽天</a></div><div class="pick"><div><strong>CMYKカラーチャート</strong><span>印刷の色を事前に確認</span><span class="ref">参考（2026年10月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%AA%E3%83%95%E3%82%BB%E3%83%83%E3%83%88%E5%8D%B0%E5%88%B7%E3%82%B5%E3%83%B3%E3%83%97%E3%83%ABBOOK&amp;tag=masabee00001-22">オフセット印刷サンプルBOOK</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E8%89%B2%E3%81%AE%E5%A4%A7%E4%BA%8B%E5%85%B8+DIGITAL+COLORS+for+DESIGN&amp;tag=masabee00001-22">色の大事典 DIGITAL COLORS for DESIGN</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%AB%E3%83%A9%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88+CMYK&amp;tag=masabee00001-22">Amazon</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC%25E3%2583%2581%25E3%2583%25A3%25E3%2583%25BC%25E3%2583%2588%2520CMYK%2F">楽天</a></div></div><div class="picks"><div class="picks-h">あわせて使えるサービス（PR）</div><div class="pick"><div><strong>MiriCanvas（AIプレゼン）</strong><span>話す内容を入れると、AIがスライドの形にしてくれる</span></div><a class="btn vc" rel="nofollow sponsored noopener" target="_blank" href="https://px.a8.net/svt/ejp?a8mat=4BELTL+APTO2+5EX8+BX3J6">無料で試す</a><img src="https://www15.a8.net/0.gif?a8mat=4BELTL+APTO2+5EX8+BX3J6" height="1" width="1" alt="" style="border:0"></div><div class="pick"><div><strong>ConoHa AI Canvas</strong><span>インストールなしで、ブラウザだけでAI画像を作れる</span></div><a class="btn vc" rel="nofollow sponsored noopener" target="_blank" href="https://px.a8.net/svt/ejp?a8mat=4BELTL+BWOVM+50+7RTY1E">公式サイトを見る</a><img src="https://www11.a8.net/0.gif?a8mat=4BELTL+BWOVM+50+7RTY1E" height="1" width="1" alt="" style="border:0"></div><div class="pick"><div><strong>Audible（オーディブル）</strong><span>デザインやビジネスの本を、通勤中に耳で聴ける</span></div><a class="btn vc" rel="nofollow sponsored noopener" target="_blank" href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3785433&amp;pid=892731783">無料体験を見る</a><img src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3785433&amp;pid=892731783" height="1" width="1" alt="" style="border:0"></div><div class="pick"><div><strong>紀伊國屋書店ウェブストア</strong><span>著作権や印刷・入稿の専門書を探せる</span></div><a class="btn vc" rel="nofollow sponsored noopener" target="_blank" href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3785433&amp;pid=892732650">本を探す</a><img src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3785433&amp;pid=892732650" height="1" width="1" alt="" style="border:0"></div></div><div class="picks book"><div class="picks-h">著者の本（この連載の考え方を 1 冊に）</div><div class="book-row"><img class="book-cover" loading="lazy" src="../img/book1.jpg" alt="39歳からのAI仕事術 会社のPCで今日から使える39のプロンプト の表紙"><div class="book-txt"><strong>39歳からのAI仕事術 会社のPCで今日から使える39のプロンプト</strong><span>Copilot・ChatGPT・Gemini対応／著者 まさび／500円・Kindle Unlimited 対象</span><span class="book-note">会社のPCで、明日の朝からそのまま使える39の頼み方を1冊にまとめました。サイトとは別に書き下ろした内容です。</span><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/dp/B0HNZWNVM5?tag=masabee00001-22">Amazonで見る（Kindle）</a></div></div></div><h2 id="s7">まとめ</h2>
+<ul><li>黒には2種類ある。<strong>墨ベタ（K100）</strong>は黒の版1枚、<strong>リッチブラック</strong>はK100の下に3色を少し足した黒</li><li><strong>小さい文字・細い線・バーコードはK100</strong>。4色の黒にすると、見当のズレで縁に色がのぞく</li><li><strong>大きな黒い面はリッチブラック</strong>。インキの層が厚くなり、深い黒に見える。値は印刷会社の指定に合わせる</li><li>RGBの黒やAI画像の黒は、変換すると<strong>4色の黒</strong>になりやすい。文字はデザインソフトでK100を指定して乗せる</li><li>インキの総量の上限、ノセの扱い、リッチブラックの値は、<strong>入稿する印刷会社の入稿ガイド</strong>が答え</li></ul>
+<p>ここまで読んでくださって、ありがとうございます。まずは、いま作っているデータの本文を1か所だけ選んで、色の値がK100になっているかを見てみませんか。この1つだけで、黒い文字のにじみはほとんど防げます。<br>あなたのデータで、いちばん小さい黒い文字はどこにありますか？</p><div class="next"><div class="next-h">今日できる次の一歩</div><p>最後まで読んでくださり、ありがとうございました。</p><p>読んだ内容から、まず1つだけ試してみませんか。今日、プロンプトを1行書いて画像を1枚作るだけでも、立派な一歩です。</p><p>あなたなら、まず何から作ってみますか？</p></div><p class="ainote">この記事は下書きにAIを使い、内容は運営者が公式情報で確認しています。</p><script>(function(C){var R=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var art=document.querySelector("article");if(!art)return;
+/* 読んだ記事を覚えておく（カテゴリページの「読んだ」印に使う。この端末の中だけ。同じ github.io の別サイトと混ざらないよう、パス全体で覚える） */
+try{var RK="ax-read",RL=JSON.parse(localStorage.getItem(RK)||"[]"),me=location.pathname;if(RL.indexOf(me)<0){RL.push(me);localStorage.setItem(RK,JSON.stringify(RL.slice(-300)))}}catch(e){}
+/* 読むのにかかる時間（1 分 500 字で計算） */
+var n=(art.innerText||"").replace(/\s/g,"").length,m=Math.max(1,Math.round(n/500)),d=art.querySelector(".date");
+if(d){var t=document.createElement("span");t.className="ax-time";t.textContent=C.time.replace("{m}",m);d.after(t)}
+/* 読み進み具合のバー */
+var bar=document.createElement("div");bar.className="ax-prog";bar.innerHTML="<i></i>";document.body.appendChild(bar);
+function prog(){var r=art.getBoundingClientRect(),h=r.height-innerHeight*.6,p=h>0?Math.min(1,Math.max(0,-r.top/h)):1;bar.firstChild.style.width=(p*100).toFixed(1)+"%"}
+addEventListener("scroll",prog,{passive:true});prog();
+/* まとめの見出しに印 */
+art.querySelectorAll("h2").forEach(function(h){if(/まとめ/.test(h.textContent))h.classList.add("ax-sum")});
+/* 今読んでいる目次の項目に印 */
+var links=[].slice.call(document.querySelectorAll(".toc a"));
+if(links.length&&"IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.parentNode.classList.toggle("now",a.getAttribute("href")=="#"+e.target.id)})}})},{rootMargin:"0px 0px -70% 0px"});
+links.forEach(function(a){var s=document.getElementById(a.getAttribute("href").slice(1));if(s)io.observe(s)})}
+/* 押して印をつける（チェックリスト・材料・手順） */
+function tick(el){el.classList.add("ax-tick");el.addEventListener("click",function(ev){if(ev.target.closest("a"))return;el.classList.toggle("done")})}
+if(C.tick){art.querySelectorAll("h2").forEach(function(h){if(!new RegExp(C.tick.h2).test(h.textContent))return;var x=h.nextElementSibling;while(x&&x.tagName!="H2"){
+ if(C.tick.lists)x.querySelectorAll?(x.matches("ul,ol")?[x]:[]).concat([].slice.call(x.querySelectorAll("ul,ol"))).forEach(function(l){[].forEach.call(l.children,tick)}):0;
+ if(C.tick.rows&&x.querySelectorAll)x.querySelectorAll("tr").forEach(function(tr){if(!tr.querySelector("th"))tick(tr)});x=x.nextElementSibling}})}
+/* プロンプトをコピー */
+if(C.copy){art.querySelectorAll(".note").forEach(function(nt){var s=nt.innerText.trim();if(s.length<40&&s.indexOf("【")<0)return;var b=document.createElement("button");b.type="button";b.className="ax-copy";b.textContent="コピーする";
+ b.addEventListener("click",function(){navigator.clipboard&&navigator.clipboard.writeText(s).then(function(){b.textContent="コピーしました";setTimeout(function(){b.textContent="コピーする"},1600)})});nt.appendChild(b)})}
+/* 文字の大きさ（覚えておく） */
+if(C.size){var k="ax-size",cur="";try{cur=localStorage.getItem(k)||""}catch(e){}
+ var w=document.createElement("div");w.className="ax-size";w.innerHTML='<span>文字の大きさ</span><button data-s="">ふつう</button><button data-s="l">大</button><button data-s="xl">特大</button>';
+ function set(s){document.documentElement.setAttribute("data-size",s);[].forEach.call(w.querySelectorAll("button"),function(b){b.classList.toggle("on",b.getAttribute("data-s")==s)});try{localStorage.setItem(k,s)}catch(e){}}
+ w.addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.getAttribute("data-s"))});var h1=art.querySelector("h1");h1&&h1.after(w);set(cur)}
+})({"time": "読了 約{m}分"});</script></article><div class="share"><a class="sx" rel="noopener" target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmasabee1029.github.io%2Fai-design-lab%2Farticles%2Frich-black-vs-k100.html&text=%E5%A2%A8%E3%83%99%E3%82%BF%E3%81%A8%E3%83%AA%E3%83%83%E3%83%81%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%81%AE%E4%BD%BF%E3%81%84%E5%88%86%E3%81%91%EF%BD%9C%E5%B0%8F%E3%81%95%E3%81%84%E6%96%87%E5%AD%97%E3%81%AFK100%E3%80%81%E5%A4%A7%E3%81%8D%E3%81%AA%E9%BB%92%E3%81%84%E9%9D%A2%E3%81%AF%E3%83%AA%E3%83%83%E3%83%81%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%81%AB%E3%81%99%E3%82%8B%E7%90%86%E7%94%B1%E3%82%92%E5%8D%B0%E5%88%B7%E3%81%99%E3%82%8B%E5%81%B4%E3%81%8B%E3%82%89%E8%A7%A3%E8%AA%AC">Xでシェア</a><a class="sl" rel="noopener" target="_blank" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fmasabee1029.github.io%2Fai-design-lab%2Farticles%2Frich-black-vs-k100.html">LINEで送る</a><a class="sh" rel="noopener" target="_blank" href="https://b.hatena.ne.jp/entry/panel/?url=https%3A%2F%2Fmasabee1029.github.io%2Fai-design-lab%2Farticles%2Frich-black-vs-k100.html">はてブ</a></div><div class="author"><div class="avatar">運</div><div><strong>この記事を書いた人：運営者</strong><p>大手印刷会社で約20年、製造・品質管理・営業支援を担当したのち、グラフィックデザイナーとして独立。いまは広告・ブランドの相談を受けながら、AIツールを毎日の制作に取り入れています。その現場で得たコツを、あなたの制作に役立つ形でお届けします。<br>AIを何も知らない人向けの連載は、毎朝7時に<a href="https://note.com/masabee00001">note</a>で書いています。</p><p><a href="../about.html">運営者について詳しく</a></p></div></div><div class="related"><h2 class="sec-h">あわせて読みたい</h2><div class="cards"><a class="card" href="../articles/bleed-and-trim-marks-basics.html"><img class="thumb" loading="lazy" src="../img/articles/bleed-and-trim-marks-basics.jpg" alt=""><span class="tag">印刷</span><span class="date">2026-10-28</span><h3>塗り足しとトンボの基本｜なぜ3mm必要なのか、印刷する側から見た「断裁のズレ」の話</h3><p>塗り足しとトンボの基本を、印刷する側の目線で解説します。塗り足しが3mm必要なのは、紙を重ねて断裁するときに刃の位置がわずかにずれるからです。トンボの役割、塗り足し・仕上がり線・文字の安全領域の3本の線、AI画像やCanvaのデータで塗り足しを足す方法、名刺・チラシ・冊子で変わる注意点まで、はじめて入稿する人にも分かる形でまとめました。</p></a><a class="card" href="../articles/print-color-dull-rgb-cmyk.html"><img class="thumb" loading="lazy" src="../img/articles/print-color-dull-rgb-cmyk.jpg" alt=""><span class="tag">印刷</span><span class="date">2026-10-26</span><h3>印刷で色がくすむ理由とRGB→CMYK変換のコツ｜鮮やかな色を紙で近づける5つの手順</h3><p>印刷で色がくすむ理由は、画面が光で、紙がインキの反射で色を見せているからです。RGB→CMYK変換のコツは「作る段階で早めに変換し、くすんだ色をその場で整える」こと。くすみやすい色の一覧、変換の5つの手順、AI画像やCanvaのデータの進め方、向かない場合まで、印刷する側の目線で解説します。</p></a><a class="card" href="../articles/foil-stamping-basics.html"><img class="thumb" loading="lazy" src="../img/articles/foil-stamping-basics.jpg" alt=""><span class="tag">印刷</span><span class="date">2026-10-23</span><h3>箔押し加工の基本｜データの作り方と細い線・小さい文字の注意</h3><p>箔押しのデータの作り方を、印刷現場の理由とあわせて解説します。箔の種類、向いている印刷物、K100・ベクターでの版下づくり、細い線や小さい文字のつぶれ、見当ズレへの備え、入稿前のチェック表までまとめました。</p></a><a class="card" href="../articles/print-basics-for-designers.html"><img class="thumb" loading="lazy" src="../img/articles/print-basics-for-designers.jpg" alt=""><span class="tag">印刷</span><span class="date">2026-10-23</span><h3>デザイナーが知っておきたい印刷の基本｜入稿前に確かめる10のこと</h3><p>印刷の現場から見た、デザイナーがつまずきやすいポイントを10個にまとめました。色がくすむ理由、塗り足しとトンボ、黒の種類、細い線の限界、紙による色の違いまで、入稿前に確かめることを理由と目安つきで解説します。</p></a></div></div></main><aside><div class="box"><div class="box-h">運営者</div>大手印刷会社で約20年、製造・品質管理・営業支援を担当したのち、グラフィックデザイナーとして独立。いまは広告・ブランドの相談を受けながら、AIツールを毎日の制作に取り入れています。その現場で得たコツを、あなたの制作に役立つ形でお届けします。<br>AIを何も知らない人向けの連載は、毎朝7時に<a href="https://note.com/masabee00001">note</a>で書いています。<p style="margin:8px 0 0"><a href="../about.html">プロフィールを見る</a></p></div><div class="box"><div class="box-h">はじめての方におすすめ</div><a class="mini" href="../articles/image-prompt-basics.html"><img loading="lazy" src="../img/articles/image-prompt-basics.jpg" alt=""><span>画像生成AIのプロンプトの書き方入門｜主題・構図・光・画風のコツ</span></a><a class="mini" href="../articles/ai-logo-howto.html"><img loading="lazy" src="../img/articles/ai-logo-howto.jpg" alt=""><span>画像生成AIでロゴを作る手順｜商標・著作権の注意点も解説</span></a><a class="mini" href="../articles/canva-ai-sns-image.html"><img loading="lazy" src="../img/articles/canva-ai-sns-image.jpg" alt=""><span>CanvaのAI機能でSNS投稿画像を作る基本｜初心者向けの手順</span></a><a class="mini" href="../articles/ai-image-copyright.html"><img loading="lazy" src="../img/articles/ai-image-copyright.jpg" alt=""><span>AI画像の著作権と商用利用の基本｜日本の考え方を初心者向けに整理</span></a><a class="mini" href="../articles/print-ready-flyer.html"><img loading="lazy" src="../img/articles/print-ready-flyer.jpg" alt=""><span>AIで作ったチラシ・名刺を印刷通販に入稿する基本と失敗しないチェック</span></a></div><div class="box catlist"><div class="box-h">カテゴリ</div><a href="../category/basics.html">基本<small>4記事</small></a><a href="../category/howto.html">作り方<small>8記事</small></a><a href="../category/tools.html">道具<small>2記事</small></a><a href="../category/copyright.html">著作権<small>1記事</small></a><a href="../category/print.html">印刷<small>9記事</small></a></div><div class="sticky"><div class="picks"><div class="picks-h">はじめの一歩に役立つ道具・本</div><div class="pick"><div><strong>iPad ＋ Apple Pencil</strong><span>AIで作った画像の手直しに便利</span><span class="ref">参考（2026年10月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=Apple+iPad+A16+11%E3%82%A4%E3%83%B3%E3%83%81&amp;tag=masabee00001-22">Apple iPad（A16）11インチ</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=Apple+Pencil+USB-C&amp;tag=masabee00001-22">Apple Pencil（USB-C）</a>　／　楽天：<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FApple%2520Pencil%25EF%25BC%2588%25E7%25AC%25AC2%25E4%25B8%2596%25E4%25BB%25A3%25EF%25BC%2589%2F">Apple Pencil（第2世代）</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=iPad+Apple+Pencil&amp;tag=masabee00001-22">Amazon</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FiPad%2520Apple%2520Pencil%2F">楽天</a></div><div class="pick"><div><strong>ノンデザイナーズ・デザインブック</strong><span>レイアウトの4原則が身につく定番書</span><span class="ref">参考（2026年10月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%83%8E%E3%83%B3%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%82%BA%E3%83%BB%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%96%E3%83%83%E3%82%AF%EF%BC%BB%E7%AC%AC4%E7%89%88%EF%BC%BD&amp;tag=masabee00001-22">ノンデザイナーズ・デザインブック［第4版］</a>　／　楽天：<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%258E%25E3%2583%25B3%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%258A%25E3%2583%25BC%25E3%2582%25BA%25E3%2583%25BB%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2596%25E3%2583%2583%25E3%2582%25AF%2520%25E7%25AC%25AC4%25E7%2589%2588%2F">ノンデザイナーズ・デザインブック 第4版</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%83%8E%E3%83%B3%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%82%BA%E3%83%BB%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%96%E3%83%83%E3%82%AF&amp;tag=masabee00001-22">Amazon</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%258E%25E3%2583%25B3%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%258A%25E3%2583%25BC%25E3%2582%25BA%25E3%2583%25BB%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2596%25E3%2583%2583%25E3%2582%25AF%2F">楽天</a></div><div class="pick"><div><strong>液晶ペンタブレット（13インチ前後）</strong><span>画面に直接描ける</span><span class="ref">参考（2026年10月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=Wacom+One+%E6%B6%B2%E6%99%B6%E3%83%9A%E3%83%B3%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88+13&amp;tag=masabee00001-22">Wacom One 液晶ペンタブレット 13</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=HUION+Kamvas+13&amp;tag=masabee00001-22">HUION Kamvas 13</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=XPPen+Artist+12+3rd&amp;tag=masabee00001-22">XPPen Artist 12 3rd</a>　／　楽天：<a rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FXPPen%2520Artist%252012%25203rd%2F">XPPen Artist 12 3rd</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E6%B6%B2%E6%99%B6%E3%83%9A%E3%83%B3%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88+13%E3%82%A4%E3%83%B3%E3%83%81&amp;tag=masabee00001-22">Amazon</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/5867408e.a723d753.5867408f.9cd38db5/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E6%25B6%25B2%25E6%2599%25B6%25E3%2583%259A%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%2596%25E3%2583%25AC%25E3%2583%2583%25E3%2583%2588%252013%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2581%2F">楽天</a></div></div></div></aside></div></div>
+<footer><div class="wrap"><div class="fcats"><a href="../category/basics.html">基本</a><a href="../category/howto.html">作り方</a><a href="../category/tools.html">道具</a><a href="../category/copyright.html">著作権</a><a href="../category/print.html">印刷</a></div><a href="../about.html">このサイトについて</a><a href="../privacy.html">プライバシーポリシー</a>
+<div class="prnote">※本サイトはプロモーション（広告）を含みます。商品リンクから購入されると運営者に紹介料が入ることがあります。</div><div>© 2026 AIデザイン実践ラボ</div></div></footer></body></html>
