@@ -39,6 +39,7 @@ article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);pa
 .lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
 .lead strong{display:block;color:var(--accent)}
 .toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.fig{margin:22px 0;text-align:center}.fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(127,127,127,.25)}.fig figcaption{font-size:.9em;color:var(--muted,#666);margin-top:8px;line-height:1.6}.fig-tag{display:inline-block;font-size:.78em;border:1px solid currentColor;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px}
 .note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
@@ -241,6 +242,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <h2 id="s3">各要素の書き方のコツ</h2>
 <h3>主題：具体的に、1枚に1つ</h3>
 <p>主題は「誰が・何が」「何をしているか」「どこで」をセットで書くと伝わりやすくなります。「犬」より「芝生の上で走る柴犬」のほうが、AIが迷いません。</p>
+<figure class="fig"><img src="../img/fig/image-prompt-basics-1.jpg" alt="AIで作成した作例：左は「犬」とだけ頼んだ例、右は「芝生の上で走る柴犬」と頼んだ例。書かなかった犬種や動きは、AIが自由に決めてしまいます" loading="lazy"><figcaption><span class="fig-tag">AIで作成した作例</span>左は「犬」とだけ頼んだ例、右は「芝生の上で走る柴犬」と頼んだ例。書かなかった犬種や動きは、AIが自由に決めてしまいます</figcaption></figure>
 <p>また、1枚の画像に主役を詰め込みすぎないことも大切です。登場するものが多いほど、それぞれの描写が崩れやすくなります。</p>
 <h3>構図：カメラの位置をイメージする</h3>
 <p>構図は、カメラをどこに置くかを想像して書きます。</p>
@@ -249,6 +251,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <h3>光：雰囲気を大きく左右する</h3>
 <p>同じ主題でも、光が変わると印象がまったく変わります。「朝の自然光」はさわやかに、「夕焼けの逆光」はドラマチックに、「スタジオの均一な照明」は商品写真のように見えます。</p>
 <p>雰囲気がしっくりこないときは、主題を変える前に光の指定を変えてみるのがおすすめです。</p>
+<figure class="fig"><img src="../img/fig/image-prompt-basics-2.jpg" alt="AIで作成した作例：同じラテ・同じ構図で、光の指定だけを変えた例。主題を変えなくても、印象はここまで変わります" loading="lazy"><figcaption><span class="fig-tag">AIで作成した作例</span>同じラテ・同じ構図で、光の指定だけを変えた例。主題を変えなくても、印象はここまで変わります</figcaption></figure>
 <h3>画風：表現のジャンルを指定する</h3>
 <p>写真風にしたいのか、イラストにしたいのかで、結果は大きく変わります。「写真風」「フラットなイラスト」「水彩画」「3Dレンダリング」「線画」など、ジャンル名で指定するとわかりやすいです。</p>
 <p>なお、実在するアーティストや作家の名前を使って「〇〇風」と指定するのは避けましょう。権利やマナーの面で問題になるおそれがあります。画風はジャンルや技法の言葉で表現するのが安心です。</p>
@@ -263,6 +266,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <ol><li>主題を一文で書く（例：カフェのテーブルに置かれたラテ）</li><li>使い道から比率を決める（例：Instagram用なので正方形）</li><li>構図を足す（例：斜め上から、左に寄せて右に余白）</li><li>光と画風を足す（例：午後のやわらかい光、写真風）</li><li>必要ならネガティブを足す（例：文字なし、人物なし）</li></ol>
 <p>まとめると、次のようなプロンプトになります。</p>
 <p><code>カフェの木のテーブルに置かれたラテアート、斜め上から、左に寄せて右側に余白、午後のやわらかい自然光、写真風、正方形</code></p>
+<figure class="fig"><img src="../img/fig/image-prompt-basics-3.jpg" alt="AIで作成した作例：上のプロンプトで作った作例。左に寄せて右側に余白を残したので、あとから文字を入れやすくなっています" loading="lazy"><figcaption><span class="fig-tag">AIで作成した作例</span>上のプロンプトで作った作例。左に寄せて右側に余白を残したので、あとから文字を入れやすくなっています</figcaption></figure>
 <p>英語で書く場合は、要素をカンマで区切って並べる書き方がよく使われます。</p>
 <p><code>latte art on a wooden cafe table, high angle, placed on the left with empty space on the right, soft afternoon light, photorealistic, square</code></p>
 <div class="shop"><div class="shop-name">画像生成AIのプロンプト解説本を探す<span class="ref">参考（2026年11月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90AI+Stable+Diffusion+%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%AC%E3%82%A4%E3%83%89&amp;tag=masabee-lab-22">画像生成AI Stable Diffusion スタートガイド</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E7%94%BB%E5%83%8F%E3%83%BB%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI+ComfyUI+%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%AC%E3%82%A4%E3%83%89&amp;tag=masabee-lab-22">画像・動画生成AI ComfyUI マスターガイド</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90AI+%E3%83%A1%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF%E3%82%AC%E3%82%A4%E3%83%89&amp;tag=masabee-lab-22">画像生成AI メイキングテクニックガイド</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90AI+%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88+%E6%9C%AC&amp;tag=masabee-lab-22">Amazonで見る</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/151a9587.4904a96c.151a9588.d0d13240/_RTLink155216/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E7%2594%25BB%25E5%2583%258F%25E7%2594%259F%25E6%2588%2590AI%2520%25E3%2583%2597%25E3%2583%25AD%25E3%2583%25B3%25E3%2583%2597%25E3%2583%2588%2520%25E6%259C%25AC%2F">楽天で見る</a></div>

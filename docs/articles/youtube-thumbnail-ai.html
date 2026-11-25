@@ -39,6 +39,7 @@ article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);pa
 .lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
 .lead strong{display:block;color:var(--accent)}
 .toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.fig{margin:22px 0;text-align:center}.fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(127,127,127,.25)}.fig figcaption{font-size:.9em;color:var(--muted,#666);margin-top:8px;line-height:1.6}.fig-tag{display:inline-block;font-size:.78em;border:1px solid currentColor;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px}
 .note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
@@ -244,6 +245,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <p>構図が決まったら、画像生成AIで背景やイラストを作ります。ポイントは、<strong>最初から文字を入れないように指示する</strong>ことと、<strong>文字を置く余白をあらかじめ指定する</strong>ことです。</p>
 <p>プロンプトの例を見てみましょう。</p>
 <p><code>料理動画のサムネイル背景。木のテーブルの右側に湯気の立つカレー、左側は何も置かれていない明るい余白。横長16:9、自然光、文字やロゴは入れない</code></p>
+<figure class="fig"><img src="../img/fig/youtube-thumbnail-ai-1.jpg" alt="AIで作成した作例：上のプロンプトで作った「文字なし」の背景。左側に文字を置く余白が残っています" loading="lazy"><figcaption><span class="fig-tag">AIで作成した作例</span>上のプロンプトで作った「文字なし」の背景。左側に文字を置く余白が残っています</figcaption></figure>
 <p>このように、次の要素を入れると狙った絵に近づきやすくなります。</p>
 <ul><li>主題（何を描くか）</li><li>配置（どこに置き、どこを空けるか）</li><li>比率（横長16:9）</li><li>雰囲気や光（明るい、ポップ、落ち着いた など）</li><li>「文字やロゴは入れない」という指示</li></ul>
 <p>比率の指定方法はツールによって異なり、プロンプトで書くもの、設定画面で選ぶものがあります。プロンプトの基本的な組み立て方は<a href="image-prompt-basics.html">画像生成AIのプロンプトの書き方入門</a>でも解説しています。<br>何枚か生成して、文字を乗せたときに読みやすそうな、ごちゃごちゃしすぎていない画像を選びましょう。</p>
@@ -262,6 +264,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <h3>テンプレート化して時短する</h3>
 <p>文字の位置やフォント、色を決めたら、そのデザインをテンプレートとして保存しておきましょう。次回からは背景画像と文字を差し替えるだけで、統一感のあるサムネイルが作れます。</p>
 <div class="shop"><div class="shop-name">サムネイル・動画デザインの参考書を探す<span class="ref">参考（2026年11月の人気）：Amazon：<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=YouTube%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB%E5%88%B6%E4%BD%9C%E6%94%B9%E5%96%84%E3%82%AC%E3%82%A4%E3%83%89&amp;tag=masabee-lab-22">YouTubeサムネイル制作改善ガイド</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E3%81%8D%E3%81%BB%E3%82%93&amp;tag=masabee-lab-22">サムネイルデザインのきほん</a>・<a rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=YouTube%E3%81%AF%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB%E3%81%8C9%E5%89%B2&amp;tag=masabee-lab-22">YouTubeはサムネイルが9割</a></span></div><a class="btn amz" rel="nofollow sponsored noopener" target="_blank" href="https://www.amazon.co.jp/s?k=YouTube+%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB+%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3+%E6%9C%AC&amp;tag=masabee-lab-22">Amazonで見る</a><a class="btn rkt" rel="nofollow sponsored noopener" target="_blank" href="https://hb.afl.rakuten.co.jp/hgc/151a9587.4904a96c.151a9588.d0d13240/_RTLink155216/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FYouTube%2520%25E3%2582%25B5%25E3%2583%25A0%25E3%2583%258D%25E3%2582%25A4%25E3%2583%25AB%2520%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3%2520%25E6%259C%25AC%2F">楽天で見る</a></div>
+<figure class="fig"><img src="../img/fig/youtube-thumbnail-ai-2.jpg" alt="AIで作成した作例：同じ背景に、あとから文字を乗せた見本。短く・大きく・太字にフチをつけると、小さな画面でも読めます（文字はデザインツールで入れたもので、AIには書かせていません）" loading="lazy"><figcaption><span class="fig-tag">AIで作成した作例</span>同じ背景に、あとから文字を乗せた見本。短く・大きく・太字にフチをつけると、小さな画面でも読めます（文字はデザインツールで入れたもので、AIには書かせていません）</figcaption></figure>
 <h2 id="s6">手順5：スマホで見え方をチェックする</h2>
 <p>完成したら、必ず実際の表示サイズに近い状態で確認します。パソコンの大きな画面ではよく見えても、スマホの一覧画面ではかなり小さく表示されます。</p>
 <ul><li>画像を縮小表示して、文字が読めるか</li><li>主役（人物・商品・イラスト）がひと目でわかるか</li><li>右下など、表示が重なりやすい位置に大事な文字がないか</li><li>ダークモードの画面上でも埋もれていないか</li></ul>

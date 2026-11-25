@@ -39,6 +39,7 @@ article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);pa
 .lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
 .lead strong{display:block;color:var(--accent)}
 .toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.fig{margin:22px 0;text-align:center}.fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(127,127,127,.25)}.fig figcaption{font-size:.9em;color:var(--muted,#666);margin-top:8px;line-height:1.6}.fig-tag{display:inline-block;font-size:.78em;border:1px solid currentColor;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px}
 .note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
@@ -239,13 +240,16 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <p>小さい文字をK100にする理由は、印刷機の「見当（けんとう）」にあります。見当とは、4つの色の版を同じ位置に刷り重ねる精度のことです。</p>
 <p>オフセット印刷では、シアン・マゼンタ・イエロー・ブラックの4つの版を、1色ずつ順番に紙へ刷り重ねます。紙は高速で送られ、湿度で伸び縮みもするので、版どうしの位置が0.1mm前後ずれることがあります。</p>
 <ul><li><strong>K100の文字</strong>：黒の版1枚だけで刷るので、ほかの版がずれても文字の形は崩れません</li><li><strong>4色の黒の文字</strong>：4枚の版で同じ文字を重ねて刷るので、どれか1枚がずれると、文字の縁にシアンやマゼンタがのぞきます。本文くらいの大きさの文字だと、縁のにじみで読みにくくなります</li><li><strong>細い線・表の罫線</strong>：0.1mm台の線は、ずれた版の分だけ線が太く見えたり、色の線が並んで見えたりします</li><li><strong>バーコード・QRコード</strong>：線の太さと位置そのものが情報なので、ずれは読み取りの失敗につながりやすい部分です。K100の1色が基本です</li></ul>
+<figure class="fig"><img src="../img/fig/rich-black-vs-k100-1.png" alt="説明用の図：4色の黒の文字は、版が少しずれるだけで縁に色がのぞきます。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>4色の黒の文字は、版が少しずれるだけで縁に色がのぞきます。</figcaption></figure>
 <p>印刷する側から見ると、4色の黒で組まれた細かい文字は、検品でいちばん気をつかう場所のひとつです。ほんのわずかなズレでも、ルーペで見ると縁の色がはっきり分かります。反対に、K100の文字はずれの影響を受けにくいので、刷り上がりが安定します。</p>
 <p>もうひとつ、K100の文字には「ノセ（オーバープリント）」という扱いが使われることがあります。下の色を抜かずに、上から黒を重ねて刷る方法です。下の色との間にすき間が出ないので、色の背景に黒い文字を置いたときに白いすき間ができにくくなります。ノセの扱いは印刷会社やソフトの設定で変わるので、入稿ガイドで確かめておくと安心です。</p>
 <h2 id="s3">大きな黒い面はリッチブラックにする理由｜インキの膜の厚さ</h2>
 <p>では、なぜ黒い背景はK100だけにしないのでしょうか。</p>
 <p>K100だけで大きな面を刷ると、黒のインキの膜1層で面を覆うことになります。紙の白さや紙の目が少し透けて、「真っ黒」ではなく「濃いグレー」に近い見え方になることがあります。特に上質紙のようにインキを吸い込みやすい紙では、この差が出やすくなります。</p>
 <p>リッチブラックは、K100の下にシアン・マゼンタ・イエローの膜を重ねるので、インキの層が厚くなり、深い黒に見えます。表紙の黒い背景や、写真の周りの黒い帯など、黒そのものを見せたい場所に向いています。</p>
+<figure class="fig"><img src="../img/fig/rich-black-vs-k100-2.png" alt="説明用の図：K100だけの面は層が薄く、リッチブラックより浅い黒に見えます。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>K100だけの面は層が薄く、リッチブラックより浅い黒に見えます。</figcaption></figure>
 <p>ただし、リッチブラックの面の中に小さな白抜き文字を置くと、別の注意が必要です。白抜き文字は「インキを刷らない部分」なので、4つの版がずれると、文字の縁に色がのぞいて細い文字がつぶれて見えます。</p>
+<figure class="fig"><img src="../img/fig/rich-black-vs-k100-3.png" alt="説明用の図：リッチブラックの上の白抜き文字は、版のズレで縁に色がのぞきます。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>リッチブラックの上の白抜き文字は、版のズレで縁に色がのぞきます。</figcaption></figure>
 <div class="tbl"><table><tr><th>場面</th><th>おすすめ</th><th>理由</th></tr><tr><td>白い紙に黒い本文</td><td>K100</td><td>版のズレの影響を受けない</td></tr><tr><td>色の背景に黒い文字</td><td>K100（ノセの扱いは入稿ガイドで確認）</td><td>すき間が出にくい</td></tr><tr><td>黒い背景の面</td><td>リッチブラック（印刷会社の指定値）</td><td>インキの層が厚くなり深い黒に見える</td></tr><tr><td>黒い背景に大きな白抜き文字</td><td>リッチブラック＋太めの書体</td><td>縁のズレが目立ちにくい</td></tr><tr><td>黒い背景に小さな白抜き文字</td><td>K100の背景にするか、文字を大きく・太く</td><td>4色の版がずれると細い文字がつぶれやすい</td></tr></table></div>
 <p>「黒い背景の上に小さな注意書きを白で入れたい」という場面は、チラシやパッケージでよくあります。そのときは、背景の黒を少し浅めのリッチブラックにする、文字をひと回り大きくする、など、どちらかを譲るのが現実的です。迷ったら、データを入稿する前に印刷会社に聞いてみると、その会社の機械に合った答えが返ってきます。</p>
 <h2 id="s4">RGBの黒とAI画像の黒｜入稿で「4色の黒」に変わる落とし穴</h2>

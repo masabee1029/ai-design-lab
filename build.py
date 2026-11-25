@@ -9,6 +9,7 @@
     ---
     本文（Markdown の簡易版: ## 見出し, - 箇条書き, 1. 番号, **太字**, [文字](URL), | 表 |）
     商品ボタン: [[shop:検索キーワード|表示名]]　宿のボタン: [[travel:地名や会場名|表示名]]
+    作例・図: [[fig:ファイル名|説明文|ai または draw]]（assets/fig/ の画像を記事の中に出す。ai は「AIで作成した作例」、draw は「説明用の図」と表示）
     動くグラフ: [[chart:種類|題名|ラベル=数値, ラベル=数値|単位|出典や注記]]（種類: bar / counter / donut / line。
     画面に入ると棒が伸びる・数字が数え上がる・円が回り込む・線が描かれる。「もう一度」ボタンと表で見る欄つき。数値は本当のものだけ）
 
@@ -241,6 +242,16 @@ def chart_box(kind, title, data, unit="", note=""):
     return ('<figure class="kxc"><div class="kxc-h"><strong>%s</strong><button type="button" class="kxc-re">もう一度</button></div>%s%s%s</figure>'
             % (e(title), body, ('<p class="kxc-note">%s</p>' % inline(note)) if note else "", table))
 
+def fig_box(fn, cap, kind):
+    """記事の中の作例画像・説明の図（assets/fig/ → docs/img/fig/）"""
+    if not os.path.exists(os.path.join(ROOT, "assets", "fig", fn)):
+        return ""  # 画像がまだ無い（あとで作る予定の）図は出さない
+    label = {"ai": "AIで作成した作例", "draw": "説明用の図"}.get(kind, "")
+    alt = (label + "：" if label else "") + cap
+    tag = '<span class="fig-tag">%s</span>' % label if label else ""
+    return ('<figure class="fig"><img src="../img/fig/%s" alt="%s" loading="lazy">'
+            '<figcaption>%s%s</figcaption></figure>' % (html.escape(fn), html.escape(alt), tag, inline(cap)))
+
 def md(text):
     out, lines, i = [], text.strip("\n").split("\n"), 0
     toc = []
@@ -249,6 +260,9 @@ def md(text):
         m = re.match(r"\[\[(shop|travel):(.+?)\|(.+?)\]\]$", ln.strip())
         if not ln.strip():
             i += 1; continue
+        mf = re.match(r"\[\[fig:([\w.\-]+)\|(.+?)(?:\|(ai|draw))?\]\]$", ln.strip())
+        if mf:
+            out.append(fig_box(mf.group(1), mf.group(2), mf.group(3) or "")); i += 1; continue
         mc = re.match(r"\[\[chart:(bar|counter|donut|line)\|(.+?)\|(.+?)(?:\|(.*?))?(?:\|(.*?))?\]\]$", ln.strip())
         if mc:
             out.append(chart_box(mc.group(1), mc.group(2), mc.group(3), mc.group(4) or "", mc.group(5) or "")); i += 1; continue
@@ -342,6 +356,7 @@ article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);pa
 .lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
 .lead strong{display:block;color:var(--accent)}
 .toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.fig{margin:22px 0;text-align:center}.fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(127,127,127,.25)}.fig figcaption{font-size:.9em;color:var(--muted,#666);margin-top:8px;line-height:1.6}.fig-tag{display:inline-block;font-size:.78em;border:1px solid currentColor;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px}
 .note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
@@ -485,6 +500,12 @@ def build():
     for d in ("articles", "category"):
         if os.path.isdir(os.path.join(OUT, d)):
             shutil.rmtree(os.path.join(OUT, d))
+    fig_src = os.path.join(ROOT, "assets", "fig")
+    if os.path.isdir(fig_src):
+        fig_out = os.path.join(OUT, "img", "fig")
+        if os.path.isdir(fig_out):
+            shutil.rmtree(fig_out)
+        shutil.copytree(fig_src, fig_out)
     if IMAGES:
         import make_images
         make_images.generate(arts, SITECFG, OUT)

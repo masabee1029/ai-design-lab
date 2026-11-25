@@ -39,6 +39,7 @@ article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);pa
 .lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
 .lead strong{display:block;color:var(--accent)}
 .toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.fig{margin:22px 0;text-align:center}.fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(127,127,127,.25)}.fig figcaption{font-size:.9em;color:var(--muted,#666);margin-top:8px;line-height:1.6}.fig-tag{display:inline-block;font-size:.78em;border:1px solid currentColor;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px}
 .note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
@@ -237,12 +238,14 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <p>「フィギュア風」とだけ書くと、AIはイラストのままの平面的な絵を返すことがあります。<strong>素材の名前と、置かれている場所まで書く</strong>と、立体物らしさが出やすくなります。</p>
 <h2 id="s2">プロンプトの5つの要素</h2>
 <p>次の5つを、上から順に書いていきます。</p>
-<div class="tbl"><table><tr><th>要素</th><th>書く内容</th><th>書き方の例</th></tr><tr><td>被写体</td><td>何を、どんなポーズで</td><td>猫を抱えた小さな女の子、笑顔で立つ</td></tr><tr><td>質感</td><td>素材の見た目</td><td>PVC樹脂のような光沢、手塗りの塗装</td></tr><tr><td>台座</td><td>立っている場所</td><td>丸い透明の台座、名前を書かない</td></tr><tr><td>ライティング</td><td>光の向きと強さ</td><td>柔らかいスタジオの光、左上からの光</td></tr><tr><td>背景</td><td>後ろに写すもの</td><td>ぼかした棚、無地のグレー</td></tr></table></div>
+<div class="tbl"><table><tr><th>要素</th><th>書く内容</th><th>書き方の例</th></tr><tr><td>被写体</td><td>何を、どんなポーズで</td><td>猫を抱いた18歳の女の子、笑顔で立つ</td></tr><tr><td>質感</td><td>素材の見た目</td><td>PVC樹脂のような光沢、手塗りの塗装</td></tr><tr><td>台座</td><td>立っている場所</td><td>丸い透明の台座、名前を書かない</td></tr><tr><td>ライティング</td><td>光の向きと強さ</td><td>柔らかいスタジオの光、左上からの光</td></tr><tr><td>背景</td><td>後ろに写すもの</td><td>ぼかした棚、無地のグレー</td></tr></table></div>
 <p>背景を「ぼかした棚」にすると、被写体だけがくっきり見えて、<strong>ミニチュアを近くで撮った写真</strong>のような雰囲気になります。</p>
+<figure class="fig"><img src="../img/fig/ai-figure-style-image-prompt-2.jpg" alt="AIで作成した作例：同じフィギュアで、背景だけを変えた例。棚をぼかすと「置いて撮った写真」らしさが出て、無地のグレーは商品写真のようにすっきり見えます" loading="lazy"><figcaption><span class="fig-tag">AIで作成した作例</span>同じフィギュアで、背景だけを変えた例。棚をぼかすと「置いて撮った写真」らしさが出て、無地のグレーは商品写真のようにすっきり見えます</figcaption></figure>
 <h2 id="s3">コピーして使える型</h2>
 <p>次の【　】の部分を、自分の内容に置き換えて使ってください。</p>
-<ul><li>「【被写体：猫を抱いた小さな女の子】の、フィギュア風の画像を作ってください」</li><li>「素材はPVC樹脂のようなつるっとした光沢で、手で塗ったような色の境目にしてください」</li><li>「丸い透明の台座の上に立たせ、台座には文字を入れないでください」</li><li>「ライティングは、柔らかいスタジオの光で、左上から当ててください」</li><li>「背景は【ぼかした木の棚】で、全体を横長の写真のように見せてください」</li></ul>
+<ul><li>「【被写体：猫を抱いた18歳の女の子】の、フィギュア風の画像を作ってください」</li><li>「素材はPVC樹脂のようなつるっとした光沢で、手で塗ったような色の境目にしてください」</li><li>「丸い透明の台座の上に立たせ、台座には文字を入れないでください」</li><li>「ライティングは、柔らかいスタジオの光で、左上から当ててください」</li><li>「背景は【ぼかした木の棚】で、全体を横長の写真のように見せてください」</li></ul>
 <p>「台座には文字を入れないでください」と書くのは、AIが画像の中に<strong>それらしい文字（読めない文字）を勝手に入れてしまう</strong>ことがあるためです。文字は、あとからCanvaなどで足すほうが安全です。</p>
+<figure class="fig"><img src="../img/fig/ai-figure-style-image-prompt-1.jpg" alt="AIで作成した作例：上の5行の型をそのまま使って作った作例。素材・台座・光・背景まで書くと、イラストではなく「立体物を撮った写真」になります" loading="lazy"><figcaption><span class="fig-tag">AIで作成した作例</span>上の5行の型をそのまま使って作った作例。素材・台座・光・背景まで書くと、イラストではなく「立体物を撮った写真」になります</figcaption></figure>
 <h2 id="s4">仕事の場面での使い道</h2>
 <p>フィギュア風の画像は、遊びだけでなく、仕事でも使える場面があります。</p>
 <ul><li>社内報や会議資料の、表紙に使う「マスコット風」のイラスト</li><li>社内イベントの案内に載せる、キャラクター風の画像</li><li>展示会のブースで、目を引くアイコンとして使う小さな画像</li></ul>
@@ -253,6 +256,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <p>「写真をフィギュア風にする」機能を使う場合も、同じです。<strong>他人が写っている写真は、本人の了解がないときは使わない</strong>でください。AIツールの規約や機能は、執筆時点のものです。最新の内容は、各ツールの公式の案内でご確認ください。</p>
 <h2 id="s6">うまくいかないときの直し方</h2>
 <div class="tbl"><table><tr><th>こまりごと</th><th>直し方</th></tr><tr><td>平面的なイラストのままになる</td><td>「写真に撮った立体物」「台座の上に置いた」と、置いた状況まで書く</td></tr><tr><td>光沢が強すぎて安っぽい</td><td>「つや消し」「マットな塗装」と書き換える</td></tr><tr><td>手や指の形が崩れる</td><td>ポーズを「両手を体の前で組む」など、単純なものに変える</td></tr><tr><td>台座の文字が崩れる</td><td>文字を入れない指定にして、Canvaなどで後から足す</td></tr><tr><td>顔の雰囲気が毎回ちがう</td><td>良かった画像を残し、同じ文面の「髪型・服」だけを変えて頼む</td></tr></table></div>
+<figure class="fig"><img src="../img/fig/ai-figure-style-image-prompt-3.jpg" alt="AIで作成した作例：「PVC樹脂のような光沢」と「つや消しのマット塗装」の違い（拡大）。髪や服の光り方が変わります" loading="lazy"><figcaption><span class="fig-tag">AIで作成した作例</span>「PVC樹脂のような光沢」と「つや消しのマット塗装」の違い（拡大）。髪や服の光り方が変わります</figcaption></figure>
 <p>一度に全部を直そうとせず、<strong>1回に1か所だけ</strong>変えると、何が効いたのか分かりやすくなります。</p>
 <h2 id="s7">向かない人・注意点</h2>
 <ul><li>既存のキャラクターそっくりの画像を作りたい人には向きません。権利の問題が出やすいためです</li><li>印刷して使う場合は、画像の大きさ（解像度）が足りないと粗く見えます。大きく刷る前に、小さな試し刷りで確かめてください</li><li>無料版のAIは、1日に作れる枚数に上限があることがあります。上限や機能は、各ツールの公式の案内でご確認ください</li></ul>

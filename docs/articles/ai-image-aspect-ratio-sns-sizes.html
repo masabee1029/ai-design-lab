@@ -39,6 +39,7 @@ article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);pa
 .lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
 .lead strong{display:block;color:var(--accent)}
 .toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.fig{margin:22px 0;text-align:center}.fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(127,127,127,.25)}.fig figcaption{font-size:.9em;color:var(--muted,#666);margin-top:8px;line-height:1.6}.fig-tag{display:inline-block;font-size:.78em;border:1px solid currentColor;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px}
 .note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
@@ -235,10 +236,12 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <p>ここで大切なのは、<strong>比率とピクセル数（解像度）は別のもの</strong>だという点です。</p>
 <ul><li>比率：画像の形（横長か、正方形か、縦長か）</li><li>ピクセル数：画像の細かさ（1080×1080ピクセルなど）</li></ul>
 <p>たとえば1080×1080ピクセルも、500×500ピクセルも、比率は同じ1:1です。SNSは投稿された画像を自動で縮小するので、比率が合っていれば形は崩れません。比率が合っていないと、SNS側が自動でトリミング（切り抜き）して、大切な部分が切れてしまうことがあります。</p>
+<figure class="fig"><img src="../img/fig/ai-image-aspect-ratio-sns-sizes-1.png" alt="説明用の図：1080×1080も500×500も同じ1:1で、ちがうのは細かさだけです。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>1080×1080も500×500も同じ1:1で、ちがうのは細かさだけです。</figcaption></figure>
 <p>つまり、まず合わせるべきは「比率」、次に「十分なピクセル数」という順番です。</p>
 <h2 id="s2">主なSNSの推奨サイズと比率の目安</h2>
 <p>執筆時点でよく使われる比率とサイズの目安をまとめました。各SNSの仕様は変わることがあるので、投稿前に公式ヘルプで最新の情報を確認してください。</p>
 <div class="tbl"><table><tr><th>用途</th><th>比率の目安</th><th>ピクセル数の目安</th></tr><tr><td>Instagram フィード（正方形）</td><td>1:1</td><td>1080×1080</td></tr><tr><td>Instagram フィード（縦長）</td><td>4:5</td><td>1080×1350</td></tr><tr><td>Instagram ストーリーズ・リール</td><td>9:16</td><td>1080×1920</td></tr><tr><td>X（旧Twitter）のタイムライン画像</td><td>16:9</td><td>1200×675</td></tr><tr><td>YouTube サムネイル</td><td>16:9</td><td>1280×720</td></tr><tr><td>Facebook のリンク画像・投稿</td><td>1.91:1 または 1:1</td><td>1200×630 など</td></tr><tr><td>TikTok・YouTube ショート</td><td>9:16</td><td>1080×1920</td></tr><tr><td>ブログのアイキャッチ</td><td>16:9 または 1.91:1</td><td>1200×630〜1280×720</td></tr></table></div>
+<figure class="fig"><img src="../img/fig/ai-image-aspect-ratio-sns-sizes-2.png" alt="説明用の図：高さをそろえると、縦長の9:16から横長の1.91:1まで形のちがいがひと目でわかります。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>高さをそろえると、縦長の9:16から横長の1.91:1まで形のちがいがひと目でわかります。</figcaption></figure>
 <p>覚え方としては、<strong>「見せたい画像はフィードの4:5か1:1、動画系とストーリーズは9:16、横長の場所は16:9」</strong>の3つを押さえておくと、ほとんどの場面に対応できます。</p>
 <p>Instagramのフィードは、縦長の4:5にすると画面に大きく表示されるため、見てもらいやすいといわれています。一方、プロフィールのグリッド一覧では別の比率で切り抜かれることがあるので、中央に主役を置くレイアウトが安心です。</p>
 <h2 id="s3">画像生成AIに比率を伝える方法</h2>
@@ -251,6 +254,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <p>同じ内容をInstagram・X・ブログに載せたいとき、比率ごとに生成し直すのは手間です。おすすめは、<strong>「余白の広い画像を1枚作り、SNSごとに切り抜く」</strong>という進め方です。</p>
 <ol><li>主役を中央に置き、まわりに背景の余白を多めに残した画像を生成します（正方形か、4:5がおすすめです）</li><li>Canvaなどのデザインツールで、1:1・4:5・9:16・16:9の4つのサイズのキャンバスを用意します</li><li>同じ画像をそれぞれに配置し、主役が切れないように位置を調整します</li><li>文字やロゴは、比率ごとにサイズと位置を整えます</li></ol>
 <p>縦長と横長の両方に対応させたいときは、主役の上下左右に余白がある構図が向いています。逆に、主役が画面いっぱいに広がる構図は、切り抜くと欠けやすくなります。</p>
+<figure class="fig"><img src="../img/fig/ai-image-aspect-ratio-sns-sizes-3.png" alt="説明用の図：主役のまわりに余白があれば、どの比率で切り抜いても主役が欠けません。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>主役のまわりに余白があれば、どの比率で切り抜いても主役が欠けません。</figcaption></figure>
 <p>生成した画像のピクセル数が足りないときは、高解像度化（アップスケール）してから配置しましょう。手順は<a href="ai-image-upscale-bgremove.html">AI画像の仕上げ方｜高解像度化・背景除去・文字入れの基本手順</a>で解説しています。</p>
 <h2 id="s5">投稿前に確認したい3つのこと</h2>
 <p>比率を合わせて作っても、投稿先の表示で思わぬ崩れが起こることがあります。公開前に次の3つを確かめておくと安心です。</p>

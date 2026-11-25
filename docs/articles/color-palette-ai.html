@@ -39,6 +39,7 @@ article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);pa
 .lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
 .lead strong{display:block;color:var(--accent)}
 .toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.fig{margin:22px 0;text-align:center}.fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(127,127,127,.25)}.fig figcaption{font-size:.9em;color:var(--muted,#666);margin-top:8px;line-height:1.6}.fig-tag{display:inline-block;font-size:.78em;border:1px solid currentColor;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px}
 .note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
@@ -235,6 +236,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <div class="tbl"><table><tr><th>役割</th><th>割合の目安</th><th>使う場所の例</th></tr><tr><td>ベースカラー</td><td>約60%</td><td>背景、広い余白</td></tr><tr><td>メインカラー</td><td>約30%</td><td>見出しの帯、図形、ブランドの色</td></tr><tr><td>アクセントカラー</td><td>約10%</td><td>ボタン、強調したい文字、アイコン</td></tr></table></div>
 <p>例えば、カフェのSNS画像なら、背景をクリーム色（ベース）、写真まわりや見出しの帯をブラウン（メイン）、「NEW」の文字だけをオレンジ（アクセント）にする、といった使い方です。</p>
 <p>大事なのは、<strong>色の数よりも面積のバランス</strong>です。同じ3色を使っていても、すべてを同じくらいの面積で使うとごちゃごちゃして見えます。主役と脇役をはっきりさせることで、まとまりのある印象になります。</p>
+<figure class="fig"><img src="../img/fig/color-palette-ai-1.png" alt="説明用の図：同じ3色でも、ベースを広く・アクセントを少しにすると主役がはっきりします。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>同じ3色でも、ベースを広く・アクセントを少しにすると主役がはっきりします。</figcaption></figure>
 <p>なお、数字はあくまで目安です。きっちり測る必要はなく、「ベースが大部分、アクセントはほんの少し」という感覚をつかめれば十分です。</p>
 <h2 id="s2">補色と色相環の基本</h2>
 <p>色の組み合わせを考えるときに役立つのが、色を円形に並べた「色相環（しきそうかん）」です。色相とは、赤・黄・青といった色味の違いのことです。</p>
@@ -244,11 +246,13 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <h3>類似色：となりの色でまとめる</h3>
 <p>色相環でとなり合う色どうし（例：黄色とオレンジ、青と青緑）は「類似色」と呼ばれます。自然になじみやすく、やさしく統一感のある印象になります。</p>
 <p>「まとまりは類似色で、目立たせたい部分だけ補色で」と考えると、配色を組み立てやすくなります。</p>
+<figure class="fig"><img src="../img/fig/color-palette-ai-2.png" alt="説明用の図：補色は色相環の真向かい、類似色はとなり同士の色です。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>補色は色相環の真向かい、類似色はとなり同士の色です。</figcaption></figure>
 <h2 id="s3">トーンで雰囲気をそろえる</h2>
 <p>色の印象は、色味だけでなく「トーン」でも大きく変わります。トーンとは、色の明るさ（明度）とあざやかさ（彩度）を組み合わせた、色の調子のことです。</p>
 <p>同じ青でも、トーンによって印象は大きく変わります。</p>
 <ul><li>あざやかなトーン：元気、にぎやか、ポップ</li><li>明るく淡いトーン（パステル）：やさしい、かわいい、軽やか</li><li>暗く深いトーン：落ち着き、高級感、重厚</li><li>くすんだトーン：おだやか、ナチュラル、大人っぽい</li></ul>
 <p>色味がバラバラでも、トーンをそろえると全体がまとまって見えます。逆に、パステルカラーの中に一つだけあざやかな原色が混ざると、そこだけ浮いて見えます。意図的に目立たせたいとき以外は、トーンをそろえることを意識しましょう。</p>
+<figure class="fig"><img src="../img/fig/color-palette-ai-3.png" alt="説明用の図：同じ青でもトーンで印象が変わり、トーンをそろえると色味がちがってもまとまります。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>同じ青でもトーンで印象が変わり、トーンをそろえると色味がちがってもまとまります。</figcaption></figure>
 <h2 id="s4">AIでカラーパレットを作る手順</h2>
 <p>配色の基本がわかったら、AIにカラーパレットの案を出してもらいましょう。ChatGPTやClaudeなどの対話型AIは、色の組み合わせとカラーコード（<code>#F5E6D3</code> のように色を数値で表した記号）を一緒に提案できます。</p>
 <h3>手順1：目的と雰囲気を伝える</h3>

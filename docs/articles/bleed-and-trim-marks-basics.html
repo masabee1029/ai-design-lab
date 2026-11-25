@@ -39,6 +39,7 @@ article h3{font-size:18px;margin-top:28px;border-bottom:2px solid var(--line);pa
 .lead{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
 .lead strong{display:block;color:var(--accent)}
 .toc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:12px 20px;font-size:14px;margin:20px 0}
+.fig{margin:22px 0;text-align:center}.fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(127,127,127,.25)}.fig figcaption{font-size:.9em;color:var(--muted,#666);margin-top:8px;line-height:1.6}.fig-tag{display:inline-block;font-size:.78em;border:1px solid currentColor;border-radius:4px;padding:0 6px;margin-right:6px;vertical-align:1px}
 .note{background:var(--card);border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:16px 0}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--soft)}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:14px}
@@ -234,12 +235,14 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <p>印刷データには、見えない3本の線があります。この3本の役割が分かると、入稿ガイドの言葉がそのまま読めるようになります。</p>
 <div class="tbl"><table><tr><th>線の名前</th><th>位置</th><th>役割</th></tr><tr><td>仕上がり線（仕上がりサイズ）</td><td>完成品の端。名刺なら91×55mm</td><td>断裁の目標位置。この線で切り落とす</td></tr><tr><td>塗り足し（裁ち落とし）</td><td>仕上がり線の外側3mm</td><td>断裁がずれたときに白い縁が出ないよう、絵柄を延ばしておく範囲</td></tr><tr><td>文字の安全領域</td><td>仕上がり線の内側3〜5mm</td><td>断裁がずれても切れてほしくない文字・ロゴを置く範囲</td></tr></table></div>
 <p>トンボ（トリムマーク）は、仕上がり線と塗り足しの位置を示す細い線です。四隅に2本ずつある「コーナートンボ」は、内側の線が仕上がり、外側の線が塗り足しの端を示します。上下左右の中央にある「センタートンボ」は、表と裏、4色の版の位置を合わせるために使います。</p>
+<figure class="fig"><img src="../img/fig/bleed-and-trim-marks-basics-1.png" alt="説明用の図：斜線が塗り足し3mm、黒い線で切り、文字は紫の点線の内側に置きます。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>斜線が塗り足し3mm、黒い線で切り、文字は紫の点線の内側に置きます。</figcaption></figure>
 <p>印刷する側から見ると、トンボは「このデータをどこで切り、どこで色を合わせるか」を伝える唯一の共通言語です。トンボのないデータが届くと、現場では仕上がりサイズをデータの寸法から推測することになり、問い合わせの往復が増えます。印刷全体の流れの中でどの位置にある話かは、<a href="print-basics-for-designers.html">デザイナーが知っておきたい印刷の基本</a>の「入稿データの決まり」のところに戻ると見通せます。</p>
 <h2 id="s2">なぜ3mm必要なのか｜断裁の現場で起きていること</h2>
 <p>「0.5mmずれるなら、塗り足しも0.5mmで足りるのでは」と思う人もいるはずです。印刷の現場で何が起きているかを知ると、3mmという数字が納得できます。</p>
 <p>商業印刷では、名刺やチラシを1枚ずつ切ることはありません。大きな紙に何面も並べて（面付け）印刷し、数百枚を重ねた束を断裁機の刃で一度に切り落とします。このときにズレが生まれる理由が、いくつも重なっています。</p>
 <ul><li><strong>刃の押し込みで紙がわずかに動く</strong>：刃が紙の束に入るとき、紙は上から押さえられていても、下のほうがほんの少し逃げます。束の上と下で切れる位置が違ってくるのはこのためです</li><li><strong>紙の伸び縮み</strong>：紙は湿度で伸び縮みします。印刷してから断裁するまでの間に、紙全体が0.数mm動くことがあります</li><li><strong>見当のズレ</strong>：印刷の段階で、紙を送るときの位置が1枚ごとにわずかにずれます。断裁は束の中の1枚だけに合わせることはできないので、平均的な位置で切ります</li><li><strong>面付けの累積</strong>：1枚の大きな紙から何面も切り出すので、最初の一刀の位置のズレが、次の一刀にも引き継がれます</li></ul>
 <p>これらを合わせると、1mm以内に収めるのが現実的な精度です。塗り足しが3mmあれば、1mmのズレが起きても2mmの余裕が残ります。1mmしか足していないデータは、ズレがそのまま白い縁になって出てきます。</p>
+<figure class="fig"><img src="../img/fig/bleed-and-trim-marks-basics-2.png" alt="説明用の図：塗り足しがないと、断裁が少しずれただけで端に白い縁が出ます。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>塗り足しがないと、断裁が少しずれただけで端に白い縁が出ます。</figcaption></figure>
 <p>印刷会社で検品をしていると、「端の白い線」は、いちばん多いご相談のひとつでした。データを見ると、絵柄が仕上がり線でぴったり止まっている。これは作った人の技術の問題ではなく、断裁という作業の性質を知らなかっただけです。知ってしまえば、次からは起きません。</p>
 <h2 id="s3">トンボの役割｜断裁と色合わせの目印</h2>
 <p>トンボには、見た目以上に多くの情報が入っています。印刷する側がトンボから読み取っているのは、次の4つです。</p>
@@ -249,6 +252,7 @@ article p strong,article li strong,article td strong{font-weight:800;color:var(-
 <h2 id="s4">文字の安全領域｜内側にも3mmの余裕を</h2>
 <p>塗り足しは外側の話でした。同じ理由で、内側にも余裕が要ります。断裁が外へずれると白い縁が出ますが、内へずれると、端に置いた文字が切れます。</p>
 <p>文字やロゴ、電話番号など「切れてはいけないもの」は、仕上がり線から3〜5mm内側に置きます。名刺のような小さなものでは3mm、チラシやポスターでは5mm以上を目安にすると、余白にもゆとりが出て読みやすくなります。</p>
+<figure class="fig"><img src="../img/fig/bleed-and-trim-marks-basics-3.png" alt="説明用の図：端ぎりぎりの文字は、断裁が内側に入り込むと切れてしまいます。" loading="lazy"><figcaption><span class="fig-tag">説明用の図</span>端ぎりぎりの文字は、断裁が内側に入り込むと切れてしまいます。</figcaption></figure>
 <p>ここで、はじめて名刺を作る人の声が聞こえてきそうです。「端まで文字を寄せたほうが、かっこよく見える気がして」。気持ちはよく分かります。ただ、印刷する側から見ると、端ぎりぎりの文字は「切れるかもしれない文字」です。安全領域を守ったうえで、背景の色や写真を塗り足しまで延ばせば、端まで絵柄のある、引き締まったデザインは作れます。</p>
 <div class="tbl"><table><tr><th>置くもの</th><th>位置の目安</th><th>理由</th></tr><tr><td>背景の色・写真・帯</td><td>仕上がり線の外、塗り足し3mmまで延ばす</td><td>ずれても白い縁が出ない</td></tr><tr><td>文字・ロゴ・QRコード</td><td>仕上がり線の内側3〜5mm</td><td>ずれても切れない</td></tr><tr><td>細い枠線（仕上がりと平行）</td><td>できれば避ける。使うなら内側5mm以上</td><td>線と紙端の距離がわずかなズレで不ぞろいに見える</td></tr></table></div>
 <p>3つめの枠線は、見落としがちな注意点です。紙の端に沿った細い枠は、断裁が0.5mmずれるだけで、左右の余白の差が目で分かります。断裁は「ずれるもの」として、ずれても目立たないデザインにするのが、印刷に強いデザイナーの考え方です。</p>
